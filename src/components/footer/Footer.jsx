@@ -63,9 +63,6 @@ function Footer() {
       {/* Bottom Section */}
       <div className="footer-bottom">
         <p>© {new Date().getFullYear()} Lab Management System. All rights reserved.</p>
-        <p>
-          Made with ❤️ by <a href="#" target="_blank" rel="noreferrer">Md. Shahriar Alam Sakib</a>
-        </p>
       </div>
     </footer>
   )

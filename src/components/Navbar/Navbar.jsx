@@ -28,6 +28,7 @@ function Navbar() {
         <li><Link to="/about">About Lab</Link></li>
         <li><Link to="/publications">Publications</Link></li>
         <li><Link to="/news-events">News & Events</Link></li>
+        <li><Link to="/students">Students</Link></li>
         <li><Link to="/login"><LockClosedIcon className="w-6 h-6 text-white" /></Link></li>
       </ul>
     </nav>

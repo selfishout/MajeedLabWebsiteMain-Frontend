@@ -12,7 +12,8 @@ import DashboardPublications from './pages/Dashboard/Publications'
 import News from './pages/Dashboard/News'
 import DashboardAbout from './pages/Dashboard/About'
 import University from './pages/Dashboard/University'
-import Students from './pages/Dashboard/Students'
+import Students from './pages/Students';
+import DashboardStudents from './pages/Dashboard/Students';
 import Navbar from './components/Navbar/Navbar'
 import Footer from './components/footer/Footer'
 import Layout from './components/Preloader/Layout'
@@ -32,6 +33,7 @@ function AppContent() {
         <Route path="/publications" element={<Publications />} />
         <Route path="/news-events" element={<NewsEvents />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/students" element={<Students />} />
 
         {/* Protected Dashboard Routes */}
         <Route
@@ -48,7 +50,7 @@ function AppContent() {
           <Route path="news" element={<News />} />
           <Route path="about" element={<DashboardAbout />} />
           <Route path="university" element={<University />} />
-          <Route path="students" element={<Students />} />
+          <Route path="students" element={<DashboardStudents />} />
         </Route>
       </Routes>
       {!isDashboard && <Footer />}

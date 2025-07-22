@@ -5,6 +5,8 @@ import {
   updateStudent,
   deleteStudent
 } from '../../services/api'
+import { FaGithub, FaLinkedin, FaGlobe } from 'react-icons/fa';
+import { SiGooglescholar } from 'react-icons/si';
 
 function Students() {
   const [students, setStudents] = useState([])
@@ -16,16 +18,23 @@ function Students() {
   /* ---------- helpers ---------- */
   function initialForm() {
     return {
+      role: 'Student',
       name: '',
+      email: '',
       designation: '',
       research_interests: '',
-      email: '',
+      is_active: true,
+      is_alumni: false,
       start_date: '',
       end_date: '',
       bio: '',
-      image: null,           // ← file
-      is_alumni: false,
-      is_active: true,
+      image: null,
+      cv: null,
+      github: '',
+      linkedin: '',
+      website: '',
+      google_scholar: '',
+      imagePreview: '',
     }
   }
 
@@ -50,8 +59,13 @@ function Students() {
   }
 
   const openEditModal = (student) => {
-    const { id, ...fields } = student
-    setForm({ ...fields, image: null })   // image will be re‑chosen
+    const { id, image, cv, ...fields } = student
+    setForm({
+      ...fields,
+      image: null, // force re-upload
+      cv: null,    // force re-upload
+      imagePreview: student.image || '',
+    })
     setEditId(id)
     setIsModalOpen(true)
   }
@@ -61,15 +75,43 @@ function Students() {
   /* ---------- form handlers ---------- */
   const handleChange = (e) => {
     const { name, type, value, checked, files } = e.target
-    setForm(prev => ({
-      ...prev,
-      [name]: type === 'checkbox'
-        ? checked
-        : type === 'file'
-          ? files[0]          // file object
-          : value
-    }))
+    if (name === 'image' && files && files[0]) {
+      setForm(prev => ({
+        ...prev,
+        image: files[0],
+        imagePreview: URL.createObjectURL(files[0]),
+      }))
+    } else if (name === 'cv' && files && files[0]) {
+      setForm(prev => ({
+        ...prev,
+        cv: files[0],
+      }))
+    } else {
+      setForm(prev => ({
+        ...prev,
+        [name]: type === 'checkbox' ? checked : value
+      }))
+    }
   }
+
+  const handleFileUpdate = async (field, stu) => {
+    const data = new FormData();
+    const fileInput = document.createElement('input');
+    fileInput.type = 'file';
+    fileInput.accept = field === 'cv' ? '.pdf,.doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document' : 'image/*';
+    fileInput.onchange = async (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+      data.append(field, file);
+      try {
+        await updateStudent(stu.id, data); // Use the API function
+        loadStudents();
+      } catch (err) {
+        alert('Failed to update file.');
+      }
+    };
+    fileInput.click();
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -79,7 +121,9 @@ function Students() {
       // build multipart payload
       const data = new FormData()
       Object.entries(form).forEach(([key, val]) => {
-        if (val !== null && val !== '') data.append(key, val)
+        if (key === 'image' && val instanceof File) data.append('image', val)
+        else if (key === 'cv' && val instanceof File) data.append('cv', val)
+        else if (key !== 'image' && key !== 'cv' && val !== null && val !== '') data.append(key, val)
       })
 
       if (editId) {
@@ -124,62 +168,89 @@ function Students() {
       </button>
     </div>
 
-    {/* Students List */}
-    <div className="space-y-6">
-      {students.map((stu) => (
-        <div
-          key={stu.id}
-          className="flex flex-col md:flex-row gap-6 bg-white border rounded-3xl p-6 shadow-md hover:shadow-xl transition duration-200 mr-4 mb-6"
-        >
-          <div className="md:w-48 flex-shrink-0">
-            <img
-              src={stu.image}
-              alt={stu.name}
-              className="w-48 h-48 object-cover rounded-xl border shadow-sm"
-            />
-          </div>
-          <div className="flex-1 space-y-2">
-            <div className="flex items-center justify-between">
-              <h2 className="text-2xl font-bold text-gray-800">{stu.name}</h2>
-              <div className="text-sm flex">
-  <button
-    onClick={() => openEditModal(stu)}
-    className="text-yellow-600 font-medium bg-gray-200 px-3 py-1 rounded-full hover:bg-yellow-100 mr-3"
-  >
-    ✏️ Edit
-  </button>
-  <button
-    onClick={() => handleDelete(stu.id)}
-    className="text-red-600 font-medium bg-gray-200 px-3 py-1 rounded-full hover:bg-red-100"
-  >
-    🗑️ Delete
-  </button>
-</div>
-
-            </div>
-            <p className="text-gray-600">{stu.designation}</p>
-            <p className="text-sm"><strong>Research:</strong> {stu.research_interests}</p>
-            <p className="text-sm"><strong>Email:</strong> {stu.email}</p>
-            <p className="text-sm"><strong>Start:</strong> {stu.start_date}</p>
-            {stu.end_date && <p className="text-sm"><strong>End:</strong> {stu.end_date}</p>}
-            <p className="text-sm text-gray-700 mt-1">{stu.bio}</p>
-
-            <div className="flex gap-2 mt-2">
-              {stu.is_alumni && (
-                <span className="inline-block bg-yellow-100 text-yellow-800 text-xs font-medium px-3 py-1 rounded-full">
-                  🎓 Alumni
-                </span>
-              )}
-              {!stu.is_active && (
-                <span className="inline-block bg-red-100 text-red-800 text-xs font-medium px-3 py-1 rounded-full">
-                  🚫 Inactive
-                </span>
-              )}
-            </div>
-          </div>
-        </div>
-      ))}
-    </div>
+    {/* Students Table */}
+    <table className="w-full bg-white border rounded-xl shadow-md text-sm">
+        <thead>
+          <tr className="bg-gray-100">
+            <th className="p-2 text-left whitespace-normal">Photo</th>
+            <th className="p-2 text-left whitespace-normal">Name</th>
+            <th className="p-2 text-left whitespace-normal">Role</th>
+            <th className="p-2 text-left whitespace-normal">Designation</th>
+            <th className="p-2 text-left whitespace-normal">Email</th>
+            <th className="p-2 text-left whitespace-normal">CV</th>
+            <th className="p-2 text-left whitespace-normal">GitHub</th>
+            <th className="p-2 text-left whitespace-normal">LinkedIn</th>
+            <th className="p-2 text-left whitespace-normal">Website</th>
+            <th className="p-2 text-left whitespace-normal">Google Scholar</th>
+            <th className="p-2 text-left whitespace-normal">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {students.map((stu) => (
+            <tr key={stu.id} className="border-b hover:bg-gray-50">
+              <td className="p-2 align-top">
+                {stu.image ? (
+                  <a href={stu.image} target="_blank" rel="noopener noreferrer">
+                    <img src={stu.image} alt={stu.name} className="w-14 h-14 object-cover rounded-full border" />
+                  </a>
+                ) : (
+                  <span className="text-xs text-gray-400">No Image</span>
+                )}
+                <button
+                  className="ml-2 px-2 py-1 text-xs bg-blue-100 text-blue-700 rounded hover:bg-blue-200"
+                  title="Update Image"
+                  onClick={() => handleFileUpdate('image', stu)}
+                >Update</button>
+              </td>
+              <td className="p-2 font-semibold align-top whitespace-normal break-words">{stu.name}</td>
+              <td className="p-2 align-top whitespace-normal break-words">{stu.role}</td>
+              <td className="p-2 align-top whitespace-normal break-words">{stu.designation}</td>
+              <td className="p-2 align-top whitespace-normal break-words">{stu.email}</td>
+              <td className="p-2 align-top whitespace-normal break-words">
+                {stu.cv ? (
+                  <a href={stu.cv} target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">CV</a>
+                ) : (
+                  <span className="text-xs text-gray-400">No CV</span>
+                )}
+                <button
+                  className="ml-2 px-2 py-1 text-xs bg-blue-100 text-blue-700 rounded hover:bg-blue-200"
+                  title="Update CV"
+                  onClick={() => handleFileUpdate('cv', stu)}
+                >Update</button>
+              </td>
+              <td className="p-2 align-top whitespace-normal break-words">
+                {stu.github && <a href={stu.github} target="_blank" rel="noopener noreferrer" title="GitHub"><FaGithub size={20} className="inline text-gray-700 hover:text-black" /></a>}
+              </td>
+              <td className="p-2 align-top whitespace-normal break-words">
+                {stu.linkedin && <a href={stu.linkedin} target="_blank" rel="noopener noreferrer" title="LinkedIn"><FaLinkedin size={20} className="inline text-blue-700 hover:text-blue-900" /></a>}
+              </td>
+              <td className="p-2 align-top whitespace-normal break-words">
+                {stu.website && <a href={stu.website} target="_blank" rel="noopener noreferrer" title="Website"><FaGlobe size={20} className="inline text-green-700 hover:text-green-900" /></a>}
+              </td>
+              <td className="p-2 align-top whitespace-normal break-words">
+                {stu.google_scholar && <a href={stu.google_scholar} target="_blank" rel="noopener noreferrer" title="Google Scholar"><SiGooglescholar size={20} className="inline text-indigo-700 hover:text-indigo-900" /></a>}
+              </td>
+              <td className="p-2 flex gap-2 align-top">
+                <button
+                  onClick={() => openEditModal(stu)}
+                  className="text-yellow-600 font-medium bg-gray-200 px-3 py-1 rounded-full hover:bg-yellow-100"
+                >Edit</button>
+                <button
+                  onClick={() => handleDelete(stu.id)}
+                  className="text-red-600 font-medium bg-gray-200 px-3 py-1 rounded-full hover:bg-red-100"
+                >Delete</button>
+              </td>
+            </tr>
+          ))}
+          {students.length === 0 && (
+            <tr>
+              <td colSpan="10" className="p-6 text-center text-gray-500">
+                No students found.
+              </td>
+            </tr>
+          )}
+        </tbody>
+      </table>
 
     {/* Modal */}
     {isModalOpen && (
@@ -198,9 +269,22 @@ function Students() {
           </h2>
 
           <form onSubmit={handleSubmit} className="grid gap-5 md:grid-cols-2 text-gray-700">
+            <select
+              name="role"
+              value={form.role}
+              onChange={handleChange}
+              className="w-full border rounded p-2 mt-1"
+            >
+              <option value="Student">Student</option>
+              <option value="Professor">Professor</option>
+            </select>
             <Input label="Name" name="name" value={form.name} onChange={handleChange} />
             <Input label="Designation" name="designation" value={form.designation} onChange={handleChange} />
             <Input label="Email" name="email" value={form.email} onChange={handleChange} />
+            <Input label="GitHub Link" name="github" value={form.github} onChange={handleChange} />
+            <Input label="LinkedIn Link" name="linkedin" value={form.linkedin} onChange={handleChange} />
+            <Input label="Website Link" name="website" value={form.website} onChange={handleChange} />
+            <Input label="Google Scholar Link" name="google_scholar" value={form.google_scholar} onChange={handleChange} />
             <div>
               <label className="text-sm font-medium">Image File</label>
               <input
@@ -210,6 +294,22 @@ function Students() {
                 onChange={handleChange}
                 className="block w-full mt-1 border rounded p-2"
               />
+              {form.imagePreview && (
+                <img src={form.imagePreview} alt="Preview" className="w-24 h-24 object-cover rounded mt-2 border" />
+              )}
+            </div>
+            <div>
+              <label className="text-sm font-medium">CV File (PDF/Word)</label>
+              <input
+                type="file"
+                name="cv"
+                accept=".pdf,.doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                onChange={handleChange}
+                className="block w-full mt-1 border rounded p-2"
+              />
+              {form.cv && typeof form.cv === 'object' && (
+                <span className="text-xs text-gray-600 mt-1 block">{form.cv.name}</span>
+              )}
             </div>
             <Input label="Start Date" name="start_date" type="date" value={form.start_date} onChange={handleChange} />
             <Input label="End Date" name="end_date" type="date" value={form.end_date} onChange={handleChange} />

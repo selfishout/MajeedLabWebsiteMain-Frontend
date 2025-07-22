@@ -21,7 +21,7 @@ export const patchPublication = (id, data) => axiosClient.patch(`publications/${
 export const deletePublication = id => axiosClient.delete(`publications/${id}/`)
 // Students
 export const createStudent = data => axiosClient.post('students/', data)
-export const updateStudent = (id, data) => axiosClient.put(`students/${id}/`, data)
+export const updateStudent = (id, data) => axiosClient.patch(`students/${id}/`, data)
 export const patchStudent = (id, data) => axiosClient.patch(`students/${id}/`, data)
 export const deleteStudent = id => axiosClient.delete(`students/${id}/`)
 // News and Events

@@ -14,6 +14,8 @@ function Publications() {
     journal: '',
     year: '',
     link: '',
+    abstract: '',
+    pdf: null,
   })
   const [editId, setEditId] = useState(null)
   const [showModal, setShowModal] = useState(false)
@@ -36,9 +38,11 @@ function Publications() {
       setForm({
         title: publication.title,
         authors: publication.authors,
-        journal: publication.journal,
-        year: publication.year,
-        link: publication.link,
+        journal: publication.journal || '',
+        year: publication.year || '',
+        link: publication.link || '',
+        abstract: publication.abstract || '',
+        pdf: null,
       })
       setEditId(publication.id)
     } else {
@@ -48,6 +52,8 @@ function Publications() {
         journal: '',
         year: '',
         link: '',
+        abstract: '',
+        pdf: null,
       })
       setEditId(null)
     }
@@ -62,21 +68,33 @@ function Publications() {
       journal: '',
       year: '',
       link: '',
+      abstract: '',
+      pdf: null,
     })
     setEditId(null)
   }
 
   const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value })
+    const { name, type, value, files } = e.target
+    if (type === 'file') {
+      setForm({ ...form, [name]: files[0] })
+    } else {
+      setForm({ ...form, [name]: value })
+    }
   }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
+      const data = new FormData()
+      Object.entries(form).forEach(([key, val]) => {
+        if (key === 'pdf' && val instanceof File) data.append('pdf', val)
+        else if (val !== null && val !== '') data.append(key, val)
+      })
       if (editId) {
-        await updatePublication(editId, form)
+        await updatePublication(editId, data)
       } else {
-        await createPublication(form)
+        await createPublication(data)
       }
       closeModal()
       loadPublications()
@@ -96,6 +114,25 @@ function Publications() {
     }
   }
 
+  // PATCH for PDF update
+  const handlePdfUpdate = async (pub) => {
+    const data = new FormData()
+    const fileInput = document.createElement('input')
+    fileInput.type = 'file'
+    fileInput.accept = '.pdf,application/pdf'
+    fileInput.onchange = async (e) => {
+      const file = e.target.files[0]
+      if (!file) return
+      data.append('pdf', file)
+      try {
+        await updatePublication(pub.id, data)
+        loadPublications()
+      } catch (err) {
+        alert('Failed to update PDF.')
+      }
+    }
+    fileInput.click()
+  }
 
   return (
   <div className="p-6 max-w-7xl mx-auto">
@@ -110,49 +147,58 @@ function Publications() {
     </div>
 
     {/* Table */}
-    <div className="bg-white rounded-xl shadow-md overflow-hidden border">
-      <table className="w-full table-auto text-left text-sm">
-        <thead className="bg-gradient-to-r from-slate-100 to-slate-200 text-gray-700 uppercase tracking-wider text-xs">
-          <tr>
-            <th className="p-4">Title</th>
-            <th className="p-4">Authors</th>
-            <th className="p-4">Journal</th>
-            <th className="p-4">Year</th>
-            <th className="p-4">Link</th>
-            <th className="p-4 text-right">Actions</th>
+    <div className="overflow-x-auto">
+      <table className="min-w-full bg-white border rounded-xl shadow-md">
+        <thead>
+          <tr className="bg-gray-100">
+            <th className="p-3 text-left">Title</th>
+            <th className="p-3 text-left">Authors</th>
+            <th className="p-3 text-left">Journal/Conf</th>
+            <th className="p-3 text-left">Year</th>
+            <th className="p-3 text-left">Link</th>
+            <th className="p-3 text-left">PDF</th>
+            <th className="p-3 text-left">Abstract</th>
+            <th className="p-3 text-left">Actions</th>
           </tr>
         </thead>
         <tbody>
           {publications.map((pub) => (
-            <tr key={pub.id} className="border-t hover:bg-gray-50 transition duration-200">
-              <td className="p-4">{pub.title}</td>
-              <td className="p-4">{pub.authors}</td>
-              <td className="p-4">{pub.journal}</td>
-              <td className="p-4">{pub.year}</td>
-              <td className="p-4 text-blue-600 underline break-all">
-                <a href={pub.link} target="_blank" rel="noopener noreferrer">
-                  {pub.link ? 'View' : 'N/A'}
-                </a>
+            <tr key={pub.id} className="border-b hover:bg-gray-50">
+              <td className="p-3 font-semibold">{pub.title}</td>
+              <td className="p-3">{pub.authors}</td>
+              <td className="p-3">{pub.journal}</td>
+              <td className="p-3">{pub.year}</td>
+              <td className="p-3">
+                {pub.link ? <a href={pub.link} target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">View</a> : <span className="text-xs text-gray-400">N/A</span>}
               </td>
-              <td className="p-4 text-right space-x-2">
+              <td className="p-3">
+                {pub.pdf ? (
+                  <a href={pub.pdf} target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">Download</a>
+                ) : (
+                  <span className="text-xs text-gray-400">No PDF</span>
+                )}
+                <button
+                  className="ml-2 px-2 py-1 text-xs bg-blue-100 text-blue-700 rounded hover:bg-blue-200"
+                  title="Update PDF"
+                  onClick={() => handlePdfUpdate(pub)}
+                >Update</button>
+              </td>
+              <td className="p-3 max-w-xs truncate" title={pub.abstract}>{pub.abstract}</td>
+              <td className="p-3 flex gap-2">
                 <button
                   onClick={() => openModal(pub)}
-                  className="bg-blue-500 hover:bg-blue-600 text-white text-xs px-3 py-1 rounded-full transition"
-                >
-                  Edit
-                </button>
+                  className="text-yellow-600 font-medium bg-gray-200 px-3 py-1 rounded-full hover:bg-yellow-100"
+                >Edit</button>
                 <button
                   onClick={() => handleDelete(pub.id)}
-                  className="bg-red-500 hover:bg-red-600 text-white text-xs px-3 py-1 rounded-full transition"
-                >
-                  Delete
-                </button>
+                  className="text-red-600 font-medium bg-gray-200 px-3 py-1 rounded-full hover:bg-red-100"
+                >Delete</button>
               </td>
             </tr>
           ))}
           {publications.length === 0 && (
             <tr>
-              <td colSpan="6" className="p-6 text-center text-gray-500">
+              <td colSpan="8" className="p-6 text-center text-gray-500">
                 No publications found.
               </td>
             </tr>
@@ -193,13 +239,12 @@ function Publications() {
                 />
               </div>
               <div>
-                <label className="block mb-1 text-gray-600 font-medium">Journal</label>
+                <label className="block mb-1 text-gray-600 font-medium">Journal/Conference</label>
                 <input
                   type="text"
                   name="journal"
                   value={form.journal}
                   onChange={handleChange}
-                  required
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
                 />
               </div>
@@ -210,7 +255,6 @@ function Publications() {
                   name="year"
                   value={form.year}
                   onChange={handleChange}
-                  required
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
                 />
               </div>
@@ -223,6 +267,29 @@ function Publications() {
                   onChange={handleChange}
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
                 />
+              </div>
+              <div className="col-span-2">
+                <label className="block mb-1 text-gray-600 font-medium">Abstract</label>
+                <textarea
+                  name="abstract"
+                  value={form.abstract}
+                  onChange={handleChange}
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                  rows={2}
+                />
+              </div>
+              <div className="col-span-2">
+                <label className="block mb-1 text-gray-600 font-medium">PDF File</label>
+                <input
+                  type="file"
+                  name="pdf"
+                  accept=".pdf,application/pdf"
+                  onChange={handleChange}
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                />
+                {form.pdf && typeof form.pdf === 'object' && (
+                  <span className="text-xs text-gray-600 mt-1 block">{form.pdf.name}</span>
+                )}
               </div>
             </div>
             <div className="flex justify-end gap-4 pt-4">
