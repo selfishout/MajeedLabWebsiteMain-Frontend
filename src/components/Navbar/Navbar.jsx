@@ -25,7 +25,7 @@ function Navbar() {
       )}
       <ul className="navbar-links">
         <li><Link to="/">Home</Link></li>
-        <li><Link to="/about">About Lab</Link></li>
+        <li><Link to="/about" className="about-lab-link">About Lab</Link></li>
         <li><Link to="/publications">Publications</Link></li>
         <li><Link to="/news-events">News & Events</Link></li>
         <li><Link to="/students">Students</Link></li>

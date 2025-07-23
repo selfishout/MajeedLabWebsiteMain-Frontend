@@ -33,3 +33,9 @@ export const deleteNewsEvents = id => axiosClient.delete(`news/${id}/`)
 export const patchAbout = (id, data) => axiosClient.patch(`labinfo/${id}/`, data)
 
 export const patchUniversity = (id, data) => axiosClient.patch(`university/${id}/`, data)
+
+// About Lab
+export const fetchAboutLab = () => axiosClient.get('about-lab/');
+export const updateAboutLab = (data) => axiosClient.put('about-lab/', data, {
+  headers: { 'Content-Type': 'multipart/form-data' }
+});
