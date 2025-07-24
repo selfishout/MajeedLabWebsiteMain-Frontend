@@ -19,6 +19,7 @@ function Publications() {
   })
   const [editId, setEditId] = useState(null)
   const [showModal, setShowModal] = useState(false)
+  const [sortConfig, setSortConfig] = useState({ key: null, direction: 'asc' })
 
   useEffect(() => {
     loadPublications()
@@ -134,6 +135,37 @@ function Publications() {
     fileInput.click()
   }
 
+  const sortedPublications = React.useMemo(() => {
+    let sortable = [...publications]
+    if (sortConfig.key) {
+      sortable.sort((a, b) => {
+        let aVal = a[sortConfig.key] || ''
+        let bVal = b[sortConfig.key] || ''
+        // Special case: year should be sorted numerically
+        if (sortConfig.key === 'year') {
+          aVal = parseInt(aVal) || 0
+          bVal = parseInt(bVal) || 0
+        } else {
+          if (typeof aVal === 'string') aVal = aVal.toLowerCase()
+          if (typeof bVal === 'string') bVal = bVal.toLowerCase()
+        }
+        if (aVal < bVal) return sortConfig.direction === 'asc' ? -1 : 1
+        if (aVal > bVal) return sortConfig.direction === 'asc' ? 1 : -1
+        return 0
+      })
+    }
+    return sortable
+  }, [publications, sortConfig])
+
+  const handleSort = (key) => {
+    setSortConfig((prev) => {
+      if (prev.key === key) {
+        return { key, direction: prev.direction === 'asc' ? 'desc' : 'asc' }
+      }
+      return { key, direction: 'asc' }
+    })
+  }
+
   return (
   <div className="p-6 max-w-7xl mx-auto">
     <div className="flex justify-between items-center mb-6">
@@ -151,18 +183,32 @@ function Publications() {
       <table className="min-w-full bg-white border rounded-xl shadow-md">
         <thead>
           <tr className="bg-gray-100">
-            <th className="p-3 text-left">Title</th>
-            <th className="p-3 text-left">Authors</th>
-            <th className="p-3 text-left">Journal/Conf</th>
-            <th className="p-3 text-left">Year</th>
-            <th className="p-3 text-left">Link</th>
-            <th className="p-3 text-left">PDF</th>
-            <th className="p-3 text-left">Abstract</th>
+            <th className="p-3 text-left cursor-pointer select-none" onClick={() => handleSort('title')}>
+              Title {sortConfig.key === 'title' && (sortConfig.direction === 'asc' ? '▲' : '▼')}
+            </th>
+            <th className="p-3 text-left cursor-pointer select-none" onClick={() => handleSort('authors')}>
+              Authors {sortConfig.key === 'authors' && (sortConfig.direction === 'asc' ? '▲' : '▼')}
+            </th>
+            <th className="p-3 text-left cursor-pointer select-none" onClick={() => handleSort('journal')}>
+              Journal/Conf {sortConfig.key === 'journal' && (sortConfig.direction === 'asc' ? '▲' : '▼')}
+            </th>
+            <th className="p-3 text-left cursor-pointer select-none" onClick={() => handleSort('year')}>
+              Year {sortConfig.key === 'year' && (sortConfig.direction === 'asc' ? '▲' : '▼')}
+            </th>
+            <th className="p-3 text-left cursor-pointer select-none" onClick={() => handleSort('link')}>
+              Link {sortConfig.key === 'link' && (sortConfig.direction === 'asc' ? '▲' : '▼')}
+            </th>
+            <th className="p-3 text-left cursor-pointer select-none" onClick={() => handleSort('pdf')}>
+              PDF {sortConfig.key === 'pdf' && (sortConfig.direction === 'asc' ? '▲' : '▼')}
+            </th>
+            <th className="p-3 text-left cursor-pointer select-none" onClick={() => handleSort('abstract')}>
+              Abstract {sortConfig.key === 'abstract' && (sortConfig.direction === 'asc' ? '▲' : '▼')}
+            </th>
             <th className="p-3 text-left">Actions</th>
           </tr>
         </thead>
         <tbody>
-          {publications.map((pub) => (
+          {sortedPublications.map((pub) => (
             <tr key={pub.id} className="border-b hover:bg-gray-50">
               <td className="p-3 font-semibold">{pub.title}</td>
               <td className="p-3">{pub.authors}</td>
@@ -196,7 +242,7 @@ function Publications() {
               </td>
             </tr>
           ))}
-          {publications.length === 0 && (
+          {sortedPublications.length === 0 && (
             <tr>
               <td colSpan="8" className="p-6 text-center text-gray-500">
                 No publications found.

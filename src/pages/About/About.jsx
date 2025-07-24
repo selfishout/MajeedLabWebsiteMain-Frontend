@@ -2,18 +2,6 @@ import './About.css'
 import React, { useEffect, useState } from 'react'
 import { fetchAboutLab } from  '../../services/api'
 
-const DEFAULT_DATA = {
-  title: 'About Our Lab',
-  overview: 'The Majeed Lab is dedicated to advancing research in robotics, artificial intelligence, and agricultural technology. Our mission is to develop innovative solutions that address real-world challenges in sustainable agriculture and smart systems.',
-  research_areas: 'Agricultural Robotics, Computer Vision & AI, Smart Sensing',
-  projects: 'AgriBot: Autonomous robot for precision agriculture, CropVision: Computer vision for crop disease detection, SmartGreenhouse: IoT-enabled greenhouse management',
-  facilities: 'Robotics workshop with 3D printers, High-performance computing cluster, Experimental greenhouse and test fields',
-  collaborations: 'Collaborations with leading universities and industry partners. Supported by national science foundations and agricultural agencies.',
-  contact_info: '123 Science Drive, University Campus, City, Country\nEmail: majeedlab@university.edu',
-  main_image: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80',
-  project_image: 'https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=800&q=80',
-};
-
 function About() {
     const [aboutData, setAboutData] = useState(null)
 
@@ -21,7 +9,7 @@ function About() {
         fetchAboutLab().then(res => {
             setAboutData(res.data)
         }).catch(() => {
-            setAboutData(DEFAULT_DATA)
+            setAboutData({ sections: [] })
         })
     }, [])
 
@@ -30,53 +18,42 @@ function About() {
     return (
       <div className="about-container about-lab-public">
         <h1 className="about-lab-title">{aboutData.title || 'About Lab'}</h1>
-        {aboutData.main_image && (
-          <img src={aboutData.main_image} alt="Lab" className="about-main-image styled-image" />
-        )}
-        <section className="about-section">
-          <h2>Overview</h2>
-          <p>{aboutData.overview}</p>
-        </section>
-        <hr className="about-divider" />
-        <section className="about-section">
-          <h2>Research Areas</h2>
-          <ul>
-            {(aboutData.research_areas || '').split(/\n|,/).map((area, i) => area.trim() && <li key={i}>{area}</li>)}
-          </ul>
-        </section>
-        <hr className="about-divider" />
-        <section className="about-section">
-          <h2>Current Projects</h2>
-          {aboutData.project_image && (
-            <img src={aboutData.project_image} alt="Project" className="about-project-image styled-image" />
-          )}
-          <ul>
-            {(aboutData.projects || '').split(/\n|,/).map((proj, i) => proj.trim() && <li key={i}>{proj}</li>)}
-          </ul>
-        </section>
-        {aboutData.facilities && (
-          <>
-            <hr className="about-divider" />
-            <section className="about-section">
-              <h2>Lab Facilities</h2>
-              <p>{aboutData.facilities}</p>
-            </section>
-          </>
-        )}
-        {aboutData.collaborations && (
-          <>
-            <hr className="about-divider" />
-            <section className="about-section">
-              <h2>Collaborations & Funding</h2>
-              <p>{aboutData.collaborations}</p>
-            </section>
-          </>
-        )}
-        <hr className="about-divider" />
-        <section className="about-section">
-          <h2>Contact & Location</h2>
-          <p style={{whiteSpace: 'pre-line'}}>{aboutData.contact_info}</p>
-        </section>
+        {aboutData.sections && aboutData.sections.map((section, i) => (
+          <div
+            key={i}
+            className={`about-section-card mb-12 flex flex-col md:flex-row ${i % 2 === 1 ? 'md:flex-row-reverse' : ''} fade-in`}
+            // data-aos="fade-up" // Uncomment if using AOS
+          >
+            <div className="about-section-content md:w-1/2 p-4 flex flex-col justify-center">
+              <h2 className="text-2xl font-bold mb-2 text-primary">{section.title}</h2>
+              <p className="mb-4 text-lg text-gray-700">{section.description}</p>
+              {section.subsections && section.subsections.length > 0 && (
+                <div className="about-subsections mt-4">
+                  {section.subsections.map((sub, k) => (
+                    <div key={k} className="about-subsection-card mb-4 p-3 rounded-lg bg-gray-50 shadow-sm fade-in">
+                      <h3 className="text-lg font-semibold text-secondary mb-1">{sub.title}</h3>
+                      <p className="mb-2 text-gray-600">{sub.description}</p>
+                      {sub.images && sub.images.length > 0 && (
+                        <div className="about-subsection-images flex flex-wrap gap-2">
+                          {sub.images.map((img, l) => (
+                            <img key={l} src={img.image} alt="SubSection" className="about-sub-image hover-zoom" />
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+            {section.images && section.images.length > 0 && (
+              <div className="about-section-images md:w-1/2 flex flex-col items-center justify-center gap-4 p-4">
+                {section.images.map((img, j) => (
+                  <img key={j} src={img.image} alt="Section" className="about-main-image hover-zoom shadow-xl" />
+                ))}
+              </div>
+            )}
+          </div>
+        ))}
       </div>
     )
 }

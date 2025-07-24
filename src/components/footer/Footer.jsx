@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 
 function Footer() {
   const [university, setUniversity] = useState(null)
+  const uwyoAddress = 'E Lewis St, Laramie, WY 82072';
 
   useEffect(() => {
     fetchUniversityData().then(res => {
@@ -23,7 +24,7 @@ function Footer() {
           {university && (
             <>
               <p><strong>{university[0].name}</strong></p>
-              <p>{university[0].address}</p>
+              <p>{uwyoAddress}</p>
               <p>
                 Website: <a href={university[0].website} target="_blank" rel="noreferrer">{university[0].website}</a>
               </p>
@@ -34,10 +35,10 @@ function Footer() {
         {/* Center: Navbar Links (Example) */}
         <div className="footer-section footer-nav">
           <ul>
-            <li><Link to="/">Home</Link></li>
             <li><Link to="/about">About Lab</Link></li>
             <li><Link to="/publications">Publications</Link></li>
             <li><Link to="/news-events">News & Events</Link></li>
+            <li><Link to="/students">Team</Link></li>
           </ul>
         </div>
 
@@ -47,7 +48,7 @@ function Footer() {
             <div className="map-container">
               <iframe
                 title="University Location"
-                src={`https://www.google.com/maps?q=${encodeURIComponent(university[0].address)}&output=embed`}
+                src="https://www.google.com/maps?q=41.3145723993088,-105.58206561775451&output=embed"
                 width="100%"
                 height="150"
                 style={{ border: 0 }}

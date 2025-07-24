@@ -1,25 +1,46 @@
 import './Login.css'
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Eye, EyeOff } from 'lucide-react';
+import axios from 'axios'
 
 function Login() {
   const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+  const [code, setCode] = useState('')
+  const [step, setStep] = useState(1)
   const [message, setMessage] = useState('')
+  const [loading, setLoading] = useState(false)
 
   const navigate = useNavigate()
-  const [showPassword, setShowPassword] = useState(false);
 
-  const handleLogin = async (e) => {
+  const handleSendCode = async (e) => {
     e.preventDefault()
-    if (email === 'test@test.com' && password === 'admin') {
+    setLoading(true)
+    setMessage('')
+    try {
+      const res = await axios.post('/api/auth/request-code/', { email })
+      setMessage('A login code has been sent to your email.')
+      setStep(2)
+    } catch (err) {
+      setMessage(err.response?.data?.detail || 'Failed to send code.')
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  const handleVerifyCode = async (e) => {
+    e.preventDefault()
+    setLoading(true)
+    setMessage('')
+    try {
+      const res = await axios.post('/api/auth/verify-code/', { email, code })
       setMessage('Login successful!')
-      // Redirect to dashboard after login
+      localStorage.setItem('token', res.data.token)
       localStorage.setItem('isLoggedIn', 'true')
       navigate('/dashboard/home')
-    } else {
-      setMessage('Invalid email or password.')
+    } catch (err) {
+      setMessage(err.response?.data?.detail || 'Invalid code.')
+    } finally {
+      setLoading(false)
     }
   }
 
@@ -28,58 +49,55 @@ function Login() {
       <div className="login-container">
         <div className="login-form-section">
           <h2 className="login-title">Login</h2>
-          <form onSubmit={handleLogin} className="login-form">
-            <div className="form-group">
-              <label>Email</label>
-              <input
-                type="email"
-                value={email}
-                onChange={e => setEmail(e.target.value)}
-                required
-                placeholder="Enter your email"
-              />
-            </div>
-
-            <div className="form-group" style={{ position: 'relative' }}>
-            <label>Password</label>
-            <input
-              type={showPassword ? 'text' : 'password'}
-              value={password}
-              onChange={e => setPassword(e.target.value)}
-              required
-              placeholder="Enter your password"
-              style={{ paddingRight: '40px' }}
-            />
-            <button
-              type="button"
-              onClick={() => setShowPassword(!showPassword)}
-              style={{
-                position: 'absolute',
-                right: '10px',
-                top: '35px',
-                background: 'none',
-                border: 'none',
-                cursor: 'pointer'
-              }}
-            >
-              {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
-            </button>
-          </div>
-
-            <button type="submit" className="login-btn">Login</button>
-          </form>
-
+          {step === 1 && (
+            <form onSubmit={handleSendCode} className="login-form">
+              <div className="form-group">
+                <label>Email</label>
+                <input
+                  type="email"
+                  value={email}
+                  onChange={e => setEmail(e.target.value)}
+                  required
+                  placeholder="Enter your registered email"
+                />
+              </div>
+              <button type="submit" className="login-btn" disabled={loading}>
+                {loading ? 'Sending...' : 'Send Code'}
+              </button>
+            </form>
+          )}
+          {step === 2 && (
+            <form onSubmit={handleVerifyCode} className="login-form">
+              <div className="form-group">
+                <label>Enter 8-digit Code</label>
+                <input
+                  type="text"
+                  value={code}
+                  onChange={e => setCode(e.target.value)}
+                  required
+                  placeholder="Enter the code sent to your email"
+                  pattern="^[0-9]{8}$"
+                  maxLength={8}
+                />
+              </div>
+              <button type="submit" className="login-btn" disabled={loading}>
+                {loading ? 'Verifying...' : 'Verify Code'}
+              </button>
+              <button type="button" className="login-btn secondary" onClick={() => setStep(1)} disabled={loading}>
+                Back
+              </button>
+            </form>
+          )}
           {message && <p className="login-message">{message}</p>}
         </div>
-
         <div className="instruction-section">
           <h2>Welcome</h2>
           <h3>To</h3>
           <h3>Majeed Agricultural Robotics Lab</h3>
           <ul>
-            <li>Use your registered email and password.</li>
-            <li>Password is case-sensitive.</li>
-            <li>If you forgot your password, contact admin.</li>
+            <li>Use any email address registered by the admin.</li>
+            <li>No password required—just a one-time code sent to your email.</li>
+            <li>If you have trouble logging in, contact the admin.</li>
           </ul>
         </div>
       </div>

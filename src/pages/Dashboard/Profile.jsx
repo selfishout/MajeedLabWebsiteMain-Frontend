@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { fetchProfessorData, patchProfessor } from '../../services/api'
+import FileUpload from '../../components/FileUpload/FileUpload'
 
 function Profile() {
   const [professor, setProfessor] = useState([])
@@ -28,6 +29,14 @@ function Profile() {
       setFormData({ ...formData, [name]: value })
     }
   }
+
+  const handleFileDelete = (fieldName) => {
+    setFormData(prev => ({
+      ...prev,
+      [fieldName]: null
+    }));
+    setImagePreview(null);
+  };
 
 //   const handleSubmit = async (e) => {
 //   e.preventDefault()
@@ -68,6 +77,8 @@ const handleSubmit = async (e) => {
       if (key === 'image') {
         if (value instanceof File) {
           data.append('image', value)
+        } else if (value === null) {
+          data.append('image', '') // Send empty string for deleted images
         }
       } else {
         data.append(key, value)
@@ -116,24 +127,15 @@ const handleSubmit = async (e) => {
       >
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           <div className="col-span-2">
-            <label className="block text-gray-700 font-medium mb-1">Image</label>
-            <input
+            <FileUpload
+              label="Profile Image"
               name="image"
-              type="file"
-              accept="image/*"
+              value={imagePreview}
               onChange={handleChange}
-              className="w-full px-4 py-2 border border-gray-300 rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-blue-400"
+              onDelete={handleFileDelete}
+              accept="image/*"
+              previewType="image"
             />
-            {imagePreview && (
-              <div className="mt-3">
-                <p className="text-sm text-gray-500">Preview:</p>
-                <img
-                  src={imagePreview}
-                  alt="Preview"
-                  className="w-32 h-auto rounded-md border shadow mt-1"
-                />
-              </div>
-            )}
           </div>
 
           <div>

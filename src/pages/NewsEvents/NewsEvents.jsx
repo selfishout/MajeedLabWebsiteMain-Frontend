@@ -1,66 +1,51 @@
-import React from 'react';
-
-const newsArticles = [
-  {
-    title: 'Tech Conference 2025 Announced',
-    date: 'May 5, 2025',
-    summary: 'The world’s leading tech event will be held in Berlin this year.',
-    link: '#'
-  },
-  {
-    title: 'New AI Model Breaks Records',
-    date: 'April 20, 2025',
-    summary: 'A new AI model has surpassed GPT-4 in benchmark tests.',
-    link: '#'
-  }
-];
-
-const events = [
-  {
-    name: 'React Summit 2025',
-    date: 'June 15, 2025',
-    location: 'Amsterdam, Netherlands',
-    link: '#'
-  },
-  {
-    name: 'Web Dev Conference',
-    date: 'August 3, 2025',
-    location: 'San Francisco, USA',
-    link: '#'
-  }
-];
+import React, { useEffect, useState } from 'react';
+import { fetchNews, fetchEvents } from '../../services/api';
+import './NewsEvents.css';
 
 export default function NewsEvents() {
-  return (
-    <div className="p-6 space-y-8">
-      {/* News Section */}
-      <section>
-        <h1 className="text-2xl font-bold mb-4">Latest News</h1>
-        <ul className="space-y-4">
-          {newsArticles.map((news, index) => (
-            <li key={index} className="border p-4 rounded shadow">
-              <h2 className="text-lg font-semibold">{news.title}</h2>
-              <p className="text-sm text-gray-500">{news.date}</p>
-              <p className="my-2">{news.summary}</p>
-              <a href={news.link} className="text-blue-600 hover:underline">Read more</a>
-            </li>
-          ))}
-        </ul>
-      </section>
+  const [news, setNews] = useState([]);
+  const [events, setEvents] = useState([]);
 
-      {/* Events Section */}
-      <section>
-        <h1 className="text-2xl font-bold mb-4">Upcoming Events</h1>
-        <ul className="space-y-4">
-          {events.map((event, index) => (
-            <li key={index} className="border p-4 rounded shadow">
-              <h2 className="text-lg font-semibold">{event.name}</h2>
-              <p className="text-sm text-gray-600">{event.date} | {event.location}</p>
-              <a href={event.link} className="text-blue-600 hover:underline">More Info</a>
-            </li>
+  useEffect(() => {
+    fetchNews().then(res => setNews(res.data || []));
+    fetchEvents().then(res => setEvents(res.data || []));
+  }, []);
+
+  return (
+    <div className="news-events-public-container">
+      <h1 className="news-events-title">News & Events</h1>
+      <div className="news-events-columns">
+        <div className="news-list-col">
+          <h2 className="section-header">Latest News</h2>
+          {news.length === 0 && <div className="empty-msg">No news available.</div>}
+          {news.map((item, i) => (
+            <div className="news-card fade-in" key={item.id} style={{ animationDelay: `${i * 0.1}s` }}>
+              {item.image && <img src={item.image} alt={item.title} className="news-card-img" />}
+              <div className="news-card-content">
+                <div className="news-card-date">{item.date}</div>
+                <div className="news-card-title">{item.title}</div>
+                <div className="news-card-desc">{item.description}</div>
+                {item.link && <a href={item.link} target="_blank" rel="noopener noreferrer" className="news-card-link">Read more</a>}
+              </div>
+            </div>
           ))}
-        </ul>
-      </section>
+        </div>
+        <div className="events-list-col">
+          <h2 className="section-header">Upcoming Events</h2>
+          {events.length === 0 && <div className="empty-msg">No events available.</div>}
+          {events.map((item, i) => (
+            <div className="event-card fade-in" key={item.id} style={{ animationDelay: `${i * 0.1}s` }}>
+              {item.image && <img src={item.image} alt={item.title} className="event-card-img" />}
+              <div className="event-card-content">
+                <div className="event-card-date">{item.date}</div>
+                <div className="event-card-title">{item.title}</div>
+                <div className="event-card-desc">{item.description}</div>
+                {item.link && <a href={item.link} target="_blank" rel="noopener noreferrer" className="event-card-link">Details</a>}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }

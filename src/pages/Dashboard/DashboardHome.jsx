@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react'
-import { fetchProfessorData, fetchPublicationData, fetchStudentsData, fetchNewsEventsData } from '../../services/api'
+import { fetchProfessorData, fetchPublicationData, fetchStudentsData, fetchNews, fetchEvents } from '../../services/api'
 
 function DashboardHome() {
   const [professor, setProfessor] = useState(null)
   const [publications, setPublications] = useState([])
   const [profileCompletion, setProfileCompletion] = useState(0)
   const [students, setStudents] = useState([])
-  const [newsEvents, setNewsEvents] = useState([])
+  const [newsCount, setNewsCount] = useState(0)
+  const [eventsCount, setEventsCount] = useState(0)
 
 
   useEffect(() => {
@@ -15,13 +16,14 @@ function DashboardHome() {
         const profData = await fetchProfessorData()
         const pubData = await fetchPublicationData()
         const stuData = await fetchStudentsData()
-        const newsData = await fetchNewsEventsData()
-        console.log('pubData', pubData.data.length)
+        const newsData = await fetchNews()
+        const eventsData = await fetchEvents()
 
         setProfessor(profData)
         setPublications(pubData.data.length)
         setStudents(stuData.data.length)
-        setNewsEvents(newsData.data.length)
+        setNewsCount(newsData.data.length)
+        setEventsCount(eventsData.data.length)
 
         // Dummy logic to estimate profile completion
         const filledFields = Object.values(profData).filter(Boolean).length
@@ -68,11 +70,15 @@ function DashboardHome() {
           <p className="text-gray-500">Total Publications</p>
         </div>
 
-        {/* News & Events (Placeholder for future data) */}
+        {/* News & Events (Show both counts) */}
         <div className="bg-white rounded-2xl shadow p-6">
           <h2 className="text-xl font-semibold mb-2">News & Events</h2>
-          <p className="text-2xl font-bold text-yellow-600">{newsEvents}</p>
+          <p className="text-2xl font-bold text-yellow-600">{newsCount + eventsCount}</p>
           <p className="text-gray-500">Recent Announcements</p>
+          <div className="flex gap-4 mt-2">
+            <span className="text-sm text-blue-700">News: {newsCount}</span>
+            <span className="text-sm text-green-700">Events: {eventsCount}</span>
+          </div>
         </div>
 
         {/* University Info (Optional static or from profile) */}

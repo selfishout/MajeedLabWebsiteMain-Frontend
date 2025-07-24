@@ -51,7 +51,13 @@ function Dashboard() {
 
           <NavLink to="news" className={getNavLinkClass}>
             <span className="flex items-center gap-2">
-              <Newspaper size={18} /> <span>News & Events</span>
+              <Newspaper size={18} /> <span>News</span>
+            </span>
+          </NavLink>
+
+          <NavLink to="events" className={getNavLinkClass}>
+            <span className="flex items-center gap-2">
+              <Newspaper size={18} /> <span>Events</span>
             </span>
           </NavLink>
 
@@ -69,7 +75,7 @@ function Dashboard() {
 
           <NavLink to="students" className={getNavLinkClass}>
             <span className="flex items-center gap-2">
-              <Users size={18} /> <span>Students</span>
+              <Users size={18} /> <span>Team</span>
             </span>
           </NavLink>
 

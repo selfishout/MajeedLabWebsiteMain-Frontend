@@ -19,6 +19,7 @@ import Footer from './components/footer/Footer'
 import Layout from './components/Preloader/Layout'
 import PrivateRoute from './routes/PrivateRoute'
 import React from 'react'
+import Events from './pages/Dashboard/Events';
 
 function AppContent() {
   const location = useLocation()
@@ -48,6 +49,7 @@ function AppContent() {
           <Route path="profile" element={<Profile />} />
           <Route path="publications" element={<DashboardPublications />} />
           <Route path="news" element={<News />} />
+          <Route path="events" element={<Events />} />
           <Route path="about" element={<DashboardAbout />} />
           <Route path="university" element={<University />} />
           <Route path="students" element={<DashboardStudents />} />

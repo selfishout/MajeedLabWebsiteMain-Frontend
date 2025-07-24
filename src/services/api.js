@@ -39,3 +39,15 @@ export const fetchAboutLab = () => axiosClient.get('about-lab/');
 export const updateAboutLab = (data) => axiosClient.put('about-lab/', data, {
   headers: { 'Content-Type': 'multipart/form-data' }
 });
+
+// News API
+export const fetchNews = () => axiosClient.get('/news/');
+export const createNews = (data) => axiosClient.post('/news/', data);
+export const updateNews = (id, data) => axiosClient.put(`/news/${id}/`, data);
+export const deleteNews = (id) => axiosClient.delete(`/news/${id}/`);
+
+// Events API
+export const fetchEvents = () => axiosClient.get('/events/');
+export const createEvent = (data) => axiosClient.post('/events/', data);
+export const updateEvent = (id, data) => axiosClient.put(`/events/${id}/`, data);
+export const deleteEvent = (id) => axiosClient.delete(`/events/${id}/`);
