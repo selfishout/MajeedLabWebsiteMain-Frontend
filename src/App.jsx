@@ -12,7 +12,6 @@ import DashboardPublications from './pages/Dashboard/Publications'
 import News from './pages/Dashboard/News'
 import DashboardAbout from './pages/Dashboard/About'
 import University from './pages/Dashboard/University'
-import Students from './pages/Students';
 import DashboardStudents from './pages/Dashboard/Students';
 import Navbar from './components/Navbar/Navbar'
 import Footer from './components/footer/Footer'
@@ -33,7 +32,7 @@ function AppContent() {
         <Route path="/publications" element={<Publications />} />
         <Route path="/news-events" element={<NewsEvents />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/students" element={<Students />} />
+
 
         {/* Protected Dashboard Routes */}
         <Route
