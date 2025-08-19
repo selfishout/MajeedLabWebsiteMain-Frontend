@@ -1,65 +1,243 @@
-import './About.css'
-import React, { useEffect, useState } from 'react'
-import { fetchAboutLab, fetchLabImageUrl } from  '../../services/api'
+import React, { useEffect, useState } from 'react';
+import './About.css';
+import { aboutLabData, aboutLabHelper } from '../../data/aboutLabData';
+import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaGlobe, FaCalendarAlt, FaBuilding, FaAward, FaHandshake } from 'react-icons/fa';
 
-function About() {
-    const [aboutData, setAboutData] = useState(null)
+export default function About() {
+  const [labInfo, setLabInfo] = useState({});
+  const [mission, setMission] = useState('');
+  const [vision, setVision] = useState('');
+  const [description, setDescription] = useState('');
+  const [researchFocus, setResearchFocus] = useState([]);
+  const [facilities, setFacilities] = useState([]);
+  const [equipment, setEquipment] = useState([]);
+  const [achievements, setAchievements] = useState([]);
+  const [partnerships, setPartnerships] = useState([]);
 
-    useEffect(() =>{
-        fetchAboutLab().then(res => {
-            setAboutData(res.data)
-        }).catch(() => {
-            setAboutData({ sections: [] })
-        })
-    }, [])
+  useEffect(() => {
+    // Load about lab data
+    setLabInfo(aboutLabHelper.getLabInfo());
+    setMission(aboutLabHelper.getMission());
+    setVision(aboutLabHelper.getVision());
+    setDescription(aboutLabHelper.getDescription());
+    setResearchFocus(aboutLabHelper.getResearchFocus());
+    setFacilities(aboutLabHelper.getFacilities());
+    setEquipment(aboutLabHelper.getEquipment());
+    setAchievements(aboutLabHelper.getAchievements());
+    setPartnerships(aboutLabHelper.getPartnerships());
+  }, []);
 
-    if (!aboutData) return <div className="about-container"><p>Loading...</p></div>
-
-    return (
-      <div className="about-container about-lab-public">
-        <h1 className="about-lab-title">{aboutData.title || 'About Lab'}</h1>
-        {aboutData.sections && aboutData.sections.map((section, i) => (
-          <div
-            key={i}
-            className={`about-section-card mb-12 flex flex-col md:flex-row ${i % 2 === 1 ? 'md:flex-row-reverse' : ''} fade-in`}
-            // data-aos="fade-up" // Uncomment if using AOS
-          >
-            <div className="about-section-content md:w-1/2 p-4 flex flex-col justify-center">
-              <h2 className="text-2xl font-bold mb-2 text-primary">{section.title}</h2>
-              <p className="mb-4 text-lg text-gray-700">{section.description}</p>
-              {section.subsections && section.subsections.length > 0 && (
-                <div className="about-subsections mt-4">
-                  {section.subsections.map((sub, k) => (
-                    <div key={k} className="about-subsection-card mb-4 p-3 rounded-lg bg-gray-50 shadow-sm fade-in">
-                      <h3 className="text-lg font-semibold text-secondary mb-1">{sub.title}</h3>
-                      <p className="mb-2 text-gray-600">{sub.description}</p>
-                      {sub.images && sub.images.length > 0 && (
-                        <div className="about-subsection-images flex flex-wrap gap-2">
-                          {sub.images.map((img, l) => (
-                            img.image_lab ? (
-                              <img key={l} src={fetchLabImageUrl(img.image_lab.id)} alt="SubSection" className="about-sub-image hover-zoom" />
-                            ) : null
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                  ))}
-                </div>
-              )}
-            </div>
-            {section.images && section.images.length > 0 && (
-              <div className="about-section-images md:w-1/2 flex flex-col items-center justify-center gap-4 p-4">
-                {section.images.map((img, j) => (
-                  img.image_lab ? (
-                    <img key={j} src={fetchLabImageUrl(img.image_lab.id)} alt="Section" className="about-main-image hover-zoom shadow-xl" />
-                  ) : null
-                ))}
+  return (
+    <div className="about-page">
+      {/* Hero Section */}
+      <section className="hero-section">
+        <div className="container">
+          <div className="hero-content">
+            <h1 className="hero-title">{labInfo.name}</h1>
+            <p className="hero-subtitle">
+              Pioneering the Future of Agricultural Robotics and Smart Farming
+            </p>
+            <div className="hero-meta">
+              <div className="meta-item">
+                <FaCalendarAlt className="meta-icon" />
+                <span>Established {labInfo.established}</span>
               </div>
-            )}
+              <div className="meta-item">
+                <FaBuilding className="meta-icon" />
+                <span>{labInfo.department}</span>
+              </div>
+              <div className="meta-item">
+                <FaMapMarkerAlt className="meta-icon" />
+                <span>{labInfo.location}</span>
+              </div>
+            </div>
           </div>
-        ))}
-      </div>
-    )
-}
+        </div>
+      </section>
 
-export default About
+      {/* Mission & Vision Section */}
+      <section className="mission-vision-section">
+        <div className="container">
+          <div className="mission-vision-grid">
+            <div className="mission-card">
+              <h2 className="section-title">Our Mission</h2>
+              <p className="mission-text">{mission}</p>
+            </div>
+            <div className="vision-card">
+              <h2 className="section-title">Our Vision</h2>
+              <p className="vision-text">{vision}</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* About Description Section */}
+      <section className="about-description-section">
+        <div className="container">
+          <h2 className="section-title">About Our Laboratory</h2>
+          <p className="about-description">{description}</p>
+        </div>
+      </section>
+
+      {/* Research Focus Section */}
+      <section className="research-focus-section">
+        <div className="container">
+          <h2 className="section-title">Research Focus Areas</h2>
+          <div className="research-focus-grid">
+            {researchFocus.map((focus, index) => (
+              <div key={index} className="focus-item">
+                <div className="focus-icon">🔬</div>
+                <p className="focus-text">{focus}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Facilities Section */}
+      <section className="facilities-section">
+        <div className="container">
+          <h2 className="section-title">Our Facilities</h2>
+          <div className="facilities-grid">
+            {facilities.map((facility) => (
+              <div key={facility.id} className="facility-card">
+                <div className="facility-image">
+                  <img src={facility.image} alt={facility.name} />
+                </div>
+                <div className="facility-content">
+                  <h3 className="facility-title">{facility.name}</h3>
+                  <p className="facility-description">{facility.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Equipment Section */}
+      <section className="equipment-section">
+        <div className="container">
+          <h2 className="section-title">Laboratory Equipment</h2>
+          <div className="equipment-grid">
+            {equipment.map((item) => (
+              <div key={item.id} className="equipment-item">
+                <h4 className="equipment-name">{item.name}</h4>
+                <p className="equipment-description">{item.description}</p>
+                <span className="equipment-quantity">{item.quantity}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Achievements Section */}
+      <section className="achievements-section">
+        <div className="container">
+          <h2 className="section-title">Recent Achievements</h2>
+          <div className="achievements-grid">
+            {achievements.map((achievement) => (
+              <div key={achievement.id} className="achievement-card">
+                <div className="achievement-icon">
+                  <FaAward />
+                </div>
+                <div className="achievement-content">
+                  <h3 className="achievement-title">{achievement.title}</h3>
+                  <p className="achievement-description">{achievement.description}</p>
+                  <span className="achievement-year">{achievement.year}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Partnerships Section */}
+      <section className="partnerships-section">
+        <div className="container">
+          <h2 className="section-title">Our Partnerships</h2>
+          <div className="partnerships-grid">
+            {partnerships.map((partnership) => (
+              <div key={partnership.id} className="partnership-card">
+                <div className="partnership-logo">
+                  <img src={partnership.logo} alt={partnership.name} />
+                </div>
+                <div className="partnership-content">
+                  <h3 className="partnership-name">{partnership.name}</h3>
+                  <p className="partnership-description">{partnership.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Information Section */}
+      <section className="contact-section">
+        <div className="container">
+          <h2 className="section-title">Contact Information</h2>
+          <div className="contact-grid">
+            <div className="contact-info">
+              <div className="contact-item">
+                <FaMapMarkerAlt className="contact-icon" />
+                <div>
+                  <h4>Address</h4>
+                  <p>{labInfo.address}</p>
+                </div>
+              </div>
+              <div className="contact-item">
+                <FaPhone className="contact-icon" />
+                <div>
+                  <h4>Phone</h4>
+                  <p>{labInfo.phone}</p>
+                </div>
+              </div>
+              <div className="contact-item">
+                <FaEnvelope className="contact-icon" />
+                <div>
+                  <h4>Email</h4>
+                  <p>{labInfo.email}</p>
+                </div>
+              </div>
+              <div className="contact-item">
+                <FaGlobe className="contact-icon" />
+                <div>
+                  <h4>Website</h4>
+                  <a href={labInfo.website} target="_blank" rel="noopener noreferrer">
+                    {labInfo.website}
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div className="contact-map">
+              <div className="map-placeholder">
+                <FaMapMarkerAlt className="map-icon" />
+                <p>Interactive Map Coming Soon</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Call to Action Section */}
+      <section className="cta-section">
+        <div className="container">
+          <div className="cta-content">
+            <h2 className="cta-title">Interested in Our Research?</h2>
+            <p className="cta-description">
+              We welcome collaborations, student applications, and research partnerships. 
+              Get in touch to learn more about our work and opportunities.
+            </p>
+            <div className="cta-buttons">
+              <a href={`mailto:${labInfo.email}`} className="cta-button primary">
+                Contact Us
+              </a>
+              <a href="/students" className="cta-button secondary">
+                Join Our Team
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}
