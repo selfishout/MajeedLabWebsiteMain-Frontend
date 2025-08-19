@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { fetchAboutLab, updateAboutLab } from '../../services/api'
+import { fetchAboutLab, updateAboutLab, uploadLabImage, fetchLabImageUrl } from '../../services/api'
 
 const DEFAULT_SECTION = { title: '', description: '', images: [], subsections: [] }
 const DEFAULT_SUBSECTION = { title: '', description: '', images: [] }
@@ -51,12 +51,16 @@ function DashboardAboutLab() {
     updated[sectionIdx].images = updated[sectionIdx].images.filter((_, i) => i !== imgIdx)
     setForm({ ...form, sections: updated })
   }
-  const handleSectionImages = (idx, files) => {
+  const handleSectionImages = async (idx, files) => {
     const updated = [...form.sections]
-    // Keep existing images (with id) and add new files
+    const newImages = []
+    for (let file of Array.from(files)) {
+      const res = await uploadLabImage(file)
+      newImages.push({ image_lab_id: res.data.lab_image_id })
+    }
     updated[idx].images = [
       ...(updated[idx].images ? updated[idx].images.filter(img => img.id) : []),
-      ...Array.from(files)
+      ...newImages
     ]
     setForm({ ...form, sections: updated })
   }
@@ -88,11 +92,16 @@ function DashboardAboutLab() {
     updated[sectionIdx].subsections[subIdx].images = updated[sectionIdx].subsections[subIdx].images.filter((_, i) => i !== imgIdx)
     setForm({ ...form, sections: updated })
   }
-  const handleSubSectionImages = (sectionIdx, subIdx, files) => {
+  const handleSubSectionImages = async (sectionIdx, subIdx, files) => {
     const updated = [...form.sections]
+    const newImages = []
+    for (let file of Array.from(files)) {
+      const res = await uploadLabImage(file)
+      newImages.push({ image_lab_id: res.data.lab_image_id })
+    }
     updated[sectionIdx].subsections[subIdx].images = [
       ...(updated[sectionIdx].subsections[subIdx].images ? updated[sectionIdx].subsections[subIdx].images.filter(img => img.id) : []),
-      ...Array.from(files)
+      ...newImages
     ]
     setForm({ ...form, sections: updated })
   }
@@ -179,14 +188,18 @@ function DashboardAboutLab() {
               <h2 className="text-xl font-semibold mb-2">{section.title}</h2>
               <p>{section.description}</p>
               {section.images && section.images.map((img, j) => (
-                <img key={j} src={img.image} alt="Section" className="about-main-image styled-image" />
+                img.image_lab ? (
+                  <img key={j} src={fetchLabImageUrl(img.image_lab.id)} alt="Section" className="about-main-image styled-image" />
+                ) : null
               ))}
               {section.subsections && section.subsections.map((sub, k) => (
                 <div key={k} className="ml-6 mt-2">
                   <h3 className="text-lg font-semibold">{sub.title}</h3>
                   <p>{sub.description}</p>
                   {sub.images && sub.images.map((img, l) => (
-                    <img key={l} src={img.image} alt="SubSection" className="about-main-image styled-image" />
+                    img.image_lab ? (
+                      <img key={l} src={fetchLabImageUrl(img.image_lab.id)} alt="SubSection" className="about-main-image styled-image" />
+                    ) : null
                   ))}
                 </div>
               ))}
@@ -210,11 +223,11 @@ function DashboardAboutLab() {
               <input type="text" value={section.title} onChange={e => handleSectionChange(i, 'title', e.target.value)} placeholder="Section Title" className="w-full border p-2 rounded mb-2" />
               <textarea value={section.description} onChange={e => handleSectionChange(i, 'description', e.target.value)} placeholder="Section Description" className="w-full border p-2 rounded mb-2" />
               {/* Show existing images with remove button */}
-              {section.images && section.images.filter(img => img.id).length > 0 && (
+              {section.images && section.images.filter(img => img.image_lab).length > 0 && (
                 <div className="flex flex-wrap gap-2 mb-2">
-                  {section.images.filter(img => img.id).map((img, j) => (
+                  {section.images.filter(img => img.image_lab).map((img, j) => (
                     <div key={img.id} className="relative group">
-                      <img src={img.image} alt="Section" className="about-main-image styled-image" />
+                      <img src={fetchLabImageUrl(img.image_lab.id)} alt="Section" className="about-main-image styled-image" />
                       <button type="button" onClick={() => removeSectionImage(i, j)} className="absolute top-1 right-1 bg-red-500 text-white rounded-full px-2 py-1 text-xs opacity-80 group-hover:opacity-100">✕</button>
                     </div>
                   ))}
@@ -232,11 +245,11 @@ function DashboardAboutLab() {
                     <input type="text" value={sub.title} onChange={e => handleSubSectionChange(i, k, 'title', e.target.value)} placeholder="Sub-section Title" className="w-full border p-2 rounded mb-1" />
                     <textarea value={sub.description} onChange={e => handleSubSectionChange(i, k, 'description', e.target.value)} placeholder="Sub-section Description" className="w-full border p-2 rounded mb-1" />
                     {/* Show existing sub images with remove button */}
-                    {sub.images && sub.images.filter(img => img.id).length > 0 && (
+                    {sub.images && sub.images.filter(img => img.image_lab).length > 0 && (
                       <div className="flex flex-wrap gap-2 mb-1">
-                        {sub.images.filter(img => img.id).map((img, l) => (
+                        {sub.images.filter(img => img.image_lab).map((img, l) => (
                           <div key={img.id} className="relative group">
-                            <img src={img.image} alt="SubSection" className="about-main-image styled-image" />
+                            <img src={fetchLabImageUrl(img.image_lab.id)} alt="SubSection" className="about-main-image styled-image" />
                             <button type="button" onClick={() => removeSubSectionImage(i, k, l)} className="absolute top-1 right-1 bg-red-500 text-white rounded-full px-2 py-1 text-xs opacity-80 group-hover:opacity-100">✕</button>
                           </div>
                         ))}

@@ -1,6 +1,6 @@
 import './About.css'
 import React, { useEffect, useState } from 'react'
-import { fetchAboutLab } from  '../../services/api'
+import { fetchAboutLab, fetchLabImageUrl } from  '../../services/api'
 
 function About() {
     const [aboutData, setAboutData] = useState(null)
@@ -36,7 +36,9 @@ function About() {
                       {sub.images && sub.images.length > 0 && (
                         <div className="about-subsection-images flex flex-wrap gap-2">
                           {sub.images.map((img, l) => (
-                            <img key={l} src={img.image} alt="SubSection" className="about-sub-image hover-zoom" />
+                            img.image_lab ? (
+                              <img key={l} src={fetchLabImageUrl(img.image_lab.id)} alt="SubSection" className="about-sub-image hover-zoom" />
+                            ) : null
                           ))}
                         </div>
                       )}
@@ -48,7 +50,9 @@ function About() {
             {section.images && section.images.length > 0 && (
               <div className="about-section-images md:w-1/2 flex flex-col items-center justify-center gap-4 p-4">
                 {section.images.map((img, j) => (
-                  <img key={j} src={img.image} alt="Section" className="about-main-image hover-zoom shadow-xl" />
+                  img.image_lab ? (
+                    <img key={j} src={fetchLabImageUrl(img.image_lab.id)} alt="Section" className="about-main-image hover-zoom shadow-xl" />
+                  ) : null
                 ))}
               </div>
             )}

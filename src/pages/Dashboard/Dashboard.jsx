@@ -37,12 +37,6 @@ function Dashboard() {
             </span>
           </NavLink>
 
-          <NavLink to="profile" className={getNavLinkClass}>
-            <span className="flex items-center gap-2">
-              <User size={18} /> <span>Profile</span>
-            </span>
-          </NavLink>
-
           <NavLink to="publications" className={getNavLinkClass}>
             <span className="flex items-center gap-2">
               <BookOpen size={18} /> <span>Publications</span>

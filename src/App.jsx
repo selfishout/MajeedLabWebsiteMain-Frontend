@@ -7,7 +7,6 @@ import NewsEvents from './pages/NewsEvents/NewsEvents'
 import Login from './pages/Login/Login'
 import Dashboard from './pages/Dashboard/Dashboard'
 import DashboardHome from './pages/Dashboard/DashboardHome'
-import Profile from './pages/Dashboard/Profile'
 import DashboardPublications from './pages/Dashboard/Publications'
 import News from './pages/Dashboard/News'
 import DashboardAbout from './pages/Dashboard/About'
@@ -46,7 +45,6 @@ function AppContent() {
           }
         >
           <Route path="home" element={<DashboardHome />} />
-          <Route path="profile" element={<Profile />} />
           <Route path="publications" element={<DashboardPublications />} />
           <Route path="news" element={<News />} />
           <Route path="events" element={<Events />} />

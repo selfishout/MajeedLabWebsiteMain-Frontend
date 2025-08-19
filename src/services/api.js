@@ -51,3 +51,13 @@ export const fetchEvents = () => axiosClient.get('/events/');
 export const createEvent = (data) => axiosClient.post('/events/', data);
 export const updateEvent = (id, data) => axiosClient.put(`/events/${id}/`, data);
 export const deleteEvent = (id) => axiosClient.delete(`/events/${id}/`);
+
+// LabImage API for About section images
+export const uploadLabImage = (file) => {
+  const formData = new FormData();
+  formData.append('image', file);
+  return axiosClient.post('labimage/upload/', formData, {
+    headers: { 'Content-Type': 'multipart/form-data' }
+  });
+};
+export const fetchLabImageUrl = (id) => `${axiosClient.defaults.baseURL}labimage/${id}/`;

@@ -1,20 +1,18 @@
 import React, { useEffect, useState } from 'react'
-import {
-  fetchStudentsData,
-  createStudent,
-  updateStudent,
-  deleteStudent
-} from '../../services/api'
+import { teamData, teamStorage } from '../../data/teamData'
+import { dataManager } from '../../data/dataManager'
 import { FaGithub, FaLinkedin, FaGlobe } from 'react-icons/fa';
 import { SiGooglescholar } from 'react-icons/si';
 import FileUpload from '../../components/FileUpload/FileUpload';
 
 function Students() {
   const [students, setStudents] = useState([])
+  const [professors, setProfessors] = useState([])
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [form, setForm] = useState(initialForm())
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [editId, setEditId] = useState(null)
+  const [showDataTools, setShowDataTools] = useState(false)
 
   /* ---------- helpers ---------- */
   function initialForm() {
@@ -37,21 +35,51 @@ function Students() {
       google_scholar: '',
       imagePreview: '',
       cvPreview: '',
+      affiliation: '', // Added for professors
+      short_bio: '', // Added for professors
     }
   }
 
-  const loadStudents = () => {
-    fetchStudentsData()
-      .then(res => {
-        if (res?.data && Array.isArray(res.data)) {
-          setStudents(res.data)
-        }
-      })
-      .catch(err => console.error('Error fetching students:', err))
+  const loadData = () => {
+    const data = teamStorage.getAll();
+    setStudents(data.students);
+    setProfessors([data.professor]);
   }
 
   /* ---------- lifecycle ---------- */
-  useEffect(loadStudents, [])
+  useEffect(loadData, [])
+
+  /* ---------- data management ---------- */
+  const handleExportData = () => {
+    dataManager.exportData();
+  };
+
+  const handleImportData = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      dataManager.importData(file)
+        .then(() => {
+          loadData();
+          alert('Data imported successfully!');
+        })
+        .catch(error => {
+          alert(`Import failed: ${error.message}`);
+        });
+    }
+  };
+
+  const handleCreateBackup = () => {
+    const backupKey = dataManager.createBackup();
+    alert(`Backup created: ${backupKey}`);
+  };
+
+  const handleResetToDefault = () => {
+    if (window.confirm('This will reset all data to default. Are you sure?')) {
+      dataManager.resetToDefault();
+      loadData();
+      alert('Data reset to default successfully!');
+    }
+  };
 
   /* ---------- modal actions ---------- */
   const openAddModal = () => {
@@ -60,18 +88,18 @@ function Students() {
     setIsModalOpen(true)
   }
 
-  const openEditModal = (student) => {
-    const { id, image, cv, ...fields } = student
+  const openEditModal = (item, type) => {
     setForm({
-      ...fields,
+      ...item,
+      role: type === 'professor' ? 'Professor' : 'Student',
       image: null, // force re-upload
       cv: null,    // force re-upload
-      imagePreview: student.image || '',
-      cvPreview: student.cv || '', // Add CV preview
-    })
-    setEditId(id)
-    setIsModalOpen(true)
-  }
+      imagePreview: item.image || '',
+      cvPreview: item.cv || '',
+    });
+    setEditId(item.id);
+    setIsModalOpen(true);
+  };
 
   const closeModal = () => setIsModalOpen(false)
 
@@ -90,8 +118,8 @@ function Students() {
         cv: files[0],
       }))
     } else {
-    setForm(prev => ({
-      ...prev,
+      setForm(prev => ({
+        ...prev,
         [name]: type === 'checkbox' ? checked : value
       }))
     }
@@ -107,303 +135,336 @@ function Students() {
     }))
   }
 
-  const handleFileUpdate = async (field, stu) => {
-    const data = new FormData();
-    const fileInput = document.createElement('input');
-    fileInput.type = 'file';
-    fileInput.accept = field === 'cv' ? '.pdf,.doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document' : 'image/*';
-    fileInput.onchange = async (e) => {
-      const file = e.target.files[0];
-      if (!file) return;
-      data.append(field, file);
-      try {
-        await updateStudent(stu.id, data); // Use the API function
-        loadStudents();
-      } catch (err) {
-        alert('Failed to update file.');
-      }
-    };
-    fileInput.click();
-  };
-
   const handleSubmit = async (e) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-
+    e.preventDefault();
+    setIsSubmitting(true);
     try {
-      // build multipart payload
-      const data = new FormData()
-      Object.entries(form).forEach(([key, val]) => {
-        if (key === 'image' && val instanceof File) data.append('image', val)
-        else if (key === 'cv' && val instanceof File) data.append('cv', val)
-        // Always send link fields, even if blank, so backend clears them
-        else if (["github","linkedin","website","google_scholar"].includes(key)) data.append(key, val || '')
-        // Send empty string for deleted files to clear them on backend
-        else if (key === 'image' && val === null) data.append('image', '')
-        else if (key === 'cv' && val === null) data.append('cv', '')
-        else if (key !== 'image' && key !== 'cv' && key !== 'imagePreview' && val !== null && val !== '') data.append(key, val)
-      })
+      const isProfessor = form.role === 'Professor';
+      
+      // Prepare member data
+      const memberData = {
+        name: form.name,
+        email: form.email,
+        designation: form.designation,
+        bio: form.bio,
+        role: form.role,
+        github: form.github || null,
+        linkedin: form.linkedin || null,
+        website: form.website || null,
+        google_scholar: form.google_scholar || null,
+        image: form.imagePreview || form.image || null,
+        cv: form.cvPreview || form.cv || null,
+      };
+
+      // Add student-specific fields
+      if (!isProfessor) {
+        memberData.research_interests = form.research_interests;
+        memberData.is_active = form.is_active;
+        memberData.is_alumni = form.is_alumni;
+        memberData.start_date = form.start_date;
+        memberData.end_date = form.end_date;
+      }
+
+      // Add professor-specific fields
+      if (isProfessor) {
+        memberData.affiliation = form.affiliation;
+        memberData.short_bio = form.short_bio;
+      }
 
       if (editId) {
-        await updateStudent(editId, data)
+        // Update existing member
+        teamStorage.updateMember(editId, memberData);
       } else {
-        await createStudent(data)
+        // Create new member
+        teamStorage.addMember(memberData);
       }
 
-      closeModal()
-      loadStudents()
+      setIsModalOpen(false);
+      loadData();
     } catch (err) {
-      console.error('Error saving student:', err)
+      console.error('Failed to save member:', err);
+      alert('Failed to save member. Please try again.');
     } finally {
-      setIsSubmitting(false)
+      setIsSubmitting(false);
     }
-  }
+  };
 
-  const handleDelete = async (id) => {
-    if (!window.confirm('Delete this student?')) return
+  const handleDelete = async (id, type) => {
+    const memberType = type === 'professor' ? 'professor' : 'student';
+    if (!window.confirm(`Delete this ${memberType}?`)) return
     try {
-      await deleteStudent(id)
-      loadStudents()
+      teamStorage.deleteMember(id);
+      loadData()
     } catch (err) {
-      console.error('Error deleting student:', err)
+      console.error(`Error deleting ${memberType}:`, err)
     }
   }
 
-  /* ---------- render ---------- */
+  const getImageUrl = (item) => item.image || 'https://randomuser.me/api/portraits/men/32.jpg';
+  const getCVUrl = (item) => item.cv || null;
+
   return (
-  <div className="p-6 max-w-6xl mx-auto">
-    {/* Header */}
-    <div className="flex items-center justify-between mb-8">
-      <div>
-        <h1 className="text-4xl font-bold text-gray-800">👥 Team</h1>
-        <p className="text-gray-600 mt-1">Manage your lab team members efficiently.</p>
-      </div>
-      <button
-        onClick={openAddModal}
-        className="bg-gradient-to-r from-green-500 to-green-600 text-white font-semibold px-6 py-2 rounded-lg shadow-md hover:from-green-600 hover:to-green-700 transition"
-      >
-        + Add Team Member
-      </button>
-    </div>
-
-    {/* Students Table */}
-    <table className="w-full bg-white border rounded-xl shadow-md text-sm">
-        <thead>
-          <tr className="bg-gray-100">
-            <th className="p-2 text-left whitespace-normal">Photo</th>
-            <th className="p-2 text-left whitespace-normal">Name</th>
-            <th className="p-2 text-left whitespace-normal">Role</th>
-            <th className="p-2 text-left whitespace-normal">Designation</th>
-            <th className="p-2 text-left whitespace-normal">Email</th>
-            <th className="p-2 text-left whitespace-normal">CV</th>
-            <th className="p-2 text-left whitespace-normal">GitHub</th>
-            <th className="p-2 text-left whitespace-normal">LinkedIn</th>
-            <th className="p-2 text-left whitespace-normal">Website</th>
-            <th className="p-2 text-left whitespace-normal">Google Scholar</th>
-            <th className="p-2 text-left whitespace-normal">Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-      {students.map((stu) => (
-            <tr key={stu.id} className="border-b hover:bg-gray-50">
-              <td className="p-2 align-top">
-                {stu.image ? (
-                  <a href={stu.image} target="_blank" rel="noopener noreferrer">
-                    <img src={stu.image} alt={stu.name} className="w-14 h-14 object-cover rounded-full border" />
-                  </a>
-                ) : (
-                  <span className="text-xs text-gray-400">No Image</span>
-                )}
-                <button
-                  className="ml-2 px-2 py-1 text-xs bg-blue-100 text-blue-700 rounded hover:bg-blue-200"
-                  title="Update Image"
-                  onClick={() => handleFileUpdate('image', stu)}
-                >Update</button>
-              </td>
-              <td className="p-2 font-semibold align-top whitespace-normal break-words">{stu.name}</td>
-              <td className="p-2 align-top whitespace-normal break-words">{stu.role}</td>
-              <td className="p-2 align-top whitespace-normal break-words">{stu.designation}</td>
-              <td className="p-2 align-top whitespace-normal break-words">{stu.email}</td>
-              <td className="p-2 align-top whitespace-normal break-words">
-                {stu.cv ? (
-                  <a href={stu.cv} target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">CV</a>
-                ) : (
-                  <span className="text-xs text-gray-400">No CV</span>
-                )}
-                <button
-                  className="ml-2 px-2 py-1 text-xs bg-blue-100 text-blue-700 rounded hover:bg-blue-200"
-                  title="Update CV"
-                  onClick={() => handleFileUpdate('cv', stu)}
-                >Update</button>
-              </td>
-              <td className="p-2 align-top whitespace-normal break-words">
-                {stu.github && <a href={stu.github} target="_blank" rel="noopener noreferrer" title="GitHub"><FaGithub size={20} className="inline text-gray-700 hover:text-black" /></a>}
-              </td>
-              <td className="p-2 align-top whitespace-normal break-words">
-                {stu.linkedin && <a href={stu.linkedin} target="_blank" rel="noopener noreferrer" title="LinkedIn"><FaLinkedin size={20} className="inline text-blue-700 hover:text-blue-900" /></a>}
-              </td>
-              <td className="p-2 align-top whitespace-normal break-words">
-                {stu.website && <a href={stu.website} target="_blank" rel="noopener noreferrer" title="Website"><FaGlobe size={20} className="inline text-green-700 hover:text-green-900" /></a>}
-              </td>
-              <td className="p-2 align-top whitespace-normal break-words">
-                {stu.google_scholar && <a href={stu.google_scholar} target="_blank" rel="noopener noreferrer" title="Google Scholar"><SiGooglescholar size={20} className="inline text-indigo-700 hover:text-indigo-900" /></a>}
-              </td>
-              <td className="p-2 flex gap-2 align-top">
-  <button
-    onClick={() => openEditModal(stu)}
-                  className="text-yellow-600 font-medium bg-gray-200 px-3 py-1 rounded-full hover:bg-yellow-100"
-                >Edit</button>
-  <button
-    onClick={() => handleDelete(stu.id)}
-    className="text-red-600 font-medium bg-gray-200 px-3 py-1 rounded-full hover:bg-red-100"
-                >Delete</button>
-              </td>
-            </tr>
-          ))}
-          {students.length === 0 && (
-            <tr>
-              <td colSpan="10" className="p-6 text-center text-gray-500">
-                No team members found.
-              </td>
-            </tr>
-              )}
-        </tbody>
-      </table>
-
-    {/* Modal */}
-    {isModalOpen && (
-      <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 px-4">
-        <div className="bg-white w-full max-w-2xl rounded-2xl shadow-xl p-8 relative overflow-auto max-h-[90vh]">
+    <div className="p-6 max-w-7xl mx-auto">
+      <div className="flex justify-between items-center mb-6">
+        <h1 className="text-3xl font-bold text-gray-800">👥 Team Management</h1>
+        <div className="flex gap-2">
           <button
-            onClick={closeModal}
-            className="absolute top-4 right-4 text-gray-400 hover:text-gray-700 text-xl"
-            title="Close"
+            onClick={() => setShowDataTools(!showDataTools)}
+            className="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg"
           >
-            ×
+            🛠️ Data Tools
           </button>
-
-          <h2 className="text-2xl font-bold mb-6 text-gray-800">
-            {editId ? '✏️ Edit Team Member' : '➕ Add Team Member'}
-          </h2>
-
-          <form onSubmit={handleSubmit} className="grid gap-5 md:grid-cols-2 text-gray-700">
-            <select
-              name="role"
-              value={form.role}
-              onChange={handleChange}
-              className="w-full border rounded p-2 mt-1"
-            >
-              <option value="Student">Student</option>
-              <option value="Professor">Professor</option>
-            </select>
-            <Input label="Name" name="name" value={form.name} onChange={handleChange} />
-            <Input label="Designation" name="designation" value={form.designation} onChange={handleChange} />
-            <Input label="Email" name="email" value={form.email} onChange={handleChange} />
-            <Input label="GitHub Link" name="github" value={form.github} onChange={handleChange} />
-            <Input label="LinkedIn Link" name="linkedin" value={form.linkedin} onChange={handleChange} />
-            <Input label="Website Link" name="website" value={form.website} onChange={handleChange} />
-            <Input label="Google Scholar Link" name="google_scholar" value={form.google_scholar} onChange={handleChange} />
-            
-            <FileUpload
-              label="Profile Image"
-              name="image"
-              previewValue={form.imagePreview || ''}
-              onChange={handleChange}
-              onDelete={handleFileDelete}
-              accept="image/*"
-              previewType="image"
-            />
-            
-            <FileUpload
-              label="CV File (PDF/Word)"
-              name="cv"
-              previewValue={form.cvPreview || form.cv || ''}
-              onChange={handleChange}
-              onDelete={handleFileDelete}
-              accept=".pdf,.doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
-              previewType="cv"
-            />
-            
-            <Input label="Start Date" name="start_date" type="date" value={form.start_date} onChange={handleChange} />
-            <Input label="End Date" name="end_date" type="date" value={form.end_date} onChange={handleChange} />
-
-            <div className="col-span-2">
-              <label className="block text-sm font-medium">Research Interests</label>
-              <textarea
-                name="research_interests"
-                rows={2}
-                value={form.research_interests}
-                onChange={handleChange}
-                className="w-full border p-2 rounded"
-              />
-            </div>
-            <div className="col-span-2">
-              <label className="block text-sm font-medium">Bio</label>
-              <textarea
-                name="bio"
-                rows={3}
-                value={form.bio}
-                onChange={handleChange}
-                className="w-full border p-2 rounded"
-              />
-            </div>
-
-            <div className="flex items-center col-span-2 gap-6 mt-2">
-              <label className="inline-flex items-center">
-                <input
-                  type="checkbox"
-                  name="is_alumni"
-                  checked={form.is_alumni}
-                  onChange={handleChange}
-                />
-                <span className="ml-2 text-sm">Alumni</span>
-              </label>
-              <label className="inline-flex items-center">
-                <input
-                  type="checkbox"
-                  name="is_active"
-                  checked={form.is_active}
-                  onChange={handleChange}
-                />
-                <span className="ml-2 text-sm">Active</span>
-              </label>
-            </div>
-
-            <div className="col-span-2 flex gap-4 mt-6">
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="bg-blue-600 text-white font-medium px-5 py-2 rounded-md hover:bg-blue-700 transition disabled:opacity-50"
-              >
-                {isSubmitting ? 'Saving…' : editId ? 'Update' : 'Create'}
-              </button>
-              <button
-                type="button"
-                onClick={closeModal}
-                className="bg-gray-300 text-gray-800 font-medium px-5 py-2 rounded-md hover:bg-gray-400 transition"
-              >
-                Cancel
-              </button>
-            </div>
-          </form>
+          <button
+            onClick={openAddModal}
+            className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center gap-2"
+          >
+            <span>➕</span>
+            Add Team Member
+          </button>
         </div>
       </div>
-    )}
-  </div>
-)
 
+      {/* Data Management Tools */}
+      {showDataTools && (
+        <div className="bg-gray-100 p-4 rounded-lg mb-6">
+          <h3 className="font-semibold text-gray-800 mb-3">Data Management</h3>
+          <div className="flex flex-wrap gap-3">
+            <button
+              onClick={handleExportData}
+              className="bg-green-600 hover:bg-green-700 text-white px-3 py-2 rounded text-sm"
+            >
+              📤 Export Data
+            </button>
+            
+            <label className="bg-blue-600 hover:bg-blue-700 text-white px-3 py-2 rounded text-sm cursor-pointer">
+              📥 Import Data
+              <input
+                type="file"
+                accept=".json"
+                onChange={handleImportData}
+                style={{ display: 'none' }}
+              />
+            </label>
+            
+            <button
+              onClick={handleCreateBackup}
+              className="bg-purple-600 hover:bg-purple-700 text-white px-3 py-2 rounded text-sm"
+            >
+              💾 Create Backup
+            </button>
+            
+            <button
+              onClick={handleResetToDefault}
+              className="bg-red-600 hover:bg-red-700 text-white px-3 py-2 rounded text-sm"
+            >
+              🔄 Reset to Default
+            </button>
+          </div>
+          
+          <div className="mt-3 text-sm text-gray-600">
+            <strong>Stats:</strong> {dataManager.getStats().totalMembers} total members, 
+            {dataManager.getStats().professors} professor, 
+            {dataManager.getStats().students} students
+          </div>
+        </div>
+      )}
+
+      {/* Professors Section */}
+      <div className="mb-8">
+        <h2 className="text-2xl font-semibold text-gray-700 mb-4">👨‍🏫 Professors</h2>
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {professors.map((prof) => (
+            <div key={prof.id} className="bg-white p-4 rounded-lg shadow-md border">
+              <div className="flex items-center gap-3 mb-3">
+                <img 
+                  src={getImageUrl(prof)} 
+                  alt={prof.name} 
+                  className="w-16 h-16 rounded-full object-cover"
+                />
+                <div>
+                  <h3 className="font-semibold text-gray-800">{prof.name}</h3>
+                  <p className="text-sm text-gray-600">{prof.designation}</p>
+                </div>
+              </div>
+              <p className="text-gray-700 text-sm mb-3">{prof.bio}</p>
+              <div className="flex gap-2">
+                <button
+                  onClick={() => openEditModal(prof, 'professor')}
+                  className="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded text-sm"
+                >
+                  ✏️ Edit
+                </button>
+                <button
+                  onClick={() => handleDelete(prof.id, 'professor')}
+                  className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded text-sm"
+                >
+                  🗑️ Delete
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Students Section */}
+      <div className="mb-8">
+        <h2 className="text-2xl font-semibold text-gray-700 mb-4">🎓 Students</h2>
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {students.map((stu) => (
+            <div key={stu.id} className="bg-white p-4 rounded-lg shadow-md border">
+              <div className="flex items-center gap-3 mb-3">
+                <img 
+                  src={getImageUrl(stu)} 
+                  alt={stu.name} 
+                  className="w-16 h-16 rounded-full object-cover"
+                />
+                <div>
+                  <h3 className="font-semibold text-gray-800">{stu.name}</h3>
+                  <p className="text-sm text-gray-600">{stu.designation}</p>
+                </div>
+              </div>
+              <p className="text-gray-700 text-sm mb-3">{stu.bio}</p>
+              <div className="flex gap-2">
+                <button
+                  onClick={() => openEditModal(stu, 'student')}
+                  className="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded text-sm"
+                >
+                  ✏️ Edit
+                </button>
+                <button
+                  onClick={() => handleDelete(stu.id, 'student')}
+                  className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded text-sm"
+                >
+                  🗑️ Delete
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Modal */}
+      {isModalOpen && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+          <div className="bg-white rounded-lg p-6 max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+            <div className="flex justify-between items-center mb-4">
+              <h2 className="text-xl font-semibold">
+                {editId ? '✏️ Edit Team Member' : '➕ Add Team Member'}
+              </h2>
+              <button onClick={closeModal} className="text-gray-500 hover:text-gray-700 text-2xl">&times;</button>
+            </div>
+
+            <form onSubmit={handleSubmit} className="grid gap-5 md:grid-cols-2 text-gray-700">
+              <select
+                name="role"
+                value={form.role}
+                onChange={handleChange}
+                className="w-full border rounded p-2 mt-1"
+              >
+                <option value="Student">Student</option>
+                <option value="Professor">Professor</option>
+              </select>
+              
+              <Input label="Name" name="name" value={form.name} onChange={handleChange} required />
+              <Input label="Designation" name="designation" value={form.designation} onChange={handleChange} required />
+              <Input label="Email" name="email" value={form.email} onChange={handleChange} type="email" required />
+              
+              {form.role === 'Student' && (
+                <>
+                  <Input label="Research Interests" name="research_interests" value={form.research_interests} onChange={handleChange} />
+                  <Input label="Start Date" name="start_date" value={form.start_date} onChange={handleChange} type="date" />
+                  <Input label="End Date" name="end_date" value={form.end_date} onChange={handleChange} type="date" />
+                </>
+              )}
+              
+              {form.role === 'Professor' && (
+                <>
+                  <Input label="Short Bio" name="short_bio" value={form.short_bio} onChange={handleChange} />
+                  <Input label="Affiliation" name="affiliation" value={form.affiliation} onChange={handleChange} />
+                </>
+              )}
+              
+              <div className="md:col-span-2">
+                <Input label="Bio" name="bio" value={form.bio} onChange={handleChange} required />
+              </div>
+              
+              {/* Social Media Links */}
+              <Input label="GitHub Link" name="github" value={form.github} onChange={handleChange} type="url" placeholder="https://github.com/username" />
+              <Input label="LinkedIn Link" name="linkedin" value={form.linkedin} onChange={handleChange} type="url" placeholder="https://linkedin.com/in/username" />
+              <Input label="Website Link" name="website" value={form.website} onChange={handleChange} type="url" placeholder="https://example.com" />
+              <Input label="Google Scholar Link" name="google_scholar" value={form.google_scholar} onChange={handleChange} type="url" placeholder="https://scholar.google.com/citations?user=userid" />
+              
+              {/* Profile Image */}
+              {form.imagePreview && <img src={form.imagePreview} alt="Profile Preview" className="w-24 h-24 object-cover rounded-full mb-2" />}
+              <div className="md:col-span-2">
+                <FileUpload
+                  label="Profile Image"
+                  name="image"
+                  previewValue={form.imagePreview || ''}
+                  onChange={handleChange}
+                  onDelete={handleFileDelete}
+                  accept="image/*"
+                  previewType="image"
+                />
+              </div>
+              
+              {/* CV File (only for students) */}
+              {form.role === 'Student' && (
+                <div className="md:col-span-2">
+                  {form.cvPreview && <a href={form.cvPreview} target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">Download CV</a>}
+                  <FileUpload
+                    label="CV File (PDF/Word)"
+                    name="cv"
+                    previewValue={form.cvPreview || ''}
+                    onChange={handleChange}
+                    onDelete={handleFileDelete}
+                    accept=".pdf,.doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                    previewType="file"
+                  />
+                </div>
+              )}
+              
+              <div className="md:col-span-2 flex gap-3">
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg disabled:opacity-50"
+                >
+                  {isSubmitting ? 'Saving...' : (editId ? 'Update' : 'Create')}
+                </button>
+                <button
+                  type="button"
+                  onClick={closeModal}
+                  className="bg-gray-500 hover:bg-gray-600 text-white px-6 py-2 rounded-lg"
+                >
+                  Cancel
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+    </div>
+  )
 }
 
-/* small wrapper for simple inputs */
-function Input({ label, ...props }) {
+// Input component
+function Input({ label, name, value, onChange, type = 'text', required = false, placeholder = '' }) {
   return (
-    <label className="block">
-      <span className="text-sm font-medium text-gray-700">{label}</span>
+    <div>
+      <label className="block text-gray-700 font-medium mb-1">
+        {label} {required && <span className="text-red-500">*</span>}
+      </label>
       <input
-        className="mt-1 w-full border rounded p-2 focus:outline-none focus:ring focus:border-blue-300"
-        {...props}
+        type={type}
+        name={name}
+        value={value}
+        onChange={onChange}
+        required={required}
+        placeholder={placeholder}
+        className="w-full border rounded p-2 mt-1 focus:outline-none focus:ring-2 focus:ring-blue-400"
       />
-    </label>
+    </div>
   )
 }
 
