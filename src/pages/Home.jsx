@@ -14,11 +14,18 @@ export default function Home() {
 
   useEffect(() => {
     // Load home page data
+    console.log('Loading home page data...');
     const allBanners = homeHelper.getAllBanners();
     const welcome = homeHelper.getWelcomeSection();
     const research = homeHelper.getResearchAreas();
     const statistics = homeHelper.getStats();
     const projects = homeHelper.getFeaturedProjects();
+
+    console.log('Banners:', allBanners);
+    console.log('Welcome:', welcome);
+    console.log('Research:', research);
+    console.log('Stats:', statistics);
+    console.log('Projects:', projects);
 
     setBanners(allBanners);
     setWelcomeSection(welcome);

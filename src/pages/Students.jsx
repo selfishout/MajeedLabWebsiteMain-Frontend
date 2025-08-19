@@ -10,7 +10,9 @@ export default function Students() {
 
   useEffect(() => {
     // Load data from localStorage (or use default if none exists)
+    console.log('Loading team data...');
     const storedData = teamStorage.getAll();
+    console.log('Team data loaded:', storedData);
     setTeam(storedData);
   }, []);
 
