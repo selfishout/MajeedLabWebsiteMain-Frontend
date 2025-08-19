@@ -4,6 +4,7 @@ import About from './pages/About/About'
 import Home from './pages/Home/Home'
 import Publications from './pages/Publications/Publications'
 import NewsEvents from './pages/NewsEvents/NewsEvents'
+import Students from './pages/Students'
 import Login from './pages/Login/Login'
 import Dashboard from './pages/Dashboard/Dashboard'
 import DashboardHome from './pages/Dashboard/DashboardHome'
@@ -31,6 +32,7 @@ function AppContent() {
         <Route path="/about" element={<About />} />
         <Route path="/publications" element={<Publications />} />
         <Route path="/news-events" element={<NewsEvents />} />
+        <Route path="/students" element={<Students />} />
         <Route path="/login" element={<Login />} />
 
 
