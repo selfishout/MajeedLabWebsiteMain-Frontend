@@ -5,7 +5,7 @@ import tailwindcss from '@tailwindcss/vite'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react(), tailwindcss()],
-  base: process.env.NODE_ENV === 'production' ? '/[REPO_NAME]/' : '/',
+  base: process.env.NODE_ENV === 'production' ? '/LabWebsite-Frontend/' : '/',
   server: {
     proxy: {
       '/api': 'http://localhost:8000',
