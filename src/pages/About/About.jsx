@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './About.css';
-import { aboutLabData, aboutLabHelper } from '../../data/aboutLabData';
+import { aboutLabHelper } from '../../data/aboutLabData';
 import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaGlobe, FaCalendarAlt, FaBuilding, FaAward, FaHandshake } from 'react-icons/fa';
 
 export default function About() {

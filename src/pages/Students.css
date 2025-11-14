@@ -1,6 +1,6 @@
 .students-page {
   padding: 2rem;
-  max-width: 1000px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 .students-title {
@@ -16,17 +16,18 @@
 }
 .student-card {
   background: #fff;
-  border-radius: 1rem;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-  padding: 1.5rem;
-  width: 280px;
+  border-radius: 1.25rem;
+  box-shadow: 0 16px 30px rgba(15,23,42,0.1);
+  padding: 1.75rem;
+  width: clamp(300px, 32vw, 360px);
   display: flex;
   flex-direction: column;
-  align-items: center;
-  transition: box-shadow 0.2s;
+  gap: 1rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 .student-card:hover {
-  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  box-shadow: 0 22px 36px rgba(15,23,42,0.18);
+  transform: translateY(-4px);
 }
 .student-image {
   width: 100px;
@@ -41,14 +42,32 @@
   margin-bottom: 0.5rem;
 }
 .student-bio {
-  font-size: 1rem;
-  color: #555;
-  margin-bottom: 1rem;
-  text-align: center;
+  font-size: 0.95rem;
+  color: #334155;
+  background: #f8fafc;
+  border-left: 4px solid #2563eb;
+  padding: 0.85rem 1rem;
+  border-radius: 0.85rem;
+  line-height: 1.6;
+  margin: 0;
+}
+.student-bio::before {
+  content: '“';
+  font-size: 1.4rem;
+  color: #2563eb;
+  margin-right: 0.25rem;
+}
+.student-bio::after {
+  content: '”';
+  font-size: 1.4rem;
+  color: #2563eb;
+  margin-left: 0.25rem;
 }
 .student-links {
   display: flex;
   gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 .student-links a {
   color: #3b82f6;

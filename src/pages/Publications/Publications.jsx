@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import './Publications.css';
-import { fetchPublicationData } from '../../services/api';
+import { publicationsData } from '../../data/publicationsData';
 
 function getShortAuthors(authors) {
   if (!authors) return '';
@@ -10,14 +10,26 @@ function getShortAuthors(authors) {
 }
 
 export default function Publications() {
-  const [publicationsData, setPublicationsData] = useState([]);
   const [expanded, setExpanded] = useState(null);
-  const [sortConfig, setSortConfig] = useState({ key: null, direction: 'asc' });
+  const [sortConfig, setSortConfig] = useState({ key: 'year', direction: 'desc' });
 
-  useEffect(() => {
-    fetchPublicationData().then(res => {
-      setPublicationsData(res.data || []);
-    });
+  const metrics = useMemo(() => {
+    const years = publicationsData
+      .map((p) => p.year)
+      .filter(Boolean);
+    const latestYear = years.length ? Math.max(...years) : '—';
+
+    const totalCitations = publicationsData.reduce((sum, pub) => sum + (pub.citations || 0), 0);
+    const averageCitations = publicationsData.length
+      ? Math.round(totalCitations / publicationsData.length)
+      : 0;
+
+    return {
+      total: publicationsData.length,
+      latestYear,
+      totalCitations,
+      averageCitations,
+    };
   }, []);
 
   const handleRowClick = (id) => {
@@ -33,96 +45,149 @@ export default function Publications() {
     });
   };
 
-  const sortedPublications = React.useMemo(() => {
-    let sortable = [...publicationsData];
-    if (sortConfig.key) {
-      sortable.sort((a, b) => {
-        let aVal = a[sortConfig.key] || '';
-        let bVal = b[sortConfig.key] || '';
-        if (sortConfig.key === 'year') {
-          aVal = parseInt(aVal) || 0;
-          bVal = parseInt(bVal) || 0;
-        } else {
-          if (typeof aVal === 'string') aVal = aVal.toLowerCase();
-          if (typeof bVal === 'string') bVal = bVal.toLowerCase();
-        }
-        if (aVal < bVal) return sortConfig.direction === 'asc' ? -1 : 1;
-        if (aVal > bVal) return sortConfig.direction === 'asc' ? 1 : -1;
-        return 0;
-      });
+  const sortedPublications = useMemo(() => {
+    const sortable = [...publicationsData];
+    if (!sortConfig.key) {
+      return sortable;
     }
-    return sortable;
-  }, [publicationsData, sortConfig]);
+
+    return sortable.sort((a, b) => {
+      let aVal = a[sortConfig.key];
+      let bVal = b[sortConfig.key];
+
+      if (sortConfig.key === 'year' || sortConfig.key === 'citations') {
+        aVal = parseInt(aVal, 10) || 0;
+        bVal = parseInt(bVal, 10) || 0;
+      } else {
+        if (typeof aVal === 'string') aVal = aVal.toLowerCase();
+        if (typeof bVal === 'string') bVal = bVal.toLowerCase();
+      }
+
+      if (aVal < bVal) return sortConfig.direction === 'asc' ? -1 : 1;
+      if (aVal > bVal) return sortConfig.direction === 'asc' ? 1 : -1;
+      return 0;
+    });
+  }, [sortConfig]);
 
   return (
     <div className="publications-container">
       <h1 className="publications-title">Publications</h1>
-      <div className="overflow-x-auto">
-        <table className="min-w-full bg-white border rounded-xl shadow-md">
+      <p className="publications-lede">
+        Peer-reviewed articles, conference papers, and award-winning demonstrations from the Majeed Agricultural Robotics Lab.
+      </p>
+
+      <section className="publications-metrics">
+        <article className="metric-card">
+          <h3>{metrics.total}</h3>
+          <p>Total Publications</p>
+        </article>
+        <article className="metric-card">
+          <h3>{metrics.totalCitations.toLocaleString()}</h3>
+          <p>Total Citations</p>
+        </article>
+        <article className="metric-card">
+          <h3>{metrics.averageCitations}</h3>
+          <p>Average Citations</p>
+        </article>
+        <article className="metric-card">
+          <h3>{metrics.latestYear}</h3>
+          <p>Most Recent Year</p>
+        </article>
+      </section>
+
+      <div className="publications-table-wrapper">
+        <table className="publications-table">
           <thead>
-            <tr className="bg-gray-100">
-              <th className="p-3 text-left cursor-pointer select-none" onClick={() => handleSort('title')}>
+            <tr>
+              <th onClick={() => handleSort('title')}>
                 Title {sortConfig.key === 'title' && (sortConfig.direction === 'asc' ? '▲' : '▼')}
               </th>
-              <th className="p-3 text-left cursor-pointer select-none" onClick={() => handleSort('authors')}>
+              <th onClick={() => handleSort('authors')}>
                 Authors {sortConfig.key === 'authors' && (sortConfig.direction === 'asc' ? '▲' : '▼')}
               </th>
-              <th className="p-3 text-left cursor-pointer select-none" onClick={() => handleSort('journal')}>
-                Journal/Conf {sortConfig.key === 'journal' && (sortConfig.direction === 'asc' ? '▲' : '▼')}
+              <th onClick={() => handleSort('journal')}>
+                Journal / Venue {sortConfig.key === 'journal' && (sortConfig.direction === 'asc' ? '▲' : '▼')}
               </th>
-              <th className="p-3 text-left cursor-pointer select-none" onClick={() => handleSort('year')}>
+              <th onClick={() => handleSort('year')}>
                 Year {sortConfig.key === 'year' && (sortConfig.direction === 'asc' ? '▲' : '▼')}
               </th>
-              <th className="p-3 text-left cursor-pointer select-none" onClick={() => handleSort('link')}>
-                Link {sortConfig.key === 'link' && (sortConfig.direction === 'asc' ? '▲' : '▼')}
+              <th onClick={() => handleSort('citations')} className="align-right">
+                Citations {sortConfig.key === 'citations' && (sortConfig.direction === 'asc' ? '▲' : '▼')}
               </th>
-              <th className="p-3 text-left cursor-pointer select-none" onClick={() => handleSort('pdf')}>
-                PDF {sortConfig.key === 'pdf' && (sortConfig.direction === 'asc' ? '▲' : '▼')}
-              </th>
-              <th className="p-3 text-left cursor-pointer select-none" onClick={() => handleSort('abstract')}>
-                Abstract {sortConfig.key === 'abstract' && (sortConfig.direction === 'asc' ? '▲' : '▼')}
-              </th>
+              <th>Links</th>
             </tr>
           </thead>
           <tbody>
             {sortedPublications.map((pub) => (
               <React.Fragment key={pub.id}>
                 <tr
-                  className={"border-b hover:bg-gray-50 cursor-pointer" + (expanded === pub.id ? ' bg-blue-50' : '')}
+                  className={`table-row${expanded === pub.id ? ' expanded' : ''}`}
                   onClick={() => handleRowClick(pub.id)}
                   title={pub.authors && pub.authors.split(/,|;/).length > 3 ? pub.authors : ''}
                 >
-                  <td className="p-3 font-semibold">{pub.title}</td>
-                  <td className="p-3">
+                  <td className="primary-cell">{pub.title}</td>
+                  <td>
                     {getShortAuthors(pub.authors)}
                     {pub.authors && pub.authors.split(/,|;/).length > 3 && (
-                      <span className="ml-1 text-xs text-gray-400" title={pub.authors}>(hover for all)</span>
+                      <span className="more-authors" title={pub.authors}>(hover for all)</span>
                     )}
                   </td>
-                  <td className="p-3">{pub.journal}</td>
-                  <td className="p-3">{pub.year}</td>
-                  <td className="p-3">
-                    {pub.link ? <a href={pub.link} target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">View</a> : <span className="text-xs text-gray-400">N/A</span>}
-                  </td>
-                  <td className="p-3">
-                    {pub.pdf ? (
-                      <a href={pub.pdf} target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">Download</a>
-                    ) : (
-                      <span className="text-xs text-gray-400">No PDF</span>
+                  <td>{pub.journal || '—'}</td>
+                  <td>{pub.year || '—'}</td>
+                  <td className="align-right citations-cell">{pub.citations ?? '—'}</td>
+                  <td className="link-cell">
+                    {pub.url && (
+                      <a href={pub.url} target="_blank" rel="noopener noreferrer" className="table-link">Publisher</a>
+                    )}
+                    {pub.pdf && (
+                      <a href={pub.pdf} target="_blank" rel="noopener noreferrer" className="table-link">PDF</a>
                     )}
                   </td>
-                  <td className="p-3 max-w-xs truncate" title={pub.abstract}>{pub.abstract && pub.abstract.length > 60 ? pub.abstract.slice(0, 60) + '…' : pub.abstract}</td>
                 </tr>
                 {expanded === pub.id && (
-                  <tr className="bg-blue-50">
-                    <td colSpan={7} className="p-5">
-                      <div className="text-lg font-bold mb-2">{pub.title}</div>
-                      <div className="mb-2"><strong>Authors:</strong> {pub.authors}</div>
-                      {pub.journal && <div className="mb-2"><strong>Journal/Conference:</strong> {pub.journal}</div>}
-                      {pub.year && <div className="mb-2"><strong>Year:</strong> {pub.year}</div>}
-                      {pub.link && <div className="mb-2"><strong>Link:</strong> <a href={pub.link} target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">{pub.link}</a></div>}
-                      {pub.pdf && <div className="mb-2"><strong>PDF:</strong> <a href={pub.pdf} target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">Download</a></div>}
-                      {pub.abstract && <div className="mb-2"><strong>Abstract:</strong> <div className="mt-1 whitespace-pre-line">{pub.abstract}</div></div>}
+                  <tr className="expanded-row">
+                    <td colSpan={6}>
+                      <div className="expanded-content">
+                        <div className="expanded-header">
+                          <h2>{pub.title}</h2>
+                          {pub.citations !== undefined && (
+                            <span className="citation-badge">{pub.citations} citations</span>
+                          )}
+                        </div>
+                        {pub.authors && (
+                          <p><strong>Authors:</strong> {pub.authors}</p>
+                        )}
+                        {pub.journal && (
+                          <p><strong>Journal / Venue:</strong> {pub.journal}</p>
+                        )}
+                        {pub.year && (
+                          <p><strong>Year:</strong> {pub.year}</p>
+                        )}
+                        {pub.doi && (
+                          <p><strong>DOI:</strong> {pub.doi}</p>
+                        )}
+                        {pub.abstract && (
+                          <div className="expanded-abstract">
+                            <strong>Abstract:</strong>
+                            <p>{pub.abstract}</p>
+                          </div>
+                        )}
+                        {pub.keywords && pub.keywords.length > 0 && (
+                          <div className="keywords-chipset">
+                            {pub.keywords.map((keyword) => (
+                              <span key={keyword} className="keyword-chip">{keyword}</span>
+                            ))}
+                          </div>
+                        )}
+                        <div className="expanded-links">
+                          {pub.url && (
+                            <a href={pub.url} target="_blank" rel="noopener noreferrer" className="table-link">View Publisher Page</a>
+                          )}
+                          {pub.pdf && (
+                            <a href={pub.pdf} target="_blank" rel="noopener noreferrer" className="table-link">Download PDF</a>
+                          )}
+                        </div>
+                      </div>
                     </td>
                   </tr>
                 )}
@@ -130,8 +195,8 @@ export default function Publications() {
             ))}
             {sortedPublications.length === 0 && (
               <tr>
-                <td colSpan="7" className="p-6 text-center text-gray-500">
-                  No publications found.
+                <td colSpan="6" className="empty-state">
+                  No publications listed yet.
                 </td>
               </tr>
             )}

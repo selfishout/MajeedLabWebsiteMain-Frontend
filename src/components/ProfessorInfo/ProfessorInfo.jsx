@@ -1,36 +1,35 @@
 import './ProfessorInfo.css'
-import { useEffect, useState } from 'react'
-import { fetchProfessorData } from '../../services/api'
+import { teamData } from '../../data/teamData'
 
 function ProfessorInfo() {
-  const [professorData, setProfessorData] = useState(null)
+  const professor = teamData.professor
 
-  useEffect(() => {
-    fetchProfessorData().then(res => {
-          if (res.data.length > 0) setProfessorData(res.data[0])
-        })
-      }, [])
-
-  const getImageUrl = (prof) => prof.image_lab ? `http://localhost:8000/api/labimage/${prof.image_lab.id}/` : '/default-profile.png';
+  if (!professor) {
+    return null
+  }
 
   return (
     <div className="professor-section" id="professor-info">
-      <h2>Professor Information</h2>
-      {professorData && (
+      <h2>Lab Leadership</h2>
       <div className="professor-container">
         <div className="professor-image-wrapper">
-            {professorData.image && (
-            <img src={getImageUrl(professorData)} alt="Professor" className="professor-image" />
-            )}
+          <img src={professor.image} alt={professor.name} className="professor-image" />
         </div>
         <div className="professor-details">
-            <p><strong>Name:</strong> {professorData.name}</p>
-            <p><strong>Designation:</strong> {professorData.designation}</p>
-            <p><strong>Email:</strong> {professorData.email}</p>
-            <p><strong>Bio:</strong> {professorData.bio}</p>
+          <p><strong>Name:</strong> {professor.name}</p>
+          <p><strong>Designation:</strong> {professor.designation}</p>
+          <p><strong>Email:</strong> <a href={`mailto:${professor.email}`}>{professor.email}</a></p>
+          {professor.affiliation && (
+            <p><strong>Affiliation:</strong> {professor.affiliation}</p>
+          )}
+          {professor.research_interests && (
+            <p><strong>Research Focus:</strong> {professor.research_interests}</p>
+          )}
+          {professor.bio && (
+            <p><strong>Overview:</strong> {professor.bio}</p>
+          )}
         </div>
-        </div>
-      )}
+      </div>
     </div>
   )
 }

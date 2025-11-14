@@ -1,144 +1,119 @@
-// Static team data - replaces database
+// Curated static team roster for the public site
 export const teamData = {
   professor: {
-    id: 1,
-    name: "Dr. Yaqoob Majeed",
-    designation: "Principal Professor",
-    bio: "Principal Professor at Majeed Agricultural Robotics Lab. Leading research in agricultural robotics, computer vision, and AI applications in farming.",
-    short_bio: "Principal Professor specializing in agricultural robotics and AI.",
-    email: "yaqoob.majeed@university.edu",
-    affiliation: "Majeed Agricultural Robotics Lab",
-    image: "https://randomuser.me/api/portraits/men/75.jpg", // Fallback image
+    id: 'yaqoob-majeed',
+    name: 'Dr. Yaqoob Majeed',
+    designation: 'Director & Principal Investigator',
+    email: 'ymajeed@uwyo.edu',
+    affiliation: 'Majeed Agricultural Robotics Lab, University of Wyoming',
+    bio: 'Dr. Majeed leads interdisciplinary research in agricultural robotics, precision horticulture, and autonomous sensing systems. His group partners with growers across the Mountain West to translate intelligent automation into resilient food production.',
+    short_bio: 'Specialist in intelligent agricultural automation and field robotics.',
+    research_interests: 'Agricultural Robotics, Machine Vision, Deep Learning, Digital Agriculture, Controlled Environment Agriculture',
+    image: '/images/Advisor/majeed.png',
+    cv: '',
     social: {
-      github: "https://github.com/yaqoobmajeed",
-      linkedin: "https://linkedin.com/in/yaqoobmajeed",
-      website: "https://yaqoobmajeed.com",
-      google_scholar: "https://scholar.google.com/citations?user=yaqoobmajeed"
+      website: 'https://www.uwyo.edu/eecs/faculty-staff/faculty/yaqoob-majeed/index.html',
+      google_scholar: 'https://scholar.google.com/citations?user=HueofWEAAAAJ&hl=en&oi=ao',
+      linkedin: 'https://www.linkedin.com/in/yaqoob-majeedhttps://www.linkedin.com/in/yaqoob-majeed-0bb75672/',
+      github: ''
     }
   },
   students: [
     {
-      id: 1,
-      name: "Ali Torabi",
-      role: "Student",
-      email: "ali.torabi@university.edu",
-      designation: "PhD Student",
-      research_interests: "Agricultural robotics, computer vision, field robotics",
-      bio: "PhD student researching agricultural robotics and computer vision applications in farming.",
-      is_active: true,
-      start_date: "2023-09-01",
-      image: "https://randomuser.me/api/portraits/men/32.jpg",
-      cv: "#", // Placeholder for CV
+      id: 'ali-torabi',
+      name: 'Ali Torabi',
+      designation: 'Ph.D. Student · Computer Vision',
+      email: 'ali.torabi@uwyo.edu',
+      research_interests: 'Computer Vision, Deep Learning, and Explainable AI',
+      bio: 'I am a PhD student in Computer Science at the University of Wyoming, working under the supervision of Dr. Yaqoob Majeed. My research focuses on developing novel techniques in Explainable AI (XAI) for Computer Vision, particularly in Weakly Supervised Semantic Segmentation (WSSS).',
+      start_date: '2023-08-15',
+      image: '/images/Student/ali.jpeg',
+      cv: '/cv/ali_torabi.pdf',
       social: {
-        github: "https://github.com/alitorabi",
-        linkedin: "https://linkedin.com/in/alitorabi",
-        website: "https://alitorabi.dev",
-        google_scholar: "https://scholar.google.com/citations?user=alitorabi"
+        linkedin: 'https://www.linkedin.com/in/ali-torabi-37a60864/',
+        github: 'https://github.com/selfishout',
+        google_scholar: 'https://scholar.google.com/citations?user=mQS8siYAAAAJ&hl=en',
+        website: 'https://selfishout.github.io'
       }
     },
     {
-      id: 2,
-      name: "Sanjog Gaihre",
-      role: "Student",
-      email: "sanjog.gaihre@university.edu",
-      designation: "Master's Student",
-      research_interests: "Smart farming, sensor networks, IoT",
-      bio: "Master's student working on smart farming technologies and IoT sensor networks.",
-      is_active: true,
-      start_date: "2024-01-15",
-      image: "https://randomuser.me/api/portraits/men/44.jpg",
-      cv: "#",
+      id: 'sanjog-gaihre',
+      name: 'Sanjog Gaihre',
+      designation: "M.S. Researcher · Smart Sensing",
+      email: '',
+      research_interests: '',
+      bio: '',
+      start_date: '',
+      image: '',
+      cv: '',
       social: {
-        github: "https://github.com/sanjoggaihre",
-        linkedin: "https://linkedin.com/in/sanjoggaihre",
-        website: "https://sanjoggaihre.com",
-        google_scholar: "https://scholar.google.com/citations?user=sanjoggaihre"
+        linkedin: '',
+        github: '',
+        website: ''
       }
     },
     {
-      id: 3,
-      name: "MD. Mahbubur Rahman",
-      role: "Student",
-      email: "mahbubur.rahman@university.edu",
-      designation: "PhD Student",
-      research_interests: "AI in agriculture, machine learning, crop monitoring",
-      bio: "PhD student focusing on AI and machine learning applications in agricultural crop monitoring.",
-      is_active: true,
-      start_date: "2023-08-01",
-      image: "https://randomuser.me/api/portraits/men/67.jpg",
-      cv: "#",
+      id: 'mahbubur-rahman',
+      name: 'MD. Mahbubur Rahman',
+      designation: 'Ph.D. Student · Machine Learning',
+      email: '',
+      research_interests: '',
+      bio: '',
+      start_date: '',
+      image: '/images/Student/mah.png',
+      cv: '',
       social: {
-        github: "https://github.com/mahbuburrahman",
-        linkedin: "https://linkedin.com/in/mahbuburrahman",
-        website: "https://mahbuburrahman.com",
-        google_scholar: "https://scholar.google.com/citations?user=mahbuburrahman"
+        linkedin: '',
+        google_scholar: '',
+        github: ''
+      }
+    },
+    {
+      id: 'abiam',
+      name: 'Abiam Khalid',
+      designation: '',
+      email: '',
+      research_interests: '',
+      bio: '',
+      start_date: '',
+      image: '',
+      cv: '',
+      social: {
+        linkedin: '',
+        website: ''
+      }
+    },
+    {
+      id: 'mojahed',
+      name: 'Muhammad Mujahid Iqbal',
+      designation: '',
+      email: '',
+      research_interests: '',
+      bio: '',
+      start_date: '',
+      image: '',
+      cv: '',
+      social: {
+        linkedin: '',
+        github: '',
+        website: ''
+      }
+    },
+    {
+      id: 'dayan',
+      name: 'Dayan',
+      designation: '',
+      email: '',
+      research_interests: '',
+      bio: '',
+      start_date: '',
+      image: '',
+      cv: '',
+      social: {
+        linkedin: '',
+        github: '',
+        website: ''
       }
     }
   ]
-};
-
-// Helper functions for CRUD operations using localStorage
-export const teamStorage = {
-  // Get all team data
-  getAll: () => {
-    const stored = localStorage.getItem('majeedLabTeam');
-    if (stored) {
-      return JSON.parse(stored);
-    }
-    // Initialize with default data
-    localStorage.setItem('majeedLabTeam', JSON.stringify(teamData));
-    return teamData;
-  },
-
-  // Save all team data
-  saveAll: (data) => {
-    localStorage.setItem('majeedLabTeam', JSON.stringify(data));
-  },
-
-  // Add new team member
-  addMember: (member) => {
-    const data = teamStorage.getAll();
-    const newId = Math.max(...data.students.map(s => s.id), data.professor.id) + 1;
-    member.id = newId;
-    
-    if (member.role === 'Professor') {
-      data.professor = member;
-    } else {
-      data.students.push(member);
-    }
-    
-    teamStorage.saveAll(data);
-    return member;
-  },
-
-  // Update team member
-  updateMember: (id, updates) => {
-    const data = teamStorage.getAll();
-    
-    if (data.professor.id === id) {
-      data.professor = { ...data.professor, ...updates };
-    } else {
-      const studentIndex = data.students.findIndex(s => s.id === id);
-      if (studentIndex !== -1) {
-        data.students[studentIndex] = { ...data.students[studentIndex], ...updates };
-      }
-    }
-    
-    teamStorage.saveAll(data);
-  },
-
-  // Delete team member
-  deleteMember: (id) => {
-    const data = teamStorage.getAll();
-    
-    if (data.professor.id === id) {
-      // Don't allow deleting professor
-      return false;
-    } else {
-      data.students = data.students.filter(s => s.id !== id);
-    }
-    
-    teamStorage.saveAll(data);
-    return true;
-  }
 };
