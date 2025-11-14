@@ -4,10 +4,13 @@ import react from '@vitejs/plugin-react'
 // https://vite.dev/config/
 export default defineConfig(({ mode }) => {
   const isProd = mode === 'production'
+  const base =
+    process.env.VITE_APP_BASE ??
+    (isProd ? '/LabWebsite-Frontend/' : '/')
 
   return {
     plugins: [react()],
-    base: isProd ? '/LabWebsite-Frontend/' : '/',
+    base,
     build: {
       outDir: 'dist',
       sourcemap: false,
