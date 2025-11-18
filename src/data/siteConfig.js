@@ -3,7 +3,7 @@ export const siteConfig = {
   tagline: 'Intelligent automation for resilient agriculture',
   university: {
     name: 'University of Wyoming',
-    department: 'Department of Agricultural and Applied Economics',
+    department: 'Department of Electrical Engineering and Computer Science',
     address: '1000 E University Ave, Laramie, WY 82071, USA',
     website: 'https://www.uwyo.edu'
   },
