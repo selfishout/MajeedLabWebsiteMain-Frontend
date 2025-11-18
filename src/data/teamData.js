@@ -14,7 +14,8 @@ export const teamData = {
     social: {
       website: 'https://www.uwyo.edu/eecs/faculty-staff/faculty/yaqoob-majeed/index.html',
       google_scholar: 'https://scholar.google.com/citations?user=HueofWEAAAAJ&hl=en&oi=ao',
-      linkedin: 'https://www.linkedin.com/in/yaqoob-majeedhttps://www.linkedin.com/in/yaqoob-majeed-0bb75672/',
+      linkedin: 'https://www.linkedin.com/in/yaqoob-majeed-0bb75672/',
+      
       github: ''
     }
   },
