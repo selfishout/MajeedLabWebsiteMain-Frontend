@@ -15,27 +15,13 @@ export default function Students() {
     return member.cv.toLowerCase().includes('dummy') ? 'Sample CV' : 'Curriculum Vitae';
   };
 
-  // Separate students by degree level
+  // Separate students by degree_type field (defaults to M.S if not specified)
   const phdStudents = students.filter(student => 
-    student.designation && (
-      student.designation.toLowerCase().includes('ph.d') || 
-      student.designation.toLowerCase().includes('phd') ||
-      student.designation.toLowerCase().includes('ph.d.')
-    )
+    student.degree_type && student.degree_type.toLowerCase() === 'ph.d'
   );
 
   const mastersStudents = students.filter(student => 
-    student.designation && (
-      student.designation.toLowerCase().includes('m.s') || 
-      student.designation.toLowerCase().includes('m.s.') ||
-      student.designation.toLowerCase().includes('masters') ||
-      student.designation.toLowerCase().includes('master')
-    )
-  );
-
-  // Students without clear designation go to "Others"
-  const otherStudents = students.filter(student => 
-    !phdStudents.includes(student) && !mastersStudents.includes(student)
+    !student.degree_type || student.degree_type.toLowerCase() !== 'ph.d'
   );
 
   return (
@@ -104,9 +90,6 @@ export default function Students() {
                 <img src={getImageUrl(student)} alt={student.name} className="student-image" />
                 <h3 className="student-name">{student.name}</h3>
                 <p className="student-designation">{student.designation}</p>
-                {student.research_interests && (
-                  <p className="student-research"><strong>Research:</strong> {student.research_interests}</p>
-                )}
                 <p className="student-bio">{student.bio}</p>
                 <div className="student-links">
                   {student.email && (
@@ -163,9 +146,6 @@ export default function Students() {
                 <img src={getImageUrl(student)} alt={student.name} className="student-image" />
                 <h3 className="student-name">{student.name}</h3>
                 <p className="student-designation">{student.designation}</p>
-                {student.research_interests && (
-                  <p className="student-research"><strong>Research:</strong> {student.research_interests}</p>
-                )}
                 <p className="student-bio">{student.bio}</p>
                 <div className="student-links">
                   {student.email && (
@@ -203,62 +183,6 @@ export default function Students() {
         </>
       )}
 
-      {/* Other Students Section (if any) */}
-      {otherStudents.length > 0 && (
-        <>
-          {phdStudents.length > 0 || mastersStudents.length > 0 ? (
-            <div className="degree-separator">
-              <div className="separator-line"></div>
-              <div className="separator-icon">👥</div>
-              <div className="separator-line"></div>
-            </div>
-          ) : null}
-          <h3 className="degree-section-title">Researchers</h3>
-          <div className="students-list">
-            {otherStudents.map((student) => (
-              <div className="student-card" key={student.id}>
-                <img src={getImageUrl(student)} alt={student.name} className="student-image" />
-                <h3 className="student-name">{student.name}</h3>
-                <p className="student-designation">{student.designation}</p>
-                {student.research_interests && (
-                  <p className="student-research"><strong>Research:</strong> {student.research_interests}</p>
-                )}
-                <p className="student-bio">{student.bio}</p>
-                <div className="student-links">
-                  {student.email && (
-                    <a href={`mailto:${student.email}`} className="email-link">Email</a>
-                  )}
-                  {student.social?.github && (
-                    <a href={student.social.github} target="_blank" rel="noopener noreferrer" title="GitHub">
-                      <FaGithub size={18} className="social-icon github" />
-                    </a>
-                  )}
-                  {student.social?.linkedin && (
-                    <a href={student.social.linkedin} target="_blank" rel="noopener noreferrer" title="LinkedIn">
-                      <FaLinkedin size={18} className="social-icon linkedin" />
-                    </a>
-                  )}
-                  {student.social?.website && (
-                    <a href={student.social.website} target="_blank" rel="noopener noreferrer" title="Website">
-                      <FaGlobe size={18} className="social-icon website" />
-                    </a>
-                  )}
-                  {student.social?.google_scholar && (
-                    <a href={student.social.google_scholar} target="_blank" rel="noopener noreferrer" title="Google Scholar">
-                      <SiGooglescholar size={18} className="social-icon scholar" />
-                    </a>
-                  )}
-                  {student.cv && (
-                    <a href={student.cv} target="_blank" rel="noopener noreferrer" className="cv-link">
-                      {getCVLabel(student)}
-                    </a>
-                  )}
-                </div>
-              </div>
-            ))}
-          </div>
-        </>
-      )}
     </div>
   );
 } 
