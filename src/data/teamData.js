@@ -56,6 +56,24 @@ export const teamData = {
       }
     },
     {
+      id: 'omor-faruk',
+      name: 'Md Omor Faruk',
+      designation: 'Ph.D. Student · Artificial Intelligence and Reinforcement Learning',
+      degree_type: 'Ph.D',
+      email: 'mfaruk1@uwyo.edu',
+      research_interests: 'Artificial Intelligence, 3D reconstruction, and Reinfrocement Learning',
+      bio: 'I am a PhD student in Electrical Engineering at the University of Wyoming, working under the supervision of Dr. Yaqoob Majeed. My research focuses on improving Generative AI model for 3D reconstructiona and integrating Reinfrocement Learning for making optimal decision for Controlled Environment Agriculture.',
+      start_date: '2023-08-15',
+      image: '/images/Student/ali.jpeg',
+      cv: '/cv/ali_torabi.pdf',
+      social: {
+        linkedin: 'https://www.linkedin.com/in/omor-faruk-a173a939a/',
+        github: 'https://github.com/omorovi',
+        google_scholar: 'https://scholar.google.com/citations?user=aOR1bMsAAAAJ&hl=en',
+        website: 'https://sites.google.com/view/farukmdomor/about-me'
+      }
+    },  
+    {
       id: 'mahbubur-rahman',
       name: 'MD. Mahbubur Rahman',
       designation: 'Ph.D. Student · Machine Learning',
