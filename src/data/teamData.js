@@ -67,7 +67,7 @@ export const teamData = {
       image: '/images/Student/omor.jpg',
       cv: '/cv/omor_faruk.pdf',
       social: {
-        linkedin: 'https://www.linkedin.com/in/omor-faruk-a173a939a/',
+        linkedin: 'https://www.linkedin.com/in/engromorfaruk/',
         github: 'https://github.com/omorovi',
         google_scholar: 'https://scholar.google.com/citations?user=aOR1bMsAAAAJ&hl=en',
         website: 'https://sites.google.com/view/farukmdomor/about-me'
