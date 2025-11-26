@@ -64,8 +64,8 @@ export const teamData = {
       research_interests: 'Artificial Intelligence, 3D reconstruction, and Reinfrocement Learning',
       bio: 'I am a PhD student in Electrical Engineering at the University of Wyoming, working under the supervision of Dr. Yaqoob Majeed. My research focuses on improving Generative AI model for 3D reconstructiona and integrating Reinfrocement Learning for making optimal decision for Controlled Environment Agriculture.',
       start_date: '2023-08-15',
-      image: '/images/Student/ali.jpeg',
-      cv: '/cv/ali_torabi.pdf',
+      image: '/images/Student/omor.jpeg',
+      cv: '/cv/omor_faruk.pdf',
       social: {
         linkedin: 'https://www.linkedin.com/in/omor-faruk-a173a939a/',
         github: 'https://github.com/omorovi',
