@@ -46,8 +46,8 @@ export const teamData = {
       email: 'sgaihre@uwyo.edu',
       research_interests: 'Computer Vision, Generative AI, Digital Twin',
       bio: 'I am a MS student in Artificial Intelligence at the University of Wyoming, working under the supervision of Dr. Yaqoob Majeed. My research focuses on application in controlled agriculture using computer vision and deep learning. I am currently working on Digital Twin for predicting plant\'s growth ',
-      start_date: '',
-      image: '',
+      start_date: '2025-05-30',
+      image: '/images/Student/sanjog.jpg',
       cv: '',
       social: {
         linkedin: 'https://www.linkedin.com/in/sanjoggaihre0/',
