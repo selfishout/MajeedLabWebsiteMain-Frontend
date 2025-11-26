@@ -41,17 +41,17 @@ export const teamData = {
     {
       id: 'sanjog-gaihre',
       name: 'Sanjog Gaihre',
-      designation: "M.S. Researcher · Smart Sensing",
+      designation: "M.S. in AI · Computer Vision, Generative AI",
       degree_type: 'M.S',
-      email: '',
-      research_interests: '',
-      bio: '',
+      email: 'sgaihre@uwyo.edu',
+      research_interests: 'Computer Vision, Generative AI, Digital Twin',
+      bio: 'I am a MS student in Artificial Intelligence at the University of Wyoming, working under the supervision of Dr. Yaqoob Majeed. My research focuses on application in controlled agriculture using computer vision and deep learning. I am currently working on Digital Twin for predicting plant\'s growth ',
       start_date: '',
       image: '',
       cv: '',
       social: {
-        linkedin: '',
-        github: '',
+        linkedin: 'https://www.linkedin.com/in/sanjoggaihre0/',
+        github: 'https://github.com/sanjoggaihre',
         website: ''
       }
     },
