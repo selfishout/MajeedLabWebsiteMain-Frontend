@@ -109,17 +109,17 @@ export const teamData = {
     {
       id: 'mojahed',
       name: 'Muhammad Mujahid Iqbal',
-      designation: '',
+      designation: 'MS Student · Electrical Engineering',
       degree_type: 'M.S',
-      email: '',
-      research_interests: '',
-      bio: '',
-      start_date: '',
-      image: '',
+      email: 'miqbal1@uwyo.edu',
+      research_interests: 'Robotics, Deep Learning, Hyperspectral Imaging',
+      bio: 'I am an MS Electrical Engineering student at the University of Wyoming, conducting research in Robotics and Hyperspectral Imaging in agriculture under the supervision of Dr. Yaqoob Majeed. Before that, I earned my bachelor\'s degree in Mechatronics and Control Engineering from the University of Engineering and Technology Lahore in 2025.',
+      start_date: '2025-08-15',
+      image: '/images/Student/mujahid.jpg',
       cv: '',
       social: {
-        linkedin: '',
-        github: '',
+        linkedin: 'linkedin.com/in/m-mujahid-iqbal',
+        github: 'https://github.com/mujahid-38',
         website: ''
       }
     },
