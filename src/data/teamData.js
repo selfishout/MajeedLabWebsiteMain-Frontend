@@ -118,7 +118,7 @@ export const teamData = {
       image: '/images/Student/mujahid.jpg',
       cv: '',
       social: {
-        linkedin: 'linkedin.com/in/m-mujahid-iqbal',
+        linkedin: 'https://www.linkedin.com/in/m-mujahid-iqbal',
         github: 'https://github.com/mujahid-38',
         website: ''
       }
