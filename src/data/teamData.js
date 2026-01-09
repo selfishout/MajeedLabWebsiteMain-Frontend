@@ -5,7 +5,7 @@ export const teamData = {
     name: 'Dr. Yaqoob Majeed',
     designation: 'Director & Principal Investigator',
     email: 'ymajeed@uwyo.edu',
-    affiliation: 'Majeed Agricultural Robotics Lab, University of Wyoming',
+    affiliation: 'AgBodied Lab: Perception, Embodied Intelligence, and Robotics for Agriculture, University of Wyoming',
     bio: 'Dr. Majeed leads interdisciplinary research in agricultural robotics, precision horticulture, and autonomous sensing systems. His group partners with growers across the Mountain West to translate intelligent automation into resilient food production.',
     short_bio: 'Specialist in intelligent agricultural automation and field robotics.',
     research_interests: 'Agricultural Robotics, Machine Vision, Deep Learning, Digital Agriculture, Controlled Environment Agriculture',

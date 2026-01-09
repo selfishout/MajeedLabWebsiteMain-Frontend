@@ -73,7 +73,7 @@ export default function Publications() {
     <div className="publications-container">
       <h1 className="publications-title">Publications</h1>
       <p className="publications-lede">
-        Peer-reviewed articles, conference papers, and award-winning demonstrations from the Majeed Agricultural Robotics Lab.
+        Peer-reviewed articles, conference papers, and award-winning demonstrations from the AgBodied Lab: Perception, Embodied Intelligence, and Robotics for Agriculture.
       </p>
 
       <section className="publications-metrics">

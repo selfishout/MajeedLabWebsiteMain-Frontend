@@ -37,7 +37,7 @@ export const homeData = {
     welcome_section: {
       title: 'Where Robotics Meets Regenerative Agriculture',
       subtitle: 'Translating intelligent automation into sustainable food systems',
-      description: 'The Majeed Agricultural Robotics Lab designs end-to-end solutions—from perception algorithms and novel hardware to grower-centered interfaces. Our deployments span orchards, vineyards, high tunnels, and controlled-environment agriculture.',
+      description: 'The AgBodied Lab: Perception, Embodied Intelligence, and Robotics for Agriculture designs end-to-end solutions—from perception algorithms and novel hardware to grower-centered interfaces. Our deployments span orchards, vineyards, high tunnels, and controlled-environment agriculture.',
       image: 'https://images.unsplash.com/photo-1511690656952-34342bb7c2f2?auto=format&fit=crop&w=1100&q=80'
     },
 

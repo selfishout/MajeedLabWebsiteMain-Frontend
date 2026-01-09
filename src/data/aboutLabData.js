@@ -1,7 +1,7 @@
 // Static about lab data - replaces database content
 export const aboutLabData = {
   labInfo: {
-    name: 'Majeed Agricultural Robotics Lab',
+    name: 'AgBodied Lab: Perception, Embodied Intelligence, and Robotics for Agriculture',
     established: '2019',
     location: 'Engineering Innovation Center · Suite 410',
     department: 'Department of Plant Sciences & Agricultural Systems',
@@ -16,7 +16,7 @@ export const aboutLabData = {
 
   vision: 'Enable every specialty crop grower to deploy adaptive robotics and sensing systems that make farming more resilient, profitable, and sustainable.',
 
-  description: 'The Majeed Agricultural Robotics Lab blends robotics, computer vision, agronomy, and design research. We co-develop technology with growers, ensuring that our autonomous platforms, perception pipelines, and analytics tools solve problems that matter in the field.',
+  description: 'The AgBodied Lab: Perception, Embodied Intelligence, and Robotics for Agriculture blends robotics, computer vision, agronomy, and design research. We co-develop technology with growers, ensuring that our autonomous platforms, perception pipelines, and analytics tools solve problems that matter in the field.',
 
   researchFocus: [
     'Collaborative harvesting and crop care robots for orchards and vineyards',

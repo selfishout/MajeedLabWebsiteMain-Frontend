@@ -1,5 +1,5 @@
 export const siteConfig = {
-  labName: 'Majeed Agricultural Robotics Lab',
+  labName: 'AgBodied Lab: Perception, Embodied Intelligence, and Robotics for Agriculture',
   tagline: 'Intelligent automation for resilient agriculture',
   university: {
     name: 'University of Wyoming',
