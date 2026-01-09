@@ -23,28 +23,28 @@ export const homeData = {
         title: 'Embodied AI and Autonomous Robotic Systems',
         description: 'Development of intelligent robotic platforms that tightly integrate perception, learning, and control for autonomous operation in complex, unstructured environments such as agriculture and controlled-environment systems.',
         icon: '🤖',
-        image: 'https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=420&q=80'
+        image: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=1200&q=90'
       },
       {
         id: 2,
         title: 'Robotic Perception and Multimodal Sensing',
         description: 'Research on visual, depth, tactile, and spectral sensing (RGB, LiDAR, multispectral/hyperspectral) and sensor fusion to enable robust scene understanding, plant perception, and interaction-aware robotics.',
         icon: '🧠',
-        image: 'https://images.unsplash.com/photo-1516117172878-fd2c41f4a759?auto=format&fit=crop&w=420&q=80'
+        image: 'https://images.unsplash.com/photo-1555255707-c07966088b7b?auto=format&fit=crop&w=1200&q=90'
       },
       {
         id: 3,
         title: 'Learning-Based Manipulation and Decision Making',
         description: 'Design of supervised, self-supervised, and reinforcement learning methods for robotic manipulation, harvesting, navigation, and adaptive decision-making under uncertainty and resource constraints.',
         icon: '📡',
-        image: 'https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=420&q=80'
+        image: 'https://images.unsplash.com/photo-1555252333-9f8e92e65df9?auto=format&fit=crop&w=1200&q=90'
       },
       {
         id: 4,
         title: 'AI-Driven Agricultural Systems and Digital Twins',
         description: 'Application of AI, robotics, and digital twins to optimize crop growth, resource use, and sustainability in controlled and field agriculture, bridging plant science, engineering, and data-driven production systems.',
         icon: '🤝',
-        image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=420&q=80'
+        image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=90'
       }
     ],
 
