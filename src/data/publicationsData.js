@@ -7,7 +7,7 @@ export const publicationsData = [
     "journal": "Computers and Electronics in Agriculture",
     "year": 2020,
     "abstract": "Deep learning achieved high success of fruit-on-plant detection such as on apple. Most of studies on apple detection identified all target fruits as one class regardless of fruit condition and other canopy objects. However, some detected fruits were physically occluded by branches or trellis wires that could diminish the effectiveness of fruit picking and even damage the end-effector, especially when high-vigor rootstock apple cultivar was used. A multi-class apple detection method in dense-foliage fruiting-wall trees was thus proposed based on Faster Region-Convolutional Neural Network. It detected apples in different conditions such as non-occluded, leaf-occluded, branch/wire-occluded, and fruit-occluded fruit. A total of 800 images were acquired and then augmented to 12,800 images. Average precision of non-occluded, leaf-occluded, branch/wire-occluded, and fruit-occluded fruit were 0.909, 0.899, 0.858, and 0 …",
-    "citations": 353,
+    "citations": 366,
     "url": "https://www.sciencedirect.com/science/article/pii/S0168169920314009"
   },
   {
@@ -16,7 +16,7 @@ export const publicationsData = [
     "authors": "Yaqoob Majeed and Muhammad Usman Khan and Muhammad Waseem and Umair Zahid and Faisal Mahmood and Faizan Majeed and Muhammad Sultan and Ali Raza",
     "year": 2023,
     "abstract": "This study provides a high-level overview of alternative energy sources that can be harnessed to power agricultural operations, focusing on renewable energy technologies. When thinking about the overall economy around the globe, agriculture is vital. Energy is required at each step of production, from fertilizer production to fueling tractors for planting and harvesting. The high energy prices and unpredictable energy market significantly affect the input energy costs. Energy efficiency methods, when properly applied, and the use of farm’s renewable energy sources could assist agricultural producers in saving energy-related costs. Renewable energy resources in the form of solar, biomass, wind, and geothermal energy are abundantly available in the agriculture sector. This review aims to explore renewable energy as an alternative energy source for efficient energy management in agriculture. It discusses the …",
-    "citations": 297,
+    "citations": 320,
     "url": "https://www.sciencedirect.com/science/article/pii/S2352484723010521"
   },
   {
@@ -25,7 +25,7 @@ export const publicationsData = [
     "authors": "Zheng Zhou and Yaqoob Majeed and Geraldine Diverres Naranjo and Elena MT Gambacorta",
     "year": 2021,
     "abstract": "With the increasing global water scarcity, efficient assessment methods for crop water stress have become a prerequisite to perform precision irrigation scheduling. The 1accessibility of infrared thermal sensor provides a powerful tool to detect and quantify crop water stress. This paper reviews the current practices of infrared thermal imagery utilized to assess crop water stress. Overall, three technological aspects of infrared thermal sensing applications for crop water stress assessment are reviewed along with the challenges and recommendations: (i) introduction of uncooled thermal camera and platforms, including ground-based platform and unmanned aerial vehicles (UAVs) platforms, for thermal imaging acquisition, (ii) strategies of canopy segmentation in thermal imaging used to obtain average canopy temperature for CWSI calculation, (iii) correlation between three forms of crop water stress index (CWSI) i.e …",
-    "citations": 249,
+    "citations": 264,
     "url": "https://www.sciencedirect.com/science/article/pii/S0168169921000375"
   },
   {
@@ -35,7 +35,7 @@ export const publicationsData = [
     "journal": "Biosystems Engineering",
     "year": 2020,
     "abstract": "Apples in modern orchards with vertical-fruiting-wall trees are comparatively easier to harvest and specifically suitable for robotic picking, where accurate apple detection and obstacle-free access are fundamentally important. However, field images have complex backgrounds because of the presence of nontarget trees and fruit in adjacent rows. An outdoor machine vision system was developed with a low-cost Kinect V2 sensor to improve the accuracy of apple detection by filtering the background objects using depth features. A total of 800 set images were acquired in a commercial fruiting-wall Scifresh apple orchard with dense-foliage canopy. Images were collected in both daytime and nighttime with artificial light. The sensor was kept at 0.5 m to the tree canopies. A depth threshold of 1.2 m was used to remove background. Two Faster R–CNN based architectures ZFNet and VGG16 were employed to detect the …",
-    "citations": 242,
+    "citations": 244,
     "url": "https://www.sciencedirect.com/science/article/pii/S1537511020302002"
   },
   {
@@ -45,27 +45,27 @@ export const publicationsData = [
     "journal": "Precision Agriculture",
     "year": 2021,
     "abstract": "Automatic detection of kiwifruit in the orchard is challenging because illumination varies through the day and night and because of color similarity between kiwifruit and the complex background of leaves, branches and stems. Also, kiwifruits grow in clusters, which may result in having occluded and touching fruits. A fast and accurate object detection algorithm was developed to automatically detect kiwifruits in the orchard by improving the YOLOv3-tiny model. Based on the characteristics of kiwifruit images, two convolutional kernels of 3 × 3 and 1 × 1 were added to the fifth and sixth convolution layers of the YOLOv3-tiny model, respectively, to develop a deep YOLOv3-tiny (DY3TNet) model. It takes multiple 1 × 1 convolutional layers in intermediate layers of the network to reduce the computational complexity. Testing images captured from day and night and comparing with other deep learning models, namely …",
-    "citations": 227,
+    "citations": 230,
     "url": "https://link.springer.com/article/10.1007/s11119-020-09754-y"
   },
   {
     "id": 6,
+    "title": "Potentials of polysaccharides, lipids and proteins in biodegradable food packaging applications",
+    "authors": "Usman Amin and Muhammad Usman Khan and Yaqoob Majeed and Maksim Rebezov and Mars Khayrullin and Elena Bobkova and Mohammad Ali Shariati and Ill Min Chung and Muthu Thiruvengadam",
+    "year": 2021,
+    "abstract": "Bio-based packaging materials are gaining importance due to their biodegradability, sustainability and environmental friendliness. To control the food quality and improve the food safety standards, proteins polysaccharide and lipid-based packaging films are enriched with bioactive and functional substances. However, poor permeability and mechanical characteristics are the challenging areas in their commercialization. Scientists and researchers are using a combination of techniques i.e. hydrogels, crosslinking, etc. to improve the intermolecular forces between different components of the film formulation to counter these challenges More recently, biodegradable packaging materials, sometimes edible, are also used for the delivery of functional ingredients which reveals their potential for drug delivery to counter the nutrient deficiency problems. This study highlights the potentials of bio-based materials i.e. proteins …",
+    "citations": 220,
+    "url": "https://www.sciencedirect.com/science/article/pii/S014181302101165X"
+  },
+  {
+    "id": 7,
     "title": "Improved kiwifruit detection using pre-trained VGG16 with RGB and NIR information fusion",
     "authors": "Zhihao Liu and Jingzhu Wu and Longsheng Fu and Yaqoob Majeed and Yali Feng and Rui Li and Yongjie Cui",
     "journal": "IEEE access",
     "year": 2019,
     "abstract": "This study presents a novel method to apply the RGB-D (Red Green Blue-Depth) sensors and fuse aligned RGB and NIR images with deep convolutional neural networks (CNN) for fruit detection. It aims to build a more accurate, faster, and more reliable fruit detection system, which is a vital element for fruit yield estimation and automated harvesting. Recent work in deep neural networks has led to the development of a state-of-the-art object detector termed Faster Region-based CNN (Faster R-CNN). A common Faster R-CNN network VGG16 was adopted through transfer learning, for the task of kiwifruit detection using imagery obtained from two modalities: RGB (red, green, blue) and Near-Infrared (NIR) images. Kinect v2 was used to take a bottom view of the kiwifruit canopy's NIR and RGB images. The NIR (1 channel) and RGB images (3 channels) were aligned and arranged side by side into a 6-channel image …",
-    "citations": 217,
+    "citations": 220,
     "url": "https://ieeexplore.ieee.org/abstract/document/8943411/"
-  },
-  {
-    "id": 7,
-    "title": "Potentials of polysaccharides, lipids and proteins in biodegradable food packaging applications",
-    "authors": "Usman Amin and Muhammad Usman Khan and Yaqoob Majeed and Maksim Rebezov and Mars Khayrullin and Elena Bobkova and Mohammad Ali Shariati and Ill Min Chung and Muthu Thiruvengadam",
-    "year": 2021,
-    "abstract": "Bio-based packaging materials are gaining importance due to their biodegradability, sustainability and environmental friendliness. To control the food quality and improve the food safety standards, proteins polysaccharide and lipid-based packaging films are enriched with bioactive and functional substances. However, poor permeability and mechanical characteristics are the challenging areas in their commercialization. Scientists and researchers are using a combination of techniques i.e. hydrogels, crosslinking, etc. to improve the intermolecular forces between different components of the film formulation to counter these challenges More recently, biodegradable packaging materials, sometimes edible, are also used for the delivery of functional ingredients which reveals their potential for drug delivery to counter the nutrient deficiency problems. This study highlights the potentials of bio-based materials i.e. proteins …",
-    "citations": 211,
-    "url": "https://www.sciencedirect.com/science/article/pii/S014181302101165X"
   },
   {
     "id": 8,
@@ -74,27 +74,27 @@ export const publicationsData = [
     "journal": "IFAC-PapersOnLine",
     "year": 2018,
     "abstract": "A kiwifruit detection system for field images was developed based on the deep convolutional neural network, which has a good robustness against the subjectivity and limitation of the features selected artificially. Under different lighting conditions, 2,100 sub-images with 784×784 pixels were prepared by random sub-sampling from 700 field captured images with a pixel resolution of 2352×1568 pixels. Sub-images were used as network training and validation samples. A faster R-CNN was trained end-to-end by using back-propagation and stochastic gradient descent techniques with Zeiler and Fergus network (ZFNet). The average precision of the Faster R-CNN-based kiwifruit detector was 89.3%. Finally, another 100 images of kiwifruit canopies in the field environment (including 5,918 fruits) were used for testing the network. The test results showed that the recognition ratio of occluded fruit, overlapping fruit …",
-    "citations": 163,
+    "citations": 167,
     "url": "https://www.sciencedirect.com/science/article/pii/S2405896318311753"
   },
   {
     "id": 9,
+    "title": "Fruit yield prediction and estimation in orchards: A state-of-the-art comprehensive review for both direct and indirect methods",
+    "authors": "Leilei He and Wentai Fang and Guanao Zhao and Zhenchao Wu and Longsheng Fu and Rui Li and Yaqoob Majeed and Jaspreet Dhupia",
+    "year": 2022,
+    "abstract": "Orchard pre-harvest yield data is important for fruit growers, which can be used for economic benefit evaluation, management mode adjustment and so on. However, traditional manual operation by sampling estimation is quite an onerous and time-consuming task. The main approach of automatic yield monitoring is by establishing multi-information comprehensive prediction systems or using intelligent equipment. A review is performed to investigate and analyze the past 12 years (from 2010 to 2021) of research work regarding orchard yield prediction and estimation. According to our investigation, the most widely used input features in yield prediction systems are various vegetation indices information of plants, while machine learning is the most modeling method applied. In addition, machine vision systems based on image processing and deep learning have been developed rapidly in the field of agriculture and is …",
+    "citations": 165,
+    "url": "https://www.sciencedirect.com/science/article/pii/S0168169922001296"
+  },
+  {
+    "id": 10,
     "title": "Deep learning based segmentation for automated training of apple trees on trellis wires",
     "authors": "Yaqoob Majeed and Jing Zhang and Xin Zhang and Longsheng Fu and Manoj Karkee and Qin Zhang and Matthew D Whiting",
     "journal": "Computers and Electronics in Agriculture",
     "year": 2020,
     "abstract": "Trellised fruiting-wall training systems are becoming standard for modern apple orchards due to their high fruit yield and quality, and their suitability to robotic operations in pruning and harvesting. In a common practice of training young apple trees to a trellis-trained canopy system in PNW region of US, trees branches are manually selected and then tied to horizontal trellis wires in 6 or 7 tiers. As manual training of apple trees to these modern orchard architectures is becoming challenging due to less availability of skilled human labor with quickly increased labor cost, automated training using sensing and robotic techniques could be an alternative solution. Segmenting trunks, branches, and trellis wires is a critical step in automating a tree training operation. In this study, a deep learning-based semantic segmentation method was developed for automatically performing this segmentation task. A Kinect V2 sensor was …",
-    "citations": 161,
+    "citations": 163,
     "url": "https://www.sciencedirect.com/science/article/pii/S0168169919316266"
-  },
-  {
-    "id": 10,
-    "title": "Fruit yield prediction and estimation in orchards: A state-of-the-art comprehensive review for both direct and indirect methods",
-    "authors": "Leilei He and Wentai Fang and Guanao Zhao and Zhenchao Wu and Longsheng Fu and Rui Li and Yaqoob Majeed and Jaspreet Dhupia",
-    "year": 2022,
-    "abstract": "Orchard pre-harvest yield data is important for fruit growers, which can be used for economic benefit evaluation, management mode adjustment and so on. However, traditional manual operation by sampling estimation is quite an onerous and time-consuming task. The main approach of automatic yield monitoring is by establishing multi-information comprehensive prediction systems or using intelligent equipment. A review is performed to investigate and analyze the past 12 years (from 2010 to 2021) of research work regarding orchard yield prediction and estimation. According to our investigation, the most widely used input features in yield prediction systems are various vegetation indices information of plants, while machine learning is the most modeling method applied. In addition, machine vision systems based on image processing and deep learning have been developed rapidly in the field of agriculture and is …",
-    "citations": 157,
-    "url": "https://www.sciencedirect.com/science/article/pii/S0168169922001296"
   },
   {
     "id": 11,
@@ -112,7 +112,7 @@ export const publicationsData = [
     "authors": "Muhammad Waseem and Asad Ullah Tahir and Yaqoob Majeed",
     "year": 2024,
     "abstract": "The field of 3D food printing is poised to revolutionize the gastronomic landscape by offering precise and customized food creations. This short review explores the fundamental concepts and physical qualities that influence the design, structure, and taste of 3D-printed food, examining the interplay between physics and food, including viscosity, rheology, surface tension, and heat transfer, contributing to understanding and advancing 3D food printing technology. The basics of 3D food printing, the physics-driven design and structure of printed food, the role of heat transfer and thermal effects, and the sensory aspects and flavor perception in 3D-printed food are discussed. Furthermore, it highlights the recent advances and innovations in 3D food printing, along with the challenges that lie ahead and future directions for research. This perspective underscores the importance of physics in shaping the future of 3D food …",
-    "citations": 92,
+    "citations": 100,
     "url": "https://www.sciencedirect.com/science/article/pii/S2950069923000038"
   },
   {
@@ -122,7 +122,7 @@ export const publicationsData = [
     "journal": "IFAC-PapersOnLine",
     "year": 2018,
     "abstract": "Apple orchard in modern fruiting wall architectures (e.g. Vertical and V-trellis) help to attain high fruit yield and quality. These systems are also key to developing simpler tree canopies, which improves productivity of manual orchard operations while creating opportunities for automated field operations such as robotic harvesting and/or pruning. Training of fruit trees to these architectures is carried out manually, which is becoming challenging due to the increasing labor cost and uncertainty in the labor availability. With reduced cost and increasing speed and robustness of sensing and robotic technologies, automated tree training could be a viable alternative. One of the most important steps to automate tree training operation is to segment out the trunk and branches of the trees that are ready to be trained and then select the suitable branch for the training. In this work, a trunk and branch segmentation method was …",
-    "citations": 89,
+    "citations": 92,
     "url": "https://www.sciencedirect.com/science/article/pii/S2405896318311807"
   },
   {
@@ -132,7 +132,7 @@ export const publicationsData = [
     "journal": "Computers and Electronics in Agriculture",
     "year": 2020,
     "abstract": "Canopy management practices are carried out annually in vineyards for establishing and maintaining healthy canopies. Green shoot thinning is an integral part of canopy management practices in wine grapes (Vitis vinifera), used to reduce crop load to desired level for optimizing wine quality. Mechanical thinning can reduce labor requirements by 25 times compared to manual operation. However, due to difficulty in adjusting position and orientation of thinning end-effector to the shape of the cordons, cluster removal efficiency with mechanical green shoot thinning varies from 10 to 85%. Automating mechanical thinning could help to substantially increase its efficiency and performance. For performing an automated operation, the first step is to determine the shapes of vine cordons. In this work, methods were investigated to accurately determine the cordon shapes using deep learning networks in natural …",
-    "citations": 56,
+    "citations": 58,
     "url": "https://www.sciencedirect.com/science/article/pii/S0168169919324391"
   },
   {
@@ -141,7 +141,7 @@ export const publicationsData = [
     "authors": "Zheng Zhou and Umair Zahid and Yaqoob Majeed and Nisha and Sadaf Mustafa and Muhammad Muzzammil Sajjad and Hafiz Danish Butt and Longsheng Fu",
     "year": 2023,
     "abstract": "On-farm sorting and transportation of postharvest fruit include sorting out defective products, grading them into categories based on quality, distributing them into bins, and carrying bins to field collecting stations. Advances in artificial intelligence (AI) can speed up on-farm sorting and transportation with high accuracy and robustness and significantly reduce postharvest losses. The primary objective of this literature review is to provide an overview to present a critical analysis and identify the challenges and opportunities of AI applications for on-farm sorting and transportation, with a focus on fruit. The challenges of on-farm sorting and transportation were discussed to specify the role of AI. Sensors and techniques for data acquisition were investigated to illustrate the tasks that AI models have addressed for on-farm sorting and transportation. AI models proposed in previous studies were compared to investigate the adequate approaches for on-farm sorting and transportation. Finally, the advantages and limitations of utilizing AI have been discussed, and in-depth analysis has been provided to identify future research directions. We anticipate that this survey will pave the way for further studies on the implementation of automated systems for on-farm fruit sorting and transportation.",
-    "citations": 52,
+    "citations": 57,
     "url": "https://www.frontiersin.org/articles/10.3389/fpls.2023.1082860/full"
   },
   {
@@ -150,7 +150,7 @@ export const publicationsData = [
     "authors": "Muhammad Waseem and Yaqoob Majeed and Tayyaba Nadeem and Laraib Haider Naqvi and Muhammad Arslan Khalid and Muhammad Muzzammil Sajjad and Muhammad Sultan and Muhammad Usman Khan and Mars Khayrullin and Mohammad Ali Shariati and Jose Manuel Lorenzo",
     "year": 2023,
     "abstract": "Food bioactive compounds have a beneficial biological effect on human health, fending off cancer, cardiovascular disease, metabolic syndrome, and neurodegenerative disease, among other noncommunicable diseases and neurodegenerative disorders. Secondary metabolites like polyphenols, glucosinolates, carotenoids, vitamins, terpenoids, saponins, and fibers have been linked to these health benefits due to their antioxidant, antiatherogenic, anti‐inflammatory, antimicrobial, cardioprotective, and vasodilator properties. This review comprehensively illustrates the extraction of bioactive compounds in food formulations along plant wastes and provides insight into the efficient delivery systems for health‐promoting compounds. There is an insight into how to choose which bioactive to use, how to extract them in a bioavailable state, and how to include and deliver them. Grapes, garlic, sweet potato leaves, cactus …",
-    "citations": 49,
+    "citations": 52,
     "url": "https://iadns.onlinelibrary.wiley.com/doi/abs/10.1002/fft2.296"
   },
   {
@@ -165,6 +165,26 @@ export const publicationsData = [
   },
   {
     "id": 18,
+    "title": "Development and performance evaluation of a machine vision system and an integrated prototype for automated green shoot thinning in vineyards",
+    "authors": "Yaqoob Majeed and Manoj Karkee and Qin Zhang and Longsheng Fu and Matthew D Whiting",
+    "journal": "Journal of Field Robotics",
+    "year": 2021,
+    "abstract": "Green shoot thinning in vineyards is an essential, perennial operation for maintaining canopy health and optimizing yield and quality of wine grapes. Use of mechanized thinning system, which is essential to reduce labor dependency and associated cost, causes high variability in shoot removal efficiency due to difficulty in precisely positioning the thinning end‐effector along cordon trajectories. Automated/robotic solution for precise positioning of the thinning end‐effector could significantly improve the performance and efficiency of mechanical green shoot thinning. This study presents: (i) a machine vision‐based cordon detection system that can estimate cordon trajectories at different shoot growth stages in a vineyard; and (ii) evaluation of an integrated green shoot thinning system capable of automatically positioning the thinning end‐effector following vine cordon trajectories. The developed machine vision …",
+    "citations": 39,
+    "url": "https://onlinelibrary.wiley.com/doi/abs/10.1002/rob.22013"
+  },
+  {
+    "id": 19,
+    "title": "Automatic blossom detection in apple trees using deep learning",
+    "authors": "Uddhav Bhattarai and Santosh Bhusal and Yaqoob Majeed and Manoj Karkee",
+    "journal": "IFAC-PapersOnLine",
+    "year": 2020,
+    "abstract": "Overcropping in fruit trees results in decreased fruit size, poor fruit quality, biennial bearing, and reduction in productive life of orchards. Although flowers and fruits are removed/thinned naturally, they require additional thinning for commercial grade fruit production. Integration of machine vision system in mechanical/chemical thinning facilitates automated selective blossom thinning. The primary requirement for automating blossom thinning is to estimate the blossom density in apple trees under varying background and lighting conditions. In this work, we implement Mask-RCNN algorithm to perform instance segmentation of apple blossoms. Different image augmentation techniques were implemented and their impact on blossom detection were assessed. Experiments were conducted to achieve optimal values of hyperparameters of the deep learning network during the training. Implementation of image …",
+    "citations": 39,
+    "url": "https://www.sciencedirect.com/science/article/pii/S2405896320304857"
+  },
+  {
+    "id": 20,
     "title": "Remote estimation of grafted apple tree trunk diameter in modern orchard with RGB and point cloud based on SOLOv2",
     "authors": "Xiaoming Sun and Wentai Fang and Changqing Gao and Longsheng Fu and Yaqoob Majeed and Xiaojuan Liu and Fangfang Gao and Ruizhe Yang and Rui Li",
     "journal": "Computers and Electronics in Agriculture",
@@ -174,33 +194,13 @@ export const publicationsData = [
     "url": "https://www.sciencedirect.com/science/article/pii/S0168169922005245"
   },
   {
-    "id": 19,
-    "title": "Automatic blossom detection in apple trees using deep learning",
-    "authors": "Uddhav Bhattarai and Santosh Bhusal and Yaqoob Majeed and Manoj Karkee",
-    "journal": "IFAC-PapersOnLine",
-    "year": 2020,
-    "abstract": "Overcropping in fruit trees results in decreased fruit size, poor fruit quality, biennial bearing, and reduction in productive life of orchards. Although flowers and fruits are removed/thinned naturally, they require additional thinning for commercial grade fruit production. Integration of machine vision system in mechanical/chemical thinning facilitates automated selective blossom thinning. The primary requirement for automating blossom thinning is to estimate the blossom density in apple trees under varying background and lighting conditions. In this work, we implement Mask-RCNN algorithm to perform instance segmentation of apple blossoms. Different image augmentation techniques were implemented and their impact on blossom detection were assessed. Experiments were conducted to achieve optimal values of hyperparameters of the deep learning network during the training. Implementation of image …",
-    "citations": 37,
-    "url": "https://www.sciencedirect.com/science/article/pii/S2405896320304857"
-  },
-  {
-    "id": 20,
-    "title": "Development and performance evaluation of a machine vision system and an integrated prototype for automated green shoot thinning in vineyards",
-    "authors": "Yaqoob Majeed and Manoj Karkee and Qin Zhang and Longsheng Fu and Matthew D Whiting",
-    "journal": "Journal of Field Robotics",
-    "year": 2021,
-    "abstract": "Green shoot thinning in vineyards is an essential, perennial operation for maintaining canopy health and optimizing yield and quality of wine grapes. Use of mechanized thinning system, which is essential to reduce labor dependency and associated cost, causes high variability in shoot removal efficiency due to difficulty in precisely positioning the thinning end‐effector along cordon trajectories. Automated/robotic solution for precise positioning of the thinning end‐effector could significantly improve the performance and efficiency of mechanical green shoot thinning. This study presents: (i) a machine vision‐based cordon detection system that can estimate cordon trajectories at different shoot growth stages in a vineyard; and (ii) evaluation of an integrated green shoot thinning system capable of automatically positioning the thinning end‐effector following vine cordon trajectories. The developed machine vision …",
-    "citations": 36,
-    "url": "https://onlinelibrary.wiley.com/doi/abs/10.1002/rob.22013"
-  },
-  {
     "id": 21,
     "title": "Estimating the trajectories of vine cordons in full foliage canopies for automated green shoot thinning in vineyards",
     "authors": "Yaqoob Majeed and Manoj Karkee and Qin Zhang",
     "journal": "Computers and Electronics in Agriculture",
     "year": 2020,
     "abstract": "Green shoot thinning in vineyards is carried out annually aiming to produce high-quality grapes. Recently, mechanical machines are used for green shoot thinning to reduce labor costs which causes 10–85% variation in shoot removal efficiencies due to the difficulty in precisely positioning the thinning end-effector to cordon trajectories. Automatically controlling the position and orientation of thinning end-effector to follow the cordon trajectories is expected to increase the performance and efficiency of these machines. However, during most of the green shoot thinning season (between first week of bud opening to the fourth week of shoot growth), cordons are occluded by shoots/leaves making it extremely challenging to determine the trajectories of cordons. In this study, we presented a deep learning based novel approach to estimate the trajectories of cordons during the thinning season in real field conditions. First …",
-    "citations": 32,
+    "citations": 33,
     "url": "https://www.sciencedirect.com/science/article/pii/S0168169920319049"
   },
   {
@@ -220,7 +220,7 @@ export const publicationsData = [
     "journal": "Computers and Electronics in Agriculture",
     "year": 2022,
     "abstract": "Crop damage caused by pest birds is a big problem around the world. As many studies have shown, existing bird control methods have not met growers' expectations regarding efficacy, reliability, and cost. Researchers are investigating the potential of using unmanned aerial vehicles (UAVs) as a tool for bird deterrence in agricultural fields to address this challenge. UAV-based bird deterrence techniques investigated in the past needed human operators to locate bird flocks and fly UAVs to desired trajectories. This study focused on automating a UAV-based bird deterrence system to operate it in real-time. Specifically, we focused on; i) optimizing the existing machine vision system to detect and locate birds-like movement in a real-time; ii) dynamically creating and launching two intelligent UAV missions in real-time to scare incoming birds (target intercept mission) or birds that are already inside the field (field patrol …",
-    "citations": 27,
+    "citations": 28,
     "url": "https://www.sciencedirect.com/science/article/pii/S0168169922002897"
   },
   {
@@ -240,7 +240,7 @@ export const publicationsData = [
     "journal": "Information Processing in Agriculture",
     "year": 2021,
     "abstract": "To design an automatic harvesting machine for hydroponic lettuce (Lactuca sativa L.), physical and mechanical properties of hydroponic lettuce were investigated and analyzed. Moisture content of stem, root and leaf, geometric characteristics, pulling force, and root cutting force were studied for harvesting hydroponic lettuce. The pulling force was examined by a tensile experiment, while the root cutting force was investigated by a shear experiment on the electronic universal testing machine. The moisture content of hydroponic lettuce was obtained by direct drying. Experiment data were processed using regression analysis and mathematical statistics method. A regression equation and the law of numerical distribution were obtained. The results showed that the geometric size of different hydroponic lettuce had little difference, and the distribution of physical parameters was concentrated. Moisture content was found …",
-    "citations": 24,
+    "citations": 25,
     "url": "https://www.sciencedirect.com/science/article/pii/S2214317320302274"
   },
   {
@@ -249,11 +249,31 @@ export const publicationsData = [
     "authors": "Muhammad Waseem and Muhammad Usman Khan and Yaqoob Majeed and Godswill Ntsomboh Ntsefong and Inna Kirichenko and Anna Klopova and Pavel Trushov and Aleksei Lodygin",
     "year": 2023,
     "abstract": "Seaweed-based films have emerged as a promising solution for sustainable food packaging due to their renewable sourcing, biodegradability, and functional properties. This review provides an in-depth analysis of seaweed-based films, focusing on their properties, incorporation of essential oils, applications in food packaging, and future directions. The advantages of seaweed-based films include their renewable and abundant source, biodegradability, and favorable barrier properties. The review explores the physical and mechanical properties, barrier properties, and safety considerations of seaweed-based films. Additionally, it discusses the incorporation of essential oils into seaweed-based films and their potential benefits. Current and potential applications of seaweed-based films in food packaging, ranging from fresh produce to dairy products, are examined, along with the advantages and challenges associated with their use. A comparison with other sustainable packaging options is provided. Furthermore, the review highlights future research directions in developing seaweed-based films, such as improving mechanical properties, extending shelf life, scaling up production, reducing costs, and innovation in formulation. Overall, seaweed-based films offer a promising and sustainable alternative for food packaging, with ongoing research and development driving their advancement and potential for a more environmentally friendly packaging industry.",
-    "citations": 23,
+    "citations": 24,
     "url": "https://www.researchgate.net/profile/Muhammad-Waseem/publication/375445707_Seaweed-based_films_for_sustainable_food_packaging_properties_incorporation_of_essential_oils_applications_and_future_directions/links/654a3be6b1398a779d6dfbb5/Seaweed-based-films-for-sustainable-food-packaging-properties-incorporation-of-essential-oils-applications-and-future-directions.pdf"
   },
   {
     "id": 27,
+    "title": "Morphological estimation of primary branch length of individual apple trees during the deciduous period in modern orchard based on PointNet++",
+    "authors": "Xiaoming Sun and Leilei He and Hanhui Jiang and Rui Li and Wulan Mao and Dong Zhang and Yaqoob Majeed and Nikita Andriyanov and Vladimir Soloviev and Longsheng Fu",
+    "journal": "Computers and Electronics in Agriculture",
+    "year": 2024,
+    "abstract": "Primary branch length is an important morphological trait of individual apple tree phenotypes. This study presents a novel method for estimating the primary branch lengths of individual apple trees during the deciduous period by distinguishing their instances, i.e., merging those belonging to the same primary branch based on part segmentation outputs of PointNet++. Firstly, colored and colorless 3D-datasets were prepared for training PointNet++ models. The model with higher overall accuracy (OA), class average accuracy (CAA), and mean intersection-over-union (mIoU) was employed to segment the point cloud of a tree into primary branches (PB), trunk (TK), and end-points of primary branches (EPB) of individual apple trees. Skeletonization was applied to the outputs of the three parts of individual apple trees. Subsequently, each primary branch instance was distinguished by determining its corresponding path …",
+    "citations": 23,
+    "url": "https://www.sciencedirect.com/science/article/pii/S0168169924002643"
+  },
+  {
+    "id": 28,
+    "title": "Fruit detachment force of multiple varieties kiwifruit with different fruit-stem angles for designing universal robotic picking end-effector",
+    "authors": "Wentai Fang and Zhenchao Wu and Weiwu Li and Xiaoming Sun and Wulan Mao and Rui Li and Yaqoob Majeed and Longsheng Fu",
+    "journal": "Computers and Electronics in Agriculture",
+    "year": 2023,
+    "abstract": "Fruit detachment force (FDF) between fruit and stem, is one of the important physical parameters for designing fruit picking robot. Orchards planted with multiple varieties kiwifruit generally exist in China because of their rich variety resources. FDFs at different fruit-stem angles (FSA) for multiple varieties kiwifruit make it difficult for the fruit picking robot to maintain optimal working conditions for different varieties. Determining the FDF of a single variety is not suitable for developing a universal end-effector that enables fruit picking of multiple varieties kiwifruit. Therefore, it is necessary to measure the FDF of multiple varieties kiwifruit at different FSA. In this study, a special fixture was developed based on external characteristics of fruit, which was installed on the texture analyzer to form a platform for measuring the FDF with different FSA. Fruits of different variety with stems hand-picked, i.e. ‘Hayward’, ‘Xuxiang’, ‘Huayou …",
+    "citations": 23,
+    "url": "https://www.sciencedirect.com/science/article/pii/S0168169923006130"
+  },
+  {
+    "id": 29,
     "title": "A precision pruning strategy for improving efficiency of vibratory mechanical harvesting of apples",
     "authors": "Xin Zhang and Long He and Yaqoob Majeed and Matthew David Whiting and Manoj Karkee and Qin Zhang",
     "journal": "Transactions of the ASABE",
@@ -263,33 +283,13 @@ export const publicationsData = [
     "url": "https://elibrary.asabe.org/abstract.asp?aid=49787"
   },
   {
-    "id": 28,
-    "title": "Morphological estimation of primary branch length of individual apple trees during the deciduous period in modern orchard based on PointNet++",
-    "authors": "Xiaoming Sun and Leilei He and Hanhui Jiang and Rui Li and Wulan Mao and Dong Zhang and Yaqoob Majeed and Nikita Andriyanov and Vladimir Soloviev and Longsheng Fu",
-    "journal": "Computers and Electronics in Agriculture",
-    "year": 2024,
-    "abstract": "Primary branch length is an important morphological trait of individual apple tree phenotypes. This study presents a novel method for estimating the primary branch lengths of individual apple trees during the deciduous period by distinguishing their instances, i.e., merging those belonging to the same primary branch based on part segmentation outputs of PointNet++. Firstly, colored and colorless 3D-datasets were prepared for training PointNet++ models. The model with higher overall accuracy (OA), class average accuracy (CAA), and mean intersection-over-union (mIoU) was employed to segment the point cloud of a tree into primary branches (PB), trunk (TK), and end-points of primary branches (EPB) of individual apple trees. Skeletonization was applied to the outputs of the three parts of individual apple trees. Subsequently, each primary branch instance was distinguished by determining its corresponding path …",
-    "citations": 22,
-    "url": "https://www.sciencedirect.com/science/article/pii/S0168169924002643"
-  },
-  {
-    "id": 29,
-    "title": "Fruit detachment force of multiple varieties kiwifruit with different fruit-stem angles for designing universal robotic picking end-effector",
-    "authors": "Wentai Fang and Zhenchao Wu and Weiwu Li and Xiaoming Sun and Wulan Mao and Rui Li and Yaqoob Majeed and Longsheng Fu",
-    "journal": "Computers and Electronics in Agriculture",
-    "year": 2023,
-    "abstract": "Fruit detachment force (FDF) between fruit and stem, is one of the important physical parameters for designing fruit picking robot. Orchards planted with multiple varieties kiwifruit generally exist in China because of their rich variety resources. FDFs at different fruit-stem angles (FSA) for multiple varieties kiwifruit make it difficult for the fruit picking robot to maintain optimal working conditions for different varieties. Determining the FDF of a single variety is not suitable for developing a universal end-effector that enables fruit picking of multiple varieties kiwifruit. Therefore, it is necessary to measure the FDF of multiple varieties kiwifruit at different FSA. In this study, a special fixture was developed based on external characteristics of fruit, which was installed on the texture analyzer to form a platform for measuring the FDF with different FSA. Fruits of different variety with stems hand-picked, i.e. ‘Hayward’, ‘Xuxiang’, ‘Huayou …",
-    "citations": 22,
-    "url": "https://www.sciencedirect.com/science/article/pii/S0168169923006130"
-  },
-  {
     "id": 30,
     "title": "Thin wire segmentation and reconstruction based on a novel image overlap-partitioning and stitching algorithm in apple fruiting wall architecture for robotic picking",
     "authors": "Hanhui Jiang and Xiaoming Sun and Wentai Fang and Longsheng Fu and Rui Li and Fernando Auat Cheein and Yaqoob Majeed",
     "journal": "Computers and Electronics in Agriculture",
     "year": 2023,
     "abstract": "The layout of orchards usually requires the use of wires, to provide sturdy support. Such is the case of apple trees in fruiting wall architecture, where wires are conducive for mechanical harvesting and especially robotic picking. However, wires may cause damage to the robotic gripper, especially when direct picking occluded apple fruits. Hence, the importance of identifying the wires of a fruit wall architecture. In this study, a pixel-level segmentation network, BlendMask, was adopted to segment wires. The wires are thin and normally behind the branches or leaves, making difficult for their identification. Therefore, a novel data processing algorithm called image overlap-partitioning and stitching (IOS) is proposed for BlendMask to segment the wires. A total of 82 RGB (Red, Green, and Blue) images registered to create a raw dataset. The dataset was augmented and then overlap-partitioned into 12,736 images with a …",
-    "citations": 20,
+    "citations": 21,
     "url": "https://www.sciencedirect.com/science/article/pii/S0168169923002284"
   },
   {
@@ -298,7 +298,7 @@ export const publicationsData = [
     "authors": "Yaqoob Majeed and Longsheng Fu and Long He",
     "year": 2024,
     "abstract": "This Research Topic focuses on the recent advancement in the area of AI and IoT applications on precision agricultural technologies for both field and specialty crops. This research topic attracted nine research articles and three review articles. These articles reveal the research advancements and trends of applied machine learning and deep learning techniques for various precision agriculture applications.Robotic harvesting plays an important role in addressing the labor shortage problems for manual labor-intensive and time-sensitive harvesting operations. For example, Sun et al. (2023) propose the YOLO-P to detect the pears for robotic harvesting in natural orchard environment. They propose the shuffle block integrated with convolutional block attention module (CBAM) as the backbone of YOLOv5 network. A total of 5,257 images consisting of various backgrounds and illumination conditions were used to train and test the proposed approach. Different ablation experiments were performed to check the robustness and generalization and obtained the 0.961 F1-score with 32 FPS (frames per second). To facilitate autonomous driving of robot and roadside fruit harvesting, Zhou et al. (2023) proposed the framework for synchronous road extraction and roadside fruit recognition. Gray factor optimization approach was adopted to extract the unstructured roads from images while YOLOv7 was employed to detect the wine grapes. The proposed synchronous approach helped to increase fruit detection by 23.84%.In another study, Tang et al. (2023) estimated the tree-level almond yield using aerially captured multispectral images and convolutional …",
-    "citations": 15,
+    "citations": 17,
     "url": "https://www.frontiersin.org/journals/plant-science/articles/10.3389/fpls.2024.1369791/full"
   },
   {
@@ -308,17 +308,18 @@ export const publicationsData = [
     "journal": "Computers and Electronics in Agriculture",
     "year": 2022,
     "abstract": "A large number of apple seedlings are planted in orchards each year, where accurate and fast seedling grading to ensure their quality before planting has become a crucial problem. However, seedling grading by manual measurement of morphological indicators is laborious and inaccurate, and it’s thus highly desirable to be replaced by machine vision. Seedling segmentation is one of the key steps of measuring morphological indicators and grading by machine vision. Therefore, a segmentation method of apple seedlings based on BlendMask with ResNet-101 to do transfer learning was proposed. A total of 450 original images were captured with Azure Kinect DK sensor. Root, rootstock, graft union, and scion of apple seedlings were labeled using a novel labeling strategy, which probably affect segmentation of thin and long objects. Scion was labeled with three different strategies, namely whole labeling (WL …",
-    "citations": 14,
+    "citations": 15,
     "url": "https://www.sciencedirect.com/science/article/pii/S0168169922006421"
   },
   {
     "id": 33,
-    "title": "Postharvest handling systems",
-    "authors": "Yaqoob Majeed and Muhammad Waseem",
-    "year": 2022,
-    "abstract": "Postharvest handling system includes all operations from harvesting the crop in the field to delivering the final product to the consumer. It comprises cooling, cleaning, sorting, grading, and preliminary packing in the field to the use of the most advanced infrastructure, transport, and storage of food commodities.",
-    "citations": 11,
-    "url": "https://scholar.google.com/scholar?cluster=6205502981971132032&hl=en&oi=scholarr"
+    "title": "Standalone edge AI-based solution for Tomato diseases detection",
+    "authors": "Yaqoob Majeed and Mike O Ojo and Azlan Zahid",
+    "journal": "Smart Agricultural Technology",
+    "year": 2024,
+    "abstract": "Tomato yield is significantly affected by diseases, which are a continuous challenge for its production and pose threats to its global supply chain. Automatic and early detection of these diseases could help growers to swiftly adopt mitigation strategies to limit the disease spread, leading to improved production. Deep learning-based CNN approaches have been widely applied to detect tomato diseases. However, deep learning models are highly computationally demanding, resulting in a computational bottleneck for practical adaptation for agricultural applications such as disease detection and monitoring. Over the last few years, developments of open-source Edge systems have provided opportunities for low-cost and low-power consumption practical solutions for deep learning applications for agriculture. Therefore, the primary goal of this study was to evaluate the performance of standalone Edge-AI solutions for …",
+    "citations": 14,
+    "url": "https://www.sciencedirect.com/science/article/pii/S2772375524001527"
   },
   {
     "id": 34,
@@ -327,18 +328,17 @@ export const publicationsData = [
     "journal": "Artificial Intelligence in Agriculture",
     "year": 2024,
     "abstract": "Accurate watermelon yield estimation is crucial to the agricultural value chain, as it guides the allocation of agricultural resources as well as facilitates inventory and logistics planning. The conventional method of watermelon yield estimation relies heavily on manual labor, which is both time-consuming and labor-intensive. To address this, this work proposes an algorithmic pipeline that utilizes unmanned aerial vehicle (UAV) videos for detection and counting of watermelons. This pipeline uses You Only Look Once version 8 s (YOLOv8s) with panorama stitching and overlap partitioning, which facilitates the overall number estimation of watermelons in field. The watermelon detection model, based on YOLOv8s and obtained using transfer learning, achieved a detection accuracy of 99.20 %, demonstrating its potential for application in yield estimation. The panorama stitching and overlap partitioning based detection …",
-    "citations": 10,
+    "citations": 13,
     "url": "https://www.sciencedirect.com/science/article/pii/S2589721724000308"
   },
   {
     "id": 35,
-    "title": "Standalone edge AI-based solution for Tomato diseases detection",
-    "authors": "Yaqoob Majeed and Mike O Ojo and Azlan Zahid",
-    "journal": "Smart Agricultural Technology",
-    "year": 2024,
-    "abstract": "Tomato yield is significantly affected by diseases, which are a continuous challenge for its production and pose threats to its global supply chain. Automatic and early detection of these diseases could help growers to swiftly adopt mitigation strategies to limit the disease spread, leading to improved production. Deep learning-based CNN approaches have been widely applied to detect tomato diseases. However, deep learning models are highly computationally demanding, resulting in a computational bottleneck for practical adaptation for agricultural applications such as disease detection and monitoring. Over the last few years, developments of open-source Edge systems have provided opportunities for low-cost and low-power consumption practical solutions for deep learning applications for agriculture. Therefore, the primary goal of this study was to evaluate the performance of standalone Edge-AI solutions for …",
-    "citations": 9,
-    "url": "https://www.sciencedirect.com/science/article/pii/S2772375524001527"
+    "title": "Postharvest handling systems",
+    "authors": "Yaqoob Majeed and Muhammad Waseem",
+    "year": 2022,
+    "abstract": "Postharvest handling system includes all operations from harvesting the crop in the field to delivering the final product to the consumer. It comprises cooling, cleaning, sorting, grading, and preliminary packing in the field to the use of the most advanced infrastructure, transport, and storage of food commodities.",
+    "citations": 11,
+    "url": "https://scholar.google.com/scholar?cluster=6205502981971132032&hl=en&oi=scholarr"
   },
   {
     "id": 36,
@@ -362,6 +362,16 @@ export const publicationsData = [
   },
   {
     "id": 38,
+    "title": "Growth characteristics based multi-class kiwifruit bud detection with overlap-partitioning algorithm for robotic thinning",
+    "authors": "Haojie Dang and Leilei He and Yufei Shi and Lamin L Janneh and Xiaojuan Liu and Chi Chen and Rui Li and Hongbao Ye and Jinyong Chen and Yaqoob Majeed and Xiaoxi Kou and Longsheng Fu",
+    "journal": "Computers and Electronics in Agriculture",
+    "year": 2025,
+    "abstract": "Bud thinning is a critical operation in the early stage of kiwifruit production, which is currently performed by skilled workers and has an urgent need to develop bud thinning robots. Accurate detection of kiwifruit buds is the first step, which focuses on distinguishing main bud and lateral bud. Kiwifruit buds are small, with similar shapes and colors in the main and lateral buds. Therefore, two kiwifruit bud detection methodologies were proposed to distinguish them. One is two-stage kiwifruit bud detection methodology (T-SKBDM) with an enhanced algorithm that leverage kiwifruit bud growth characteristics after network training for precise detection of main and lateral buds, and another is one-stage kiwifruit bud detection methodology (O-SKBDM) that classifies buds during the training. These methodologies adopted a two-classes annotation strategy (T-CAS) and a five-classes annotation strategy (F-CAS), respectively. In …",
+    "citations": 7,
+    "url": "https://www.sciencedirect.com/science/article/pii/S0168169924011062"
+  },
+  {
+    "id": 39,
     "title": "A study of the influence of pruning strategy effect on vibrational harvesting of apples",
     "authors": "Xin Zhang and Long He and Yaqoob Majeed and Manoj Karkee and Matthew David Whiting and Qin Zhang",
     "year": 2017,
@@ -370,7 +380,7 @@ export const publicationsData = [
     "url": "https://elibrary.asabe.org/abstract.asp?aid=48406"
   },
   {
-    "id": 39,
+    "id": 40,
     "title": "Climate Change, Flood Disaster, and Food Insecurity in Pakistan.",
     "authors": "Muhammad Waseem and Yaqoob Majeed and Tayyaba Nadeem and Laraib Haider Naqvi and Muhammad Arslan Khalid and Muzammal Shafiq and Muhammad Muzzammil Sajjad",
     "year": 2022,
@@ -379,7 +389,7 @@ export const publicationsData = [
     "url": "https://www.academia.edu/download/114353399/latest.pdf"
   },
   {
-    "id": 40,
+    "id": 41,
     "title": "Interactive teaching of digital electronics in agricultural universities in China",
     "authors": "Longsheng Fu and Xin Zhang and Yaqoob Majeed and Rui Li",
     "journal": "International Journal of Emerging Technologies in Learning (Online)",
@@ -389,7 +399,7 @@ export const publicationsData = [
     "url": "https://www.researchgate.net/profile/Alberto-Andujar/publication/331744306_Exploring_New_Ways_of_eTandem_and_Telecollaboration_Through_the_WebRTC_Protocol_Students'_Engagement_and_Perceptions/links/5c8a8a39299bf14e7e7c8a41/Exploring-New-Ways-of-eTandem-and-Telecollaboration-Through-the-WebRTC-Protocol-Students-Engagement-and-Perceptions.pdf#page=176"
   },
   {
-    "id": 41,
+    "id": 42,
     "title": "Cell‐based food needs collaborative efforts for safe production and suitable consumption",
     "authors": "Muhammad Waseem and Yaqoob Majeed",
     "journal": "Food Safety and Health",
@@ -399,7 +409,17 @@ export const publicationsData = [
     "url": "https://www.researchgate.net/profile/Muhammad-Waseem/publication/372397316_Cell-based_food_needs_collaborative_efforts_for_safe_production_and_suitable_consumption/links/64b78682b9ed6874a52d9604/Cell-based-food-needs-collaborative-efforts-for-safe-production-and-suitable-consumption.pdf"
   },
   {
-    "id": 42,
+    "id": 43,
+    "title": "Automated Tomato Maturity Estimation Using an Optimized Residual Model with Pruning and Quantization Techniques",
+    "authors": "Muhammad Waseem and Chung-Hsuan Huang and Muhammad Muzzammil Sajjad and Laraib Haider Naqvi and Yaqoob Majeed and Tanzeel Ur Rehman and Tayyaba Nadeem",
+    "journal": "arXiv preprint arXiv:2503.10940",
+    "year": 2025,
+    "abstract": "Tomato maturity plays a pivotal role in optimizing harvest timing and ensuring product quality, but current methods struggle to achieve high accuracy along computational efficiency simultaneously. Existing deep learning approaches, while accurate, are often too computationally demanding for practical use in resource-constrained agricultural settings. In contrast, simpler techniques fail to capture the nuanced features needed for precise classification. This study aims to develop a computationally efficient tomato classification model using the ResNet-18 architecture optimized through transfer learning, pruning, and quantization techniques. Our objective is to address the dual challenge of maintaining high accuracy while enabling real-time performance on low-power edge devices. Then, these models were deployed on an edge device to investigate their performance for tomato maturity classification. The quantized model achieved an accuracy of 97.81%, with an average classification time of 0.000975 seconds per image. The pruned and auto-tuned model also demonstrated significant improvements in deployment metrics, further highlighting the benefits of optimization techniques. These results underscore the potential for a balanced solution that meets the accuracy and efficiency demands of modern agricultural production, paving the way for practical, real-world deployment in resource-limited environments.",
+    "citations": 3,
+    "url": "https://arxiv.org/abs/2503.10940"
+  },
+  {
+    "id": 44,
     "title": "Development and quality cum nutritional assessment based on physical properties for corn extruded snacks enriched with protein and carbohydrates: A remedy to malnutrition for society.",
     "authors": "Muzammal Shafiq and Muhammad Waseem and Yaqoob Majeed and Muhammad Arslan Khalid and Tayyaba Nadeem and Maksim Rebezov and Mars Khairullin and Orynzhamal Sarsembenova",
     "journal": "Slovak Journal of Food Sciences/Potravinarstvo",
@@ -409,7 +429,7 @@ export const publicationsData = [
     "url": "https://www.researchgate.net/profile/Muhammad-Waseem/publication/381991404_Development_and_quality_cum_nutritional_assessment_based_on_physical_properties_for_corn_extruded_snacks_enriched_with_protein_and_carbohydrates/links/6686bf520a25e27fbc246309/Development-and-quality-cum-nutritional-assessment-based-on-physical-properties-for-corn-extruded-snacks-enriched-with-protein-and-carbohydrates.pdf"
   },
   {
-    "id": 43,
+    "id": 45,
     "title": "Field evaluation of data-based pruning severity levels (PSL) on mechanical harvesting of apples",
     "authors": "Xin Zhang and Longsheng Fu and Yaqoob Majeed and Long He and Manoj Karkee and Matthew D Whiting and Qin Zhang",
     "journal": "IFAC-PapersOnLine",
@@ -417,26 +437,6 @@ export const publicationsData = [
     "abstract": "The increasing cost and decreasing availability of skilled orchard labor are growing concerns for orchardists, and have led to interests in potential mechanical solutions for pruning and harvesting. A critical first step in developing mechanical solutions is the establishment of precision orchard systems based on specific pruning rules. In this study, we evaluated pruning severity levels (PSL) on apple fruit removal efficiency (FRE) and harvested fruit quality using a shake-and-catch vibratory harvesting system. Approximately 300 branches from 50 randomly selected apple trees were manually subjected to five data-based PSL in field conditions. The experiment was conducted in a commercial ‘Jazz’ orchard with trees trained in a vertical fruiting-wall architecture. Five PSL were studied, including variable length (PV) for which shoots were pruned to a length determined by their basal diameters in a linear-ratio (LR-PSL). In …",
     "citations": 3,
     "url": "https://www.sciencedirect.com/science/article/pii/S2405896318312825"
-  },
-  {
-    "id": 44,
-    "title": "Automated Tomato Maturity Estimation Using an Optimized Residual Model with Pruning and Quantization Techniques",
-    "authors": "Muhammad Waseem and Chung-Hsuan Huang and Muhammad Muzzammil Sajjad and Laraib Haider Naqvi and Yaqoob Majeed and Tanzeel Ur Rehman and Tayyaba Nadeem",
-    "journal": "arXiv preprint arXiv:2503.10940",
-    "year": 2025,
-    "abstract": "Tomato maturity plays a pivotal role in optimizing harvest timing and ensuring product quality, but current methods struggle to achieve high accuracy along computational efficiency simultaneously. Existing deep learning approaches, while accurate, are often too computationally demanding for practical use in resource-constrained agricultural settings. In contrast, simpler techniques fail to capture the nuanced features needed for precise classification. This study aims to develop a computationally efficient tomato classification model using the ResNet-18 architecture optimized through transfer learning, pruning, and quantization techniques. Our objective is to address the dual challenge of maintaining high accuracy while enabling real-time performance on low-power edge devices. Then, these models were deployed on an edge device to investigate their performance for tomato maturity classification. The quantized model achieved an accuracy of 97.81%, with an average classification time of 0.000975 seconds per image. The pruned and auto-tuned model also demonstrated significant improvements in deployment metrics, further highlighting the benefits of optimization techniques. These results underscore the potential for a balanced solution that meets the accuracy and efficiency demands of modern agricultural production, paving the way for practical, real-world deployment in resource-limited environments.",
-    "citations": 2,
-    "url": "https://arxiv.org/abs/2503.10940"
-  },
-  {
-    "id": 45,
-    "title": "Growth characteristics based multi-class kiwifruit bud detection with overlap-partitioning algorithm for robotic thinning",
-    "authors": "Haojie Dang and Leilei He and Yufei Shi and Lamin L Janneh and Xiaojuan Liu and Chi Chen and Rui Li and Hongbao Ye and Jinyong Chen and Yaqoob Majeed and Xiaoxi Kou and Longsheng Fu",
-    "journal": "Computers and Electronics in Agriculture",
-    "year": 2025,
-    "abstract": "Bud thinning is a critical operation in the early stage of kiwifruit production, which is currently performed by skilled workers and has an urgent need to develop bud thinning robots. Accurate detection of kiwifruit buds is the first step, which focuses on distinguishing main bud and lateral bud. Kiwifruit buds are small, with similar shapes and colors in the main and lateral buds. Therefore, two kiwifruit bud detection methodologies were proposed to distinguish them. One is two-stage kiwifruit bud detection methodology (T-SKBDM) with an enhanced algorithm that leverage kiwifruit bud growth characteristics after network training for precise detection of main and lateral buds, and another is one-stage kiwifruit bud detection methodology (O-SKBDM) that classifies buds during the training. These methodologies adopted a two-classes annotation strategy (T-CAS) and a five-classes annotation strategy (F-CAS), respectively. In …",
-    "citations": 2,
-    "url": "https://www.sciencedirect.com/science/article/pii/S0168169924011062"
   },
   {
     "id": 46,
@@ -470,6 +470,15 @@ export const publicationsData = [
   },
   {
     "id": 49,
+    "title": "Standalone Edge Ai-Based Solution for Tomato Diseases Detection",
+    "authors": "Azlan Zahid and Yaqoob Majeed and Mike O Ojo",
+    "journal": "Available at SSRN 4824801",
+    "abstract": "Tomato yield is significantly affected by diseases, which are a continuous challenge for its production and pose threats to its global supply chain. Automatic and early detection of these diseases could help growers to swiftly adopt mitigation strategies to limit the disease spread, leading to improved production. Deep learning-based CNN approaches have been widely applied to detect tomato diseases. However, deep learning models are highly computationally demanding, resulting in a computational bottleneck for practical adaptation for agricultural applications such as disease detection and monitoring. Over the last few years, developments of open-source Edge systems have provided opportunities for low-cost and low-power consumption practical solutions for deep learning applications for agriculture. Therefore, the primary goal of this study was to evaluate the performance of standalone Edge-AI solutions for tomato leaf disease detection. To achieve this goal, firstly, this study employed lightweight deep learning networks to detect and differentiate tomato leaf diseases (bacterial spot, early blight, healthy, late blight, leaf mold, septoria leaf spot, two spotted spider mites, target spot, and yellow leaf curl virus). Then, these deep learning networks were deployed on low-cost and low-power consumption Edge devices to investigate their performance capabilities as standalone Edge-AI solutions for the early detection of tomato leaf diseases. Lightweight CNN based deep learning networks achieved accuracies of up to 98.25% in detecting tomato diseases. Raspberry Pi with AI accelerator (Google Coral) achieved the best cost/FPS performance of 0 …",
+    "citations": 2,
+    "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4824801"
+  },
+  {
+    "id": 50,
     "title": "Deep learning model for precise and rapid prediction of tomato maturity based on image recognition",
     "authors": "Muhammad Waseem and Muhammad Muzzammil Sajjad and Laraib Haider Naqvi and Yaqoob Majeed and Tanzeel Ur Rehman and Tayyaba Nadeem",
     "journal": "Food Physics",
@@ -477,15 +486,6 @@ export const publicationsData = [
     "abstract": "Tomato maturity plays a pivotal role in optimizing harvest timing and ensuring product quality, but current methods struggle to achieve high accuracy along computational efficiency simultaneously. Existing deep learning approaches, while accurate, are often too computationally demanding for practical use in resource-constrained agricultural settings. In contrast, simpler techniques fail to capture the nuanced features needed for precise classification. This study aims to develop a computationally efficient tomato classification model using the ResNet-18 architecture optimized through transfer learning, pruning, and quantization techniques. Our objective is to address the dual challenge of maintaining high accuracy while enabling real-time performance on low-power edge devices. Then, these models were deployed on an edge device to investigate their performance for tomato maturity classification. The quantized …",
     "citations": 1,
     "url": "https://www.sciencedirect.com/science/article/pii/S2950069925000143"
-  },
-  {
-    "id": 50,
-    "title": "Standalone Edge Ai-Based Solution for Tomato Diseases Detection",
-    "authors": "Azlan Zahid and Yaqoob Majeed and Mike O Ojo",
-    "journal": "Available at SSRN 4824801",
-    "abstract": "Tomato yield is significantly affected by diseases, which are a continuous challenge for its production and pose threats to its global supply chain. Automatic and early detection of these diseases could help growers to swiftly adopt mitigation strategies to limit the disease spread, leading to improved production. Deep learning-based CNN approaches have been widely applied to detect tomato diseases. However, deep learning models are highly computationally demanding, resulting in a computational bottleneck for practical adaptation for agricultural applications such as disease detection and monitoring. Over the last few years, developments of open-source Edge systems have provided opportunities for low-cost and low-power consumption practical solutions for deep learning applications for agriculture. Therefore, the primary goal of this study was to evaluate the performance of standalone Edge-AI solutions for tomato leaf disease detection. To achieve this goal, firstly, this study employed lightweight deep learning networks to detect and differentiate tomato leaf diseases (bacterial spot, early blight, healthy, late blight, leaf mold, septoria leaf spot, two spotted spider mites, target spot, and yellow leaf curl virus). Then, these deep learning networks were deployed on low-cost and low-power consumption Edge devices to investigate their performance capabilities as standalone Edge-AI solutions for the early detection of tomato leaf diseases. Lightweight CNN based deep learning networks achieved accuracies of up to 98.25% in detecting tomato diseases. Raspberry Pi with AI accelerator (Google Coral) achieved the best cost/FPS performance of 0 …",
-    "citations": 1,
-    "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4824801"
   },
   {
     "id": 51,
@@ -498,6 +498,16 @@ export const publicationsData = [
   },
   {
     "id": 52,
+    "title": "Lightweight Transformer Framework for Weakly Supervised Semantic Segmentation",
+    "authors": "Ali Torabi and Sanjog Gaihre and Yaqoob Majeed",
+    "journal": "arXiv preprint arXiv:2511.19765",
+    "year": 2025,
+    "abstract": "Weakly supervised semantic segmentation (WSSS) must learn dense masks from noisy, under-specified cues. We revisit the SegFormer decoder and show that three small, synergistic changes make weak supervision markedly more effective-without altering the MiT backbone or relying on heavy post-processing. Our method, CrispFormer, augments the decoder with: (1) a boundary branch that supervises thin object contours using a lightweight edge head and a boundary-aware loss; (2) an uncertainty-guided refiner that predicts per-pixel aleatoric uncertainty and uses it to weight losses and gate a residual correction of the segmentation logits; and (3) a dynamic multi-scale fusion layer that replaces static concatenation with spatial softmax gating over multi-resolution features, optionally modulated by uncertainty. The result is a single-pass model that preserves crisp boundaries, selects appropriate scales per location, and resists label noise from weak cues. Integrated into a standard WSSS pipeline (seed, student, and EMA relabeling), CrispFormer consistently improves boundary F-score, small-object recall, and mIoU over SegFormer baselines trained on the same seeds, while adding minimal compute. Our decoder-centric formulation is simple to implement, broadly compatible with existing SegFormer variants, and offers a reproducible path to higher-fidelity masks from image-level supervision.",
+    "citations": 0,
+    "url": "https://arxiv.org/abs/2511.19765"
+  },
+  {
+    "id": 53,
     "title": "An integrated deep learning approach for enhancing brain tumor diagnosis",
     "authors": "Rabeya Bashri Sumona and John Pritom Biswas and Ahmed Shafkat and Md Mahbubur Rahman and Md Omor Faruk and Yaqoob Majeed",
     "journal": "Healthcare Analytics",
@@ -507,17 +517,17 @@ export const publicationsData = [
     "url": "https://www.sciencedirect.com/science/article/pii/S2772442525000401"
   },
   {
-    "id": 53,
-    "title": "Instance-Guided Class Activation Mapping for Weakly Supervised Semantic Segmentation",
+    "id": 54,
+    "title": "Localized Region Guidance for Class Activation Mapping in WSSS",
     "authors": "Ali Torabi and Sanjog Gaihre and MD Rahman and Yaqoob Majeed",
     "journal": "arXiv preprint arXiv:2509.12496",
     "year": 2025,
-    "abstract": "Weakly Supervised Semantic Segmentation (WSSS) addresses the challenge of training segmentation models using only image-level annotations, eliminating the need for expensive pixel-level labeling. While existing methods struggle with precise object boundary localization and often focus only on the most discriminative regions, we propose IG-CAM (Instance-Guided Class Activation Mapping), a novel approach that leverages instance-level cues and influence functions to generate high-quality, boundary-aware localization maps. Our method introduces three key innovations: (1) Instance-Guided Refinement that uses ground truth segmentation masks to guide CAM generation, ensuring complete object coverage rather than just discriminative parts; (2) Influence Function Integration that captures the relationship between training samples and model predictions, leading to more robust feature representations; and (3) Multi-Scale Boundary Enhancement that employs progressive refinement strategies to achieve sharp, precise object boundaries. IG-CAM achieves state-of-the-art performance on the PASCAL VOC 2012 dataset with an mIoU of 82.3% before post-processing, which further improves to 86.6% after applying Conditional Random Field (CRF) refinement, significantly outperforming previous WSSS methods. Our approach demonstrates superior localization accuracy, with complete object coverage and precise boundary delineation, while maintaining computational efficiency. Extensive ablation studies validate the contribution of each component, and qualitative comparisons across 600 diverse images showcase the method's …",
+    "abstract": "Weakly Supervised Semantic Segmentation (WSSS) addresses the challenge of training segmentation models using only image-level annotations. Existing WSSS methods struggle with precise object boundary localization and focus only on the most discriminative regions. To address these challenges, we propose IG-CAM (Instance-Guided Class Activation Mapping), a novel approach that leverages instance-level cues and influence functions to generate high-quality, boundary-aware localization maps. Our method introduces three key innovations: (1) Instance-Guided Refinement using object proposals to guide CAM generation, ensuring complete object coverage; (2) Influence Function Integration that captures the relationship between training samples and model predictions; and (3) Multi-Scale Boundary Enhancement with progressive refinement strategies. IG-CAM achieves state-of-the-art performance on PASCAL VOC 2012 with 82.3% mIoU before post-processing, improving to 86.6% after CRF refinement, significantly outperforming previous WSSS methods. Extensive ablation studies validate each component's contribution, establishing IG-CAM as a new benchmark for weakly supervised semantic segmentation.",
     "citations": 0,
     "url": "https://arxiv.org/abs/2509.12496"
   },
   {
-    "id": 54,
+    "id": 55,
     "title": "MangoClassify-12: A high-resolution image dataset of twelve indigenous Bangladeshi mango cultivars",
     "authors": "Md Sajedur Rahman and Md Mahfuz Ahmed Nahin and Md Mahbubur Rahman and Mollika Rani and Md Ashraful Islam and Al Bashir and Ahmad Shafkat and Bijon Mallik and Yaqoob Majeed",
     "journal": "Data in Brief",
@@ -527,7 +537,17 @@ export const publicationsData = [
     "url": "https://www.sciencedirect.com/science/article/pii/S2352340925007590"
   },
   {
-    "id": 55,
+    "id": 56,
+    "title": "Instance-Guided Class Activation Mapping for Weakly Supervised Semantic Segmentation",
+    "authors": "Ali Torabi and Sanjog Gaihre and MD Mahbubur Rahman and Yaqoob Majeed",
+    "journal": "arXiv e-prints",
+    "year": 2025,
+    "abstract": "Weakly Supervised Semantic Segmentation (WSSS) addresses the challenge of training segmentation models using only image-level annotations, eliminating the need for expensive pixel-level labeling. While existing methods struggle with precise object boundary localization and often focus only on the most discriminative regions, we propose IGCAM (Instance-Guided Class Activation Mapping), a novel approach that leverages instance-level cues and influence functions to generate high-quality, boundary-aware localization maps.Our method introduces three key innovations:(1) Instance-Guided Refinement that uses ground truth segmentation masks to guide CAM generation, ensuring complete object coverage rather than just discriminative parts;(2) Influence Function Integration that captures the relationship between training samples and model predictions, leading to more robust feature representations; and (3) Multi-Scale Boundary Enhancement that employs progressive refinement strategies to achieve sharp, precise object boundaries.",
+    "citations": 0,
+    "url": "https://www.researchgate.net/profile/Ali-Torabi-6/publication/395542395_Instance-Guided_Class_Activation_Mapping_for_Weakly_Supervised_Semantic_Segmentation/links/68d1752e220a341aa14e54bb/Instance-Guided-Class-Activation-Mapping-for-Weakly-Supervised-Semantic-Segmentation.pdf"
+  },
+  {
+    "id": 57,
     "title": "Study on the influence of rice straw ash cement mortar finish on the temperature pattern of sunning water pool in cold regions",
     "authors": "Fu-cheng Wang and Wei Wang and Jia-mei Wen and Jia-bing Tian and Jin-qi Zhao and Yaqoob Majeed",
     "journal": "Green Energy and Resources",
@@ -537,7 +557,7 @@ export const publicationsData = [
     "url": "https://www.sciencedirect.com/science/article/pii/S2949720525000293"
   },
   {
-    "id": 56,
+    "id": 58,
     "title": "High-speed camera-based coefficient of restitution of apple under three-dimensional fruit-to-fruit collision in air for vibration harvesting",
     "authors": "Chi Chen and Ruiyang Wei and Leilei He and Man Xia and Rui Li and Liling Yang and Vladimir Soloviev and Anastasia Grecheneva and Ramesh Sahni and Yaqoob Majeed and Zhenchao Wu and Longsheng Fu",
     "journal": "International Journal of Agricultural and Biological Engineering",
@@ -547,7 +567,7 @@ export const publicationsData = [
     "url": "https://www.ijabe.org/index.php/ijabe/article/view/9192"
   },
   {
-    "id": 57,
+    "id": 59,
     "title": "Integrating deep CNN models for multilingual Sign Language recognition: A SignLink-based approach for Bengali and English",
     "authors": "Niamul Hassan Samin and Mustahidul Islam Ferdous and Renu Akter Suity and Md Fakrul Islam Rafsan and Md Naimur Rahman and Al Bashir and Md Mahbubur Rahman and Ali Torabi and Sanjog Gaihre and Yaqoob Majeed",
     "year": 2025,
@@ -556,7 +576,7 @@ export const publicationsData = [
     "url": "https://www.researchsquare.com/article/rs-7208431/latest"
   },
   {
-    "id": 58,
+    "id": 60,
     "title": "Automated Code Smell Detection for Software Quality Assurance Using a Web-Based Machine Learning Framework",
     "authors": "Saiful Islam Emon and Md Mahbubur Rahman and Amena Akter and Srikanto Rajbongshi and Sumona Yeasmin and MA Nur Quraishi and Ahmad Shafkat and Yaqoob Majeed",
     "year": 2025,
@@ -565,27 +585,36 @@ export const publicationsData = [
     "url": "https://www.researchsquare.com/article/rs-6474801/latest"
   },
   {
-    "id": 59,
+    "id": 61,
+    "title": "Performance-optimized Alzheimer’s detection using machine learning with SMOTE and randomized hyperparameter tuning",
+    "authors": "Jahanur Biswas and Md Nahid Hasan and Md Muksit Ul Islam and Md Mahbubur Rahman and Ali Torabi and Sanjog Gaihre and Md Omor Faruk and Yaqoob Majeed",
+    "year": 2025,
+    "abstract": "A neurodegenerative disorder named Alzheimer's disease is a hazardous disease in the human brain that affects neurotransmitters, neurons, and tissue, hence impairing sensory perception, memory, and behavior. Currently, there is no appropriate cure approach for this disease. Nonetheless, prescribed medications can mitigate the progression of the condition. As a result, the early identification of Alzheimer's disease could play a vital role in treatment and further research. The key obstacles to the early assessment of Alzheimer's disease are the very low number of trained samples and the increasing amount of feature descriptions, while using different classification algorithms. Moreover, there are no trustworthy AI-based solutions for detecting this disease. In our study, we proposed a system in which supervised machine-learning models were implemented and deployed a web application for the initial detection of …",
+    "citations": 0,
+    "url": "https://link.springer.com/content/pdf/10.1007/s44163-025-00758-z_reference.pdf"
+  },
+  {
+    "id": 62,
     "title": "OPEN ACCESS EDITED AND REVIEWED BY",
     "authors": "Roger Deal and Yaqoob Majeed and Longsheng Fu and Long He",
     "journal": "Artificial Intelligence-of-Things (AIoT) in Precision Agriculture",
     "year": 2024,
     "abstract": "Computer vision, also known as machine vision, uses an image sensor that replaces the human eye to obtain an image of an object, converts the image into a digital image, and uses computer-simulated human discrimination criteria to understand and recognize the image, to analyze the image, and draw conclusions. This technology gradually emerged on the basis of the successful application of remote frontiersin. org 8",
     "citations": 0,
-    "url": "https://books.google.com/books?hl=en&lr=&id=gQz0EAAAQBAJ&oi=fnd&pg=PA4&dq=info:TbC16r6EEHwJ:scholar.google.com&ots=4yo8fNf3S5&sig=zrH3xGSPwKKihndDM1COtuaVBnw"
+    "url": "https://books.google.com/books?hl=en&lr=&id=gQz0EAAAQBAJ&oi=fnd&pg=PA4&dq=info:TbC16r6EEHwJ:scholar.google.com&ots=4yodeLh2N3&sig=nbi3F9vvhYGnM-eeGOkGaoGY3wI"
   },
   {
-    "id": 60,
+    "id": 63,
     "title": "OPEN ACCESS EDITED BY",
     "authors": "Yaqoob Majeed and Sushma Jaiswal and Muthusamy Ramakrishnan and Asad Khan and Ying Lin¹ and Zhuo Jiang and Hao Tang and Suliman Yousef Alomar and Muhammad Sanaullah and Uzair Aslam Bhatti and Jianming Zhang and S Wang and A Khan and Y Lin and Z Jiang and H Tang and SY Alomar and M Sanaullah and UA Bhatti",
     "journal": "Artificial Intelligence-of-Things (AIoT) in Precision Agriculture",
     "year": 2024,
     "abstract": "Automated optical inspection (AOI) provides a flexible and efficient method of object monitoring. In agriculture, AOI can be used for early screening of leaf diseases to support timely intervention to prevent leaf rust. Leaf rust is a type of plant disease also known as red spot disease or sheep beard. There are 4,000 known species of leaf rust that attack a wide range of crops such as beans, tomatoes, and roses (Liu et al., 2022; Bhatti et al., 2023). Disease spots first appear as white and slightly raised spots on the lower cuticles of the lower (older) leaves of mature plants. Over time, the disease spots become covered in reddish-orange spore masses. Later, pustules form and turn yellow-green and eventually black. Severe infestations can cause foliage to chlorosis, deform, and eventually fall off (Jain et al., 2019; Bhatti et al., 2021; Lu et al., 2023; Wang et al., 2023; Yang et al., 2022; Zhang et al., 2022). The spread of this disease will seriously affect agricultural production and cause huge losses. Thus, detecting plant disease and rust is very important and effective for protecting plant growth and development, improving crop yield and quality, reducing pesticide use, and saving time and cost (Bhatti et al., 2022; Shoaib et al., 2023).Artificial intelligence-enhanced AOI methods based on computer vision and deep learning are promising solutions for the adaptive identification of plant diseases (Liu and Wang, 2021). Algorithms that incorporate the two major computer vision tasks—classification and detection—have been widely used in plant disease detection. In terms of classification algorithms, Sethy et al.(2020) used convolutional neural networks (CNNs …",
     "citations": 0,
-    "url": "https://books.google.com/books?hl=en&lr=&id=gQz0EAAAQBAJ&oi=fnd&pg=PA151&dq=info:fzJeBr9ZjAQJ:scholar.google.com&ots=4yo8fNf3S6&sig=vMEBLI3zngr3uaSzEWrqa4I4q84"
+    "url": "https://books.google.com/books?hl=en&lr=&id=gQz0EAAAQBAJ&oi=fnd&pg=PA151&dq=info:fzJeBr9ZjAQJ:scholar.google.com&ots=4yodeLh2N4&sig=853riRQWuqpT8gWMNa4dS_IC7LY"
   },
   {
-    "id": 61,
+    "id": 64,
     "title": "Advanced Technologies for Crop-Load Management",
     "authors": "Manoj Karkee and Yaqoob Majeed and Qin Zhang",
     "year": 2023,
@@ -594,7 +623,7 @@ export const publicationsData = [
     "url": "https://link.springer.com/chapter/10.1007/978-3-031-26941-7_6"
   },
   {
-    "id": 62,
+    "id": 65,
     "title": "Machine Vision System for the Automated Green Shoot Thinning in Vineyards",
     "authors": "Yaqoob Majeed",
     "year": 2020,
@@ -603,7 +632,7 @@ export const publicationsData = [
     "url": "https://search.proquest.com/openview/ac66a94eca087e80b4d6c31d1c3001ae/1?pq-origsite=gscholar&cbl=51922&diss=y"
   },
   {
-    "id": 63,
+    "id": 66,
     "title": "Vineyard Canopy Images during Early Growth Stage",
     "authors": "Manoj Karkee and Qin Zhang and Yaqoob Majeed",
     "year": 2018,
@@ -612,7 +641,7 @@ export const publicationsData = [
     "url": "https://scholar.google.com/scholar?cluster=6404937987675429009&hl=en&oi=scholarr"
   },
   {
-    "id": 64,
+    "id": 67,
     "title": "Information Processing in Agriculture",
     "authors": "Wulan Mao and Leilei He and Man Xia and Hanhui Jiang and Rui Li and Ramesh Sahni and Yaqoob Majeed and Zhanjiang Zhu and Longsheng Fu",
     "abstract": "Separating pulp and core is critical for apricot processing, but faces labor shortages. To address this challenge, a fully automated pitting machine (FAPM) based on automatic apricot orientation device (AAOD) was proposed to achieve mechanized pitting by apricot automatic orientation. The designed and constructed AAOD adopt with dynamic visual detection and mechanical orientation for apricot posture adjustment. YOLOv8 series models were applied for apricot and stem detection, and then estimating their three-dimensional posture. Compared with other YOLOv8 series models, YOLOv8n was selected as the preferred detection model with a detection speed of 10.3 ms and a size of 6.1 MB to meet the need of real-time detection and lightweight deployment. YOLOv8n achieved precision (P), recall (R), and mean average precision (mAP) values of 82.0%, 90.9%, and 90.1%, respectively. Moreover, new indicators, namely positional offsets in the image coordinate system (Offsetimg), positional offsets (Offset3D), angular offsets in the 3D coordinate system (Offsetang), and the ratio of intersection to manual bounding box areas (Ratioim), were proposed to validate the performance of AAOD for position estimation in three varieties of apricot. The best performance was obtained in Saimaiti apricot and achieved Offsetimg of 2.9 pixels, Offset3D of 1.2 mm, and Offsetang of 0.9◦, with Ratioim for apricot and stem were 99.3% and 97.3%. Experimental show that the optimal operating parameters for AAOD are 20 rps for alignment wheel rotation speed and the distance of 22.5 mm from apricot base to alignment wheel axis, which presented the best …",
@@ -620,7 +649,7 @@ export const publicationsData = [
     "url": "https://www.researchgate.net/profile/Longsheng-Fu/publication/386989953_A_novel_method_to_detect_stem_and_fruit_dynamically_for_apricot_posture_estimation_and_adjustment/links/68f9d6fae7f5f867e6e1b76c/A-novel-method-to-detect-stem-and-fruit-dynamically-for-apricot-posture-estimation-and-adjustment.pdf"
   },
   {
-    "id": 65,
+    "id": 68,
     "title": "Homography transformation-based node re-recognition for winter pruning position identification of horizontal trellis cultivated grapevine",
     "authors": "Shuolin Kong and Xiaojuan Liu and Qichen Huang and Bo Jia and Juncai Huang and Yun Chen and Yaqoob Majeed and Spyros Fountas and Longsheng Fu",
     "journal": "Available at SSRN 5654873",
@@ -629,7 +658,7 @@ export const publicationsData = [
     "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5654873"
   },
   {
-    "id": 66,
+    "id": 69,
     "title": "Identification of grid-distributed wires in dense canopies based on geometric feature grouping-connection and YOLO11 for robotic harvesting",
     "authors": "Xiaojuan Liu and Bryan Gilbert Murengami and Qiling Gong and Xiaoyu Ma and Rui Li and Jinyong Chen and Ramesh Kumar Sahni and Yaqoob Majeed and Spyros Fountas and Longsheng Fu",
     "journal": "Available at SSRN 5558161",
@@ -638,7 +667,7 @@ export const publicationsData = [
     "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5558161"
   },
   {
-    "id": 67,
+    "id": 70,
     "title": "Food Physics",
     "authors": "Muhammad Waseem and Muhammad Muzzammil Sajjad and Laraib Haider Naqvi and Yaqoob Majeed and Tanzeel Ur Rehman and Tayyaba Nadeem",
     "abstract": "Tomato maturity plays a pivotal role in optimizing harvest timing and ensuring product quality, but current methods struggle to achieve high accuracy along computational efficiency simultaneously. Existing deep learning approaches, while accurate, are often too computationally demanding for practical use in resource-constrained agricultural settings. In contrast, simpler techniques fail to capture the nuanced features needed for precise classification. This study aims to develop a computationally efficient tomato classification model using the ResNet-18 architecture optimized through transfer learning, pruning, and quantization techniques. Our objective is to address the dual challenge of maintaining high accuracy while enabling real-time performance on low-power edge devices. Then, these models were deployed on an edge device to investigate their performance for tomato maturity classification. The quantized model achieved an accuracy of 97.81%, offering superior efficiency with an average classification time of 0.000975 s per image. The pruned and auto-tuned model also demonstrated significant improvements in deployment metrics, further highlighting the benefits of optimization techniques. These results underscore the potential for a balanced solution that meets the accuracy and efficiency demands of modern agricultural production, paving the way for practical, real-world deployment in resource-limited environments.",
@@ -646,7 +675,7 @@ export const publicationsData = [
     "url": "https://www.researchgate.net/profile/Muhammad-Waseem/publication/393714850_Deep_Learning_Model_for_Precise_and_Rapid_Prediction_of_Tomato_Maturity_Based_on_Image_Recognition/links/6877c7251a77b36b5b039bd9/Deep-Learning-Model-for-Precise-and-Rapid-Prediction-of-Tomato-Maturity-Based-on-Image-Recognition.pdf"
   },
   {
-    "id": 68,
+    "id": 71,
     "title": "Thin Wire Segmentation and Reconstruction Based on a Novel Image Cropping and Stitching Algorithm in Apple Fruiting Wall Architecture for Robotic Picking",
     "authors": "Longsheng Fu and Hanhui Jiang and Xiaoming Sun and Rui Suo and Rui Li and Fernando Auat Cheein and Yaqoob Majeed",
     "journal": "Available at SSRN 4237479",
@@ -655,7 +684,7 @@ export const publicationsData = [
     "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4237479"
   },
   {
-    "id": 69,
+    "id": 72,
     "title": "Vineyard Canopy Images during Early Growth Stage",
     "authors": "Yaqoob Majeed and Manoj Karkee and Qin Zhang",
     "citations": 0,
