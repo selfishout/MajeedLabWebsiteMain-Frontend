@@ -1,37 +1,13 @@
 // Static home page data - replaces database content
 export const homeData = {
-  banners: [
-    {
-      id: 1,
-      title: 'Intelligent Automation for Specialty Crops',
-      subtitle: 'Field-ready robots and sensing systems for resilient agriculture',
-      description: 'Our lab deploys autonomous platforms that help growers monitor, harvest, and care for high-value crops with precision and care.',
-      image: 'https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1400&q=80',
-      button_text: 'Discover Our Work',
-      button_link: '/publications',
-      featured: true
-    },
-    {
-      id: 2,
-      title: 'From Pixels to Plants',
-      subtitle: 'Vision-driven analytics that quantify plant health in real time',
-      description: 'We fuse aerial, ground, and canopy-level sensing to deliver actionable insights that drive sustainable decisions on every acre.',
-      image: 'https://images.unsplash.com/photo-1518779578993-ec3579fee39f?auto=format&fit=crop&w=1400&q=80',
-      button_text: 'Explore Research Areas',
-      button_link: '/about',
-      featured: false
-    },
-    {
-      id: 3,
-      title: 'Join a Multi-disciplinary Team',
-      subtitle: 'Robotics, AI, horticulture, and design working side by side',
-      description: 'Students and collaborators build systems that leave the lab and deliver value to growers across the Mountain West and beyond.',
-      image: 'https://images.unsplash.com/photo-1522199710521-72d69614c702?auto=format&fit=crop&w=1400&q=80',
-      button_text: 'Meet the Team',
-      button_link: '/students',
-      featured: false
-    }
-  ],
+  banner: {
+    title: 'Intelligent Automation for Specialty Crops',
+    subtitle: 'Field-ready robots and sensing systems for resilient agriculture',
+    description: 'Our lab deploys autonomous platforms that help growers monitor, harvest, and care for high-value crops with precision and care.',
+    image: 'https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1400&q=80',
+    button_text: 'Discover Our Work',
+    button_link: '/publications'
+  },
 
   content: {
     welcome_section: {
@@ -107,11 +83,8 @@ export const homeData = {
 
 // Helper functions for home data
 export const homeHelper = {
-  // Get all banners
-  getAllBanners: () => homeData.banners,
-  
-  // Get featured banner
-  getFeaturedBanner: () => homeData.banners.find(banner => banner.featured),
+  // Get banner
+  getBanner: () => homeData.banner,
   
   // Get welcome section
   getWelcomeSection: () => homeData.content.welcome_section,

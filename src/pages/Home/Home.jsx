@@ -7,34 +7,19 @@ import { Link } from 'react-router-dom'
 import { FaArrowRight, FaRobot, FaEye, FaSatellite, FaBrain, FaChartLine, FaUsers, FaBookOpen, FaProjectDiagram, FaCalendarAlt } from 'react-icons/fa'
 
 function Home() {
-  const [currentBannerIndex, setCurrentBannerIndex] = useState(0)
-  const [banners, setBanners] = useState([])
+  const [banner, setBanner] = useState({})
   const [welcomeSection, setWelcomeSection] = useState({})
   const [researchAreas, setResearchAreas] = useState([])
   const [stats, setStats] = useState({})
   const [featuredProjects, setFeaturedProjects] = useState([])
 
   useEffect(() => {
-    setBanners(homeHelper.getAllBanners())
+    setBanner(homeHelper.getBanner())
     setWelcomeSection(homeHelper.getWelcomeSection())
     setResearchAreas(homeHelper.getResearchAreas())
     setStats(homeHelper.getStats())
     setFeaturedProjects(homeHelper.getFeaturedProjects())
   }, [])
-
-  useEffect(() => {
-    if (!banners.length) return
-    const interval = setInterval(() => {
-      setCurrentBannerIndex((prevIndex) =>
-        prevIndex === banners.length - 1 ? 0 : prevIndex + 1
-      )
-    }, 5000)
-    return () => clearInterval(interval)
-  }, [banners])
-
-  const goToBanner = (index) => setCurrentBannerIndex(index)
-  const nextBanner = () => setCurrentBannerIndex((prev) => (prev === banners.length - 1 ? 0 : prev + 1))
-  const prevBanner = () => setCurrentBannerIndex((prev) => (prev === 0 ? banners.length - 1 : prev - 1))
 
   const getResearchIcon = (title) => {
     const iconMap = {
@@ -49,33 +34,20 @@ function Home() {
   return (
     <div className="home-page">
       <section className="hero-banner">
-        {banners.length > 0 && (
+        {banner && Object.keys(banner).length > 0 && (
           <div className="banner-container">
             <div className="banner-slide">
               <div className="banner-image">
-                <img src={banners[currentBannerIndex].image} alt={banners[currentBannerIndex].title} />
+                <img src={banner.image} alt={banner.title} />
               </div>
               <div className="banner-content">
-                <h1 className="banner-title">{banners[currentBannerIndex].title}</h1>
-                <h2 className="banner-subtitle">{banners[currentBannerIndex].subtitle}</h2>
-                <p className="banner-description">{banners[currentBannerIndex].description}</p>
-                <Link to={banners[currentBannerIndex].button_link} className="banner-button">
-                  {banners[currentBannerIndex].button_text}
+                <h1 className="banner-title">{banner.title}</h1>
+                <h2 className="banner-subtitle">{banner.subtitle}</h2>
+                <p className="banner-description">{banner.description}</p>
+                <Link to={banner.button_link} className="banner-button">
+                  {banner.button_text}
                   <FaArrowRight className="button-icon" />
                 </Link>
-              </div>
-              <div className="banner-navigation">
-                <button className="nav-button prev" onClick={prevBanner}>‹</button>
-                <button className="nav-button next" onClick={nextBanner}>›</button>
-              </div>
-              <div className="banner-dots">
-                {banners.map((_, index) => (
-                  <button
-                    key={index}
-                    className={`dot ${index === currentBannerIndex ? 'active' : ''}`}
-                    onClick={() => goToBanner(index)}
-                  />
-                ))}
               </div>
             </div>
           </div>
