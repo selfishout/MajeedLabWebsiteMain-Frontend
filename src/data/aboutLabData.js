@@ -2,9 +2,9 @@
 export const aboutLabData = {
   labInfo: {
     name: 'AgBodied Lab: Perception, Embodied Intelligence, and Robotics for Agriculture',
-    established: '2019',
-    location: 'Engineering Innovation Center · Suite 410',
-    department: 'Department of Plant Sciences & Agricultural Systems',
+    established: '2024',
+    location: 'Engineering Building 5th Floor, 5019',
+    department: 'Department of Computer Science and Electrical Engineering',
     university: 'University of Wyoming',
     address: '1000 E University Ave, Laramie, WY 82071, USA',
     phone: '+1 (307) 766-1234',
