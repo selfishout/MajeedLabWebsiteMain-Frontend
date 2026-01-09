@@ -23,10 +23,10 @@ function Home() {
 
   const getResearchIcon = (title) => {
     const iconMap = {
-      'Field Robotics': <FaRobot />,
-      'Perception & AI': <FaEye />,
-      'Connected Sensing': <FaSatellite />,
-      'Human–Robot Partnership': <FaBrain />
+      'Embodied AI and Autonomous Robotic Systems': <FaRobot />,
+      'Robotic Perception and Multimodal Sensing': <FaEye />,
+      'Learning-Based Manipulation and Decision Making': <FaBrain />,
+      'AI-Driven Agricultural Systems and Digital Twins': <FaSatellite />
     }
     return iconMap[title] || <FaRobot />
   }
