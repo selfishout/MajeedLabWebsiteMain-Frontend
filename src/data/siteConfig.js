@@ -8,7 +8,7 @@ export const siteConfig = {
     website: 'https://www.uwyo.edu'
   },
   contact: {
-    email: 'agrobotics@uwyo.edu',
+    email: 'ymajeed@uwyo.edu',
     phone: '+1 (307) 766-1234'
   },
   social: {

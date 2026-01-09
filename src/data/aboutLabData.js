@@ -8,7 +8,7 @@ export const aboutLabData = {
     university: 'University of Wyoming',
     address: '1000 E University Ave, Laramie, WY 82071, USA',
     phone: '+1 (307) 766-1234',
-    email: 'agrobotics@uwyo.edu',
+    email: 'ymajeed@uwyo.edu',
     website: 'https://www.uwyo.edu/agrobotics'
   },
 

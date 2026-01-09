@@ -164,7 +164,7 @@ function Home() {
             </p>
             <div className="cta-buttons">
               <Link to="/students" className="cta-button primary">Meet Our Team</Link>
-              <Link to="/about" className="cta-button secondary">Explore the Lab</Link>
+              <Link to="/prospective-students" className="cta-button secondary">Prospective Students</Link>
             </div>
           </div>
         </div>

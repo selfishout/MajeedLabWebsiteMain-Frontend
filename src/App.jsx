@@ -5,6 +5,7 @@ import Home from './pages/Home/Home'
 import Publications from './pages/Publications/Publications'
 import NewsEvents from './pages/NewsEvents/NewsEvents'
 import Students from './pages/Students'
+import ProspectiveStudents from './pages/ProspectiveStudents/ProspectiveStudents'
 import Navbar from './components/Navbar/Navbar'
 import Footer from './components/footer/Footer'
 import Layout from './components/Preloader/Layout'
@@ -20,6 +21,7 @@ function AppContent() {
         <Route path="/publications" element={<Publications />} />
         <Route path="/news-events" element={<NewsEvents />} />
         <Route path="/students" element={<Students />} />
+        <Route path="/prospective-students" element={<ProspectiveStudents />} />
         <Route path="*" element={<Home />} />
       </Routes>
       <Footer />
