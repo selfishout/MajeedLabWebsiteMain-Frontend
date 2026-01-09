@@ -8,14 +8,14 @@ import { FaArrowRight, FaRobot, FaEye, FaSatellite, FaBrain, FaChartLine, FaUser
 
 function Home() {
   const [banner, setBanner] = useState({})
-  const [welcomeSection, setWelcomeSection] = useState({})
+  // const [welcomeSection, setWelcomeSection] = useState({})
   const [researchAreas, setResearchAreas] = useState([])
   const [stats, setStats] = useState({})
   const [featuredProjects, setFeaturedProjects] = useState([])
 
   useEffect(() => {
     setBanner(homeHelper.getBanner())
-    setWelcomeSection(homeHelper.getWelcomeSection())
+    // setWelcomeSection(homeHelper.getWelcomeSection())
     setResearchAreas(homeHelper.getResearchAreas())
     setStats(homeHelper.getStats())
     setFeaturedProjects(homeHelper.getFeaturedProjects())
@@ -54,7 +54,8 @@ function Home() {
         )}
       </section>
 
-      <section className="welcome-section">
+      {/* Welcome section commented out */}
+      {/* <section className="welcome-section">
         <div className="container">
           <div className="welcome-content">
             <div className="welcome-text">
@@ -71,7 +72,7 @@ function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       <section className="research-areas">
         <div className="container">
