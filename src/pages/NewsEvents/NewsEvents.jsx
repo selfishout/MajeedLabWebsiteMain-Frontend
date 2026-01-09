@@ -55,7 +55,19 @@ export default function NewsEvents() {
 
   return (
     <div className="news-events-page">
-      <div className="page-header">
+      <div className="coming-soon-container">
+        <div className="coming-soon-content">
+          <div className="coming-soon-icon">📰</div>
+          <h1 className="coming-soon-title">Coming Soon...</h1>
+          <p className="coming-soon-message">
+            We're working on bringing you the latest news and events from our lab. 
+            Check back soon for updates!
+          </p>
+        </div>
+      </div>
+
+      {/* All sections commented out */}
+      {/* <div className="page-header">
         <h1 className="page-title">News & Events</h1>
         <p className="page-subtitle">
           Stay updated with the latest research developments, team news, and upcoming events
@@ -241,7 +253,7 @@ export default function NewsEvents() {
             </div>
           </div>
         </div>
-      )}
+      )} */}
     </div>
   );
 }
