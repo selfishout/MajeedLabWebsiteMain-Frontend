@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Students.css';
 import { teamData } from '../data/teamData';
 import { FaGithub, FaLinkedin, FaGlobe } from 'react-icons/fa';
@@ -7,6 +7,10 @@ import { SiGooglescholar } from 'react-icons/si';
 export default function Students() {
   const professor = teamData.professor;
   const students = teamData.students;
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const getImageUrl = (member) => member.image;
 
