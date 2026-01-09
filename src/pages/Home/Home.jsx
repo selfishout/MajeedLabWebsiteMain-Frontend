@@ -11,14 +11,14 @@ function Home() {
   // const [welcomeSection, setWelcomeSection] = useState({})
   const [researchAreas, setResearchAreas] = useState([])
   const [stats, setStats] = useState({})
-  const [featuredProjects, setFeaturedProjects] = useState([])
+  // const [featuredProjects, setFeaturedProjects] = useState([])
 
   useEffect(() => {
     setBanner(homeHelper.getBanner())
     // setWelcomeSection(homeHelper.getWelcomeSection())
     setResearchAreas(homeHelper.getResearchAreas())
     setStats(homeHelper.getStats())
-    setFeaturedProjects(homeHelper.getFeaturedProjects())
+    // setFeaturedProjects(homeHelper.getFeaturedProjects())
   }, [])
 
   const getResearchIcon = (title) => {
@@ -120,7 +120,8 @@ function Home() {
         </div>
       </section>
 
-      <section className="featured-projects">
+      {/* Featured Projects section commented out */}
+      {/* <section className="featured-projects">
         <div className="container">
           <h2 className="section-title">Featured Projects</h2>
           <p className="section-subtitle">Discover our latest innovations in agricultural robotics</p>
@@ -150,7 +151,7 @@ function Home() {
             </Link>
           </div>
         </div>
-      </section>
+      </section> */}
 
       <ProfessorInfo />
 
