@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './ProspectiveStudents.css';
 import { FaGraduationCap, FaUserGraduate, FaEnvelope, FaFileAlt, FaCheckCircle } from 'react-icons/fa';
 
 export default function ProspectiveStudents() {
   const contactEmail = 'ymajeed@uwyo.edu';
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="prospective-students-page">
