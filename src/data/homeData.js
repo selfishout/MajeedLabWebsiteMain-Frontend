@@ -37,7 +37,7 @@ export const homeData = {
         title: 'Learning-Based Manipulation and Decision Making',
         description: 'Design of supervised, self-supervised, and reinforcement learning methods for robotic manipulation, harvesting, navigation, and adaptive decision-making under uncertainty and resource constraints.',
         icon: '📡',
-        image: 'https://images.unsplash.com/photo-1555252333-9f8e92e65df9?auto=format&fit=crop&w=1200&q=90'
+        image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&q=90'
       },
       {
         id: 4,
