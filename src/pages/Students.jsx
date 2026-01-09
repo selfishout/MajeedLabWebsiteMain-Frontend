@@ -15,6 +15,27 @@ export default function Students() {
     return member.cv.toLowerCase().includes('dummy') ? 'Sample CV' : 'Curriculum Vitae';
   };
 
+  const getInitials = (name) => {
+    if (!name) return '?';
+    const parts = name.trim().split(/\s+/);
+    if (parts.length >= 2) {
+      return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
+    }
+    return name.substring(0, 2).toUpperCase();
+  };
+
+  const renderAvatar = (member, className) => {
+    const imageUrl = getImageUrl(member);
+    if (imageUrl) {
+      return <img src={imageUrl} alt={member.name} className={className} />;
+    }
+    return (
+      <div className={`${className} avatar-placeholder`}>
+        <span className="avatar-initials">{getInitials(member.name)}</span>
+      </div>
+    );
+  };
+
   // Separate students by degree_type field (defaults to M.S if not specified)
   const phdStudents = students.filter(student => 
     student.degree_type && student.degree_type.toLowerCase() === 'ph.d'
@@ -31,7 +52,7 @@ export default function Students() {
       {/* Professor section */}
       {professor && (
         <div className="professor-section">
-          <img src={getImageUrl(professor)} alt={professor.name} className="professor-image" />
+          {renderAvatar(professor, 'professor-image')}
           <div className="professor-info">
             <h2 className="professor-name">{professor.name}</h2>
             <h3 className="professor-title">{professor.designation}</h3>
@@ -87,7 +108,7 @@ export default function Students() {
           <div className="students-list">
             {phdStudents.map((student) => (
               <div className="student-card" key={student.id}>
-                <img src={getImageUrl(student)} alt={student.name} className="student-image" />
+                {renderAvatar(student, 'student-image')}
                 <h3 className="student-name">{student.name}</h3>
                 <p className="student-designation">{student.designation}</p>
                 <p className="student-bio">{student.bio}</p>
@@ -143,7 +164,7 @@ export default function Students() {
           <div className="students-list">
             {mastersStudents.map((student) => (
               <div className="student-card" key={student.id}>
-                <img src={getImageUrl(student)} alt={student.name} className="student-image" />
+                {renderAvatar(student, 'student-image')}
                 <h3 className="student-name">{student.name}</h3>
                 <p className="student-designation">{student.designation}</p>
                 <p className="student-bio">{student.bio}</p>
