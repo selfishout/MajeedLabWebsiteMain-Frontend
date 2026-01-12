@@ -73,39 +73,39 @@ export const teamData = {
         website: 'https://sites.google.com/view/farukmdomor/about-me'
       }
     },  
-    {
-      id: 'mahbubur-rahman',
-      name: 'MD. Mahbubur Rahman',
-      designation: 'Ph.D. Student · Machine Learning',
-      degree_type: 'Ph.D',
-      email: '',
-      research_interests: '',
-      bio: '',
-      start_date: '',
-      image: '/images/Student/mah.png',
-      cv: '',
-      social: {
-        linkedin: '',
-        google_scholar: '',
-        github: ''
-      }
-    },
-    {
-      id: 'abiam',
-      name: 'Abiam Khalid',
-      designation: '',
-      degree_type: 'M.S',
-      email: 'aasifkha@uwyo.edu',
-      research_interests: 'Robotics',
-      bio: '',
-      start_date: '',
-      image: '',
-      cv: '',
-      social: {
-        linkedin: '',
-        website: ''
-      }
-    },
+    // {
+    //   id: 'mahbubur-rahman',
+    //   name: 'MD. Mahbubur Rahman',
+    //   designation: 'Ph.D. Student · Machine Learning',
+    //   degree_type: 'Ph.D',
+    //   email: '',
+    //   research_interests: '',
+    //   bio: '',
+    //   start_date: '',
+    //   image: '/images/Student/mah.png',
+    //   cv: '',
+    //   social: {
+    //     linkedin: '',
+    //     google_scholar: '',
+    //     github: ''
+    //   }
+    // },
+    // {
+    //   id: 'abiam',
+    //   name: 'Abiam Khalid',
+    //   designation: '',
+    //   degree_type: 'M.S',
+    //   email: 'aasifkha@uwyo.edu',
+    //   research_interests: 'Robotics',
+    //   bio: '',
+    //   start_date: '',
+    //   image: '',
+    //   cv: '',
+    //   social: {
+    //     linkedin: '',
+    //     website: ''
+    //   }
+    // },
     {
       id: 'mojahed',
       name: 'Muhammad Mujahid Iqbal',
@@ -123,22 +123,22 @@ export const teamData = {
         website: ''
       }
     },
-    {
-      id: 'dayan',
-      name: 'Dayan',
-      designation: '',
-      degree_type: 'M.S',
-      email: 'dayan@uwyo.edu',
-      research_interests: 'Robotics',
-      bio: '',
-      start_date: '',
-      image: '',
-      cv: '',
-      social: {
-        linkedin: '',
-        github: '',
-        website: ''
-      }
-    }
+    // {
+    //   id: 'dayan',
+    //   name: 'Dayan',
+    //   designation: '',
+    //   degree_type: 'M.S',
+    //   email: 'dayan@uwyo.edu',
+    //   research_interests: 'Robotics',
+    //   bio: '',
+    //   start_date: '',
+    //   image: '',
+    //   cv: '',
+    //   social: {
+    //     linkedin: '',
+    //     github: '',
+    //     website: ''
+    //   }
+    // }
   ]
 };
