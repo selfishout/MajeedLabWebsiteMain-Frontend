@@ -353,46 +353,57 @@
 
 .equipment-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
   margin-top: 2rem;
 }
 
-.equipment-item {
+.equipment-card {
   background: #ffffff;
-  border-radius: 1rem;
-  padding: 1.5rem;
+  border-radius: 1.25rem;
+  overflow: hidden;
   border: 1px solid rgba(148, 163, 184, 0.25);
-  box-shadow: 0 8px 16px rgba(15, 23, 42, 0.08);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 12px 24px rgba(15, 23, 42, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.equipment-item:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 24px rgba(15, 23, 42, 0.12);
+.equipment-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.15);
+}
+
+.equipment-image {
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+}
+
+.equipment-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.equipment-card:hover .equipment-image img {
+  transform: scale(1.05);
+}
+
+.equipment-content {
+  padding: 1.5rem;
 }
 
 .equipment-name {
-  font-size: 1.1rem;
-  font-weight: 600;
+  font-size: 1.3rem;
+  font-weight: 700;
   color: #1e40af;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
 }
 
 .equipment-description {
   color: #475569;
+  line-height: 1.7;
   font-size: 0.95rem;
-  margin-bottom: 0.75rem;
-}
-
-.equipment-quantity {
-  display: inline-block;
-  padding: 0.25rem 0.75rem;
-  background: #eff6ff;
-  color: #2563eb;
-  border-radius: 999px;
-  font-size: 0.85rem;
-  font-weight: 600;
 }
 
 /* Contact Section */

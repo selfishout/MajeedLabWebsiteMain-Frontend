@@ -56,33 +56,21 @@ export const aboutLabData = {
   equipment: [
     {
       id: 1,
-      name: 'Sunset Harvester Platforms',
-      description: 'Autonomous apple harvesting robots with adaptive grippers and soft-touch end effectors.',
-      quantity: '3 field units'
+      name: '3D Printer',
+      description: 'Advanced 3D printing capabilities enable rapid prototyping and custom fabrication of robotic components, end effectors, and specialized parts for agricultural applications. Our high-precision 3D printers support multiple materials including durable polymers and composites, allowing for iterative design and testing of mechanical systems. This technology accelerates the development cycle of custom robotic solutions tailored to specific agricultural tasks and environments.',
+      image: '/images/Facilities and Equipments/3D Printer.heic'
     },
     {
       id: 2,
-      name: 'Multimodal Sensor Pods',
-      description: 'Custom pods integrating RGB, hyperspectral, thermal, LiDAR, and acoustic sensing for canopy analytics.',
-      quantity: '27 deployable pods'
+      name: 'InsightFarm',
+      description: 'The InsightFarm system provides comprehensive monitoring and analytics for controlled environment agriculture, integrating advanced sensing technologies with data-driven decision support. This platform enables real-time tracking of environmental parameters, plant growth metrics, and resource utilization across greenhouse and indoor farming facilities. InsightFarm supports precision agriculture through automated data collection, analysis, and actionable insights for optimizing crop production and resource efficiency.',
+      image: '/images/Facilities and Equipments/InsightFarm.heic'
     },
     {
       id: 3,
-      name: 'Edge AI Compute Kits',
-      description: 'NVIDIA Jetson- and Coral-based edge computers ruggedized for outdoor deployments.',
-      quantity: '18 kits'
-    },
-    {
-      id: 4,
-      name: 'Autonomous Ground Vehicles',
-      description: 'Differential and skid-steer robots for scouting, spraying, and logistics support.',
-      quantity: '5 platforms'
-    },
-    {
-      id: 5,
-      name: 'Immersive HRI Lab',
-      description: 'XR headsets, haptic controllers, and usability testing suites for co-designing farm crew interfaces.',
-      quantity: '1 dedicated suite'
+      name: 'Robot',
+      description: 'Our robotic platforms encompass a diverse range of autonomous systems designed for agricultural operations, including manipulation, navigation, and field tasks. These robots integrate perception, planning, and control systems to perform complex operations in unstructured agricultural environments. The platforms are equipped with advanced sensing capabilities, robust mechanical designs, and intelligent decision-making algorithms to support precision agriculture and sustainable farming practices.',
+      image: '/images/Facilities and Equipments/Robot.heic'
     }
   ],
 

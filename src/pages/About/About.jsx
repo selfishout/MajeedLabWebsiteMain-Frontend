@@ -137,10 +137,16 @@ export default function About() {
           <h2 className="section-title">Laboratory Equipment</h2>
           <div className="equipment-grid">
             {equipment.map((item) => (
-              <div key={item.id} className="equipment-item">
-                <h4 className="equipment-name">{item.name}</h4>
-                <p className="equipment-description">{item.description}</p>
-                <span className="equipment-quantity">{item.quantity}</span>
+              <div key={item.id} className="equipment-card">
+                {item.image && (
+                  <div className="equipment-image">
+                    <img src={item.image} alt={item.name} />
+                  </div>
+                )}
+                <div className="equipment-content">
+                  <h3 className="equipment-name">{item.name}</h3>
+                  <p className="equipment-description">{item.description}</p>
+                </div>
               </div>
             ))}
           </div>
