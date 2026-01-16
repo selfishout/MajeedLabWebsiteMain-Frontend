@@ -135,7 +135,7 @@ export const teamData = {
       image: '/images/Student/dayan.jpeg',
       cv: '',
       social: {
-        linkedin: 'www.linkedin.com/in/dayanhafeez',
+        linkedin: 'https://www.linkedin.com/in/dayanhafeez/',
         github: 'https://github.com/DayanHafeez',
         website: ''
       }
