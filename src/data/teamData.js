@@ -73,39 +73,40 @@ export const teamData = {
         website: 'https://sites.google.com/view/farukmdomor/about-me'
       }
     },  
-    // {
-    //   id: 'mahbubur-rahman',
-    //   name: 'MD. Mahbubur Rahman',
-    //   designation: 'Ph.D. Student · Machine Learning',
-    //   degree_type: 'Ph.D',
-    //   email: '',
-    //   research_interests: '',
-    //   bio: '',
-    //   start_date: '',
-    //   image: '/images/Student/mah.png',
-    //   cv: '',
-    //   social: {
-    //     linkedin: '',
-    //     google_scholar: '',
-    //     github: ''
-    //   }
-    // },
-    // {
-    //   id: 'abiam',
-    //   name: 'Abiam Khalid',
-    //   designation: '',
-    //   degree_type: 'M.S',
-    //   email: 'aasifkha@uwyo.edu',
-    //   research_interests: 'Robotics',
-    //   bio: '',
-    //   start_date: '',
-    //   image: '',
-    //   cv: '',
-    //   social: {
-    //     linkedin: '',
-    //     website: ''
-    //   }
-    // },
+    {
+      id: 'mahbubur-rahman',
+      name: 'MD. Mahbubur Rahman',
+      designation: 'Ph.D. Student · Machine Learning',
+      degree_type: 'Ph.D',
+      email: '',
+      research_interests: '',
+      bio: '',
+      start_date: '',
+      image: '/images/Student/mah.png',
+      cv: '',
+      social: {
+        linkedin: '',
+        google_scholar: '',
+        github: ''
+      }
+    },
+    {
+      id: 'abiam',
+      name: 'Abiam Khalid',
+      designation: 'MS Student · Electrical Engineering',
+      degree_type: 'M.S',
+      email: 'aasifkha@uwyo.edu',
+      research_interests: 'Robotics',
+      bio: 'I am a Master’s Student in EE with a background in Mechatronics Engineering and interests in robotics, autonomous systems, and automation intelligence. My work focuses on integrating perception, control, and simulation using tools such as ROS2 and Gazebo to develop practical, agriculture-based robotic solutions.',
+      start_date: '',
+      image: '',
+      cv: '',
+      social: {
+        linkedin: 'https://www.linkedin.com/in/abiam-asif-khalid/',
+        github: 'https://github.com/AbiamAsifKhalid',
+        website: 'https://abiamasifkhalid.github.io/'
+      }
+    },
     {
       id: 'mojahed',
       name: 'Muhammad Mujahid Iqbal',
@@ -126,17 +127,17 @@ export const teamData = {
     {
       id: 'dayan',
       name: 'Dayan',
-      designation: 'M.S Student · Robotics and Embodied AI',
-      degree_type: 'M.S. in Electrical Engineering',
+      designation: '',
+      degree_type: 'M.S',
       email: 'dayan@uwyo.edu',
       research_interests: 'Robotics',
-      bio: 'I am a Master’s student in Electrical Engineering with research interests in Vision-Language-Action (VLA) models and embodied AI, with a focus on reinforcement learning for robotic manipulation. My work centers on robotic manipulators and learning based control, aiming to bridge high level perception and reasoning with low level control for autonomous robotic systems.',
-      start_date: '2025-08-15',
-      image: '/images/Student/dayan.jpeg',
+      bio: '',
+      start_date: '',
+      image: '',
       cv: '',
       social: {
-        linkedin: 'https://www.linkedin.com/in/dayanhafeez/',
-        github: 'https://github.com/DayanHafeez',
+        linkedin: '',
+        github: '',
         website: ''
       }
     }
