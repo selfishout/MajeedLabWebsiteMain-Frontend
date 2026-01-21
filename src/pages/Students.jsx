@@ -41,13 +41,22 @@ export default function Students() {
   };
 
   // Separate students by degree_type field (defaults to M.S if not specified)
-  const phdStudents = students.filter(student => 
-    student.degree_type && student.degree_type.toLowerCase() === 'ph.d'
-  );
+  const phdStudents = students.filter(student => {
+    if (!student.degree_type) return false;
+    const degree = student.degree_type.toLowerCase().trim();
+    return degree === 'ph.d' || degree.startsWith('ph.d');
+  });
 
-  const mastersStudents = students.filter(student => 
-    !student.degree_type || student.degree_type.toLowerCase() !== 'ph.d'
-  );
+  const mastersStudents = students.filter(student => {
+    if (!student.degree_type) return true; // Default to M.S if no degree_type
+    const degree = student.degree_type.toLowerCase().trim();
+    return degree !== 'ph.d' && !degree.startsWith('ph.d');
+  });
+  
+  // Debug: Log students for troubleshooting
+  console.log('All students:', students.map(s => ({ id: s.id, name: s.name, degree_type: s.degree_type })));
+  console.log('PhD students:', phdStudents.map(s => s.id));
+  console.log('Masters students:', mastersStudents.map(s => s.id));
 
   return (
     <div className="students-page">
