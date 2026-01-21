@@ -131,7 +131,7 @@ export const teamData = {
       degree_type: 'M.S. in Electrical Engineering',
       email: 'dayan@uwyo.edu',
       research_interests: 'Robotics',
-      bio: 'I am a Master's student in Electrical Engineering with research interests in Vision-Language-Action (VLA) models and embodied AI, with a focus on reinforcement learning for robotic manipulation. My work centers on robotic manipulators and learning based control, aiming to bridge high level perception and reasoning with low level control for autonomous robotic systems.',
+      bio: 'I am a Master\'s student in Electrical Engineering with research interests in Vision-Language-Action (VLA) models and embodied AI, with a focus on reinforcement learning for robotic manipulation. My work centers on robotic manipulators and learning based control, aiming to bridge high level perception and reasoning with low level control for autonomous robotic systems.',
       start_date: '2025-08-15',
       image: '/images/Student/dayan.jpeg',
       cv: '',
