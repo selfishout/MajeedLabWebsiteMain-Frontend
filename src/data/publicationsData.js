@@ -16,7 +16,7 @@ export const publicationsData = [
     "authors": "Yaqoob Majeed and Muhammad Usman Khan and Muhammad Waseem and Umair Zahid and Faisal Mahmood and Faizan Majeed and Muhammad Sultan and Ali Raza",
     "year": 2023,
     "abstract": "This study provides a high-level overview of alternative energy sources that can be harnessed to power agricultural operations, focusing on renewable energy technologies. When thinking about the overall economy around the globe, agriculture is vital. Energy is required at each step of production, from fertilizer production to fueling tractors for planting and harvesting. The high energy prices and unpredictable energy market significantly affect the input energy costs. Energy efficiency methods, when properly applied, and the use of farm’s renewable energy sources could assist agricultural producers in saving energy-related costs. Renewable energy resources in the form of solar, biomass, wind, and geothermal energy are abundantly available in the agriculture sector. This review aims to explore renewable energy as an alternative energy source for efficient energy management in agriculture. It discusses the …",
-    "citations": 320,
+    "citations": 331,
     "url": "https://www.sciencedirect.com/science/article/pii/S2352484723010521"
   },
   {
@@ -25,7 +25,7 @@ export const publicationsData = [
     "authors": "Zheng Zhou and Yaqoob Majeed and Geraldine Diverres Naranjo and Elena MT Gambacorta",
     "year": 2021,
     "abstract": "With the increasing global water scarcity, efficient assessment methods for crop water stress have become a prerequisite to perform precision irrigation scheduling. The 1accessibility of infrared thermal sensor provides a powerful tool to detect and quantify crop water stress. This paper reviews the current practices of infrared thermal imagery utilized to assess crop water stress. Overall, three technological aspects of infrared thermal sensing applications for crop water stress assessment are reviewed along with the challenges and recommendations: (i) introduction of uncooled thermal camera and platforms, including ground-based platform and unmanned aerial vehicles (UAVs) platforms, for thermal imaging acquisition, (ii) strategies of canopy segmentation in thermal imaging used to obtain average canopy temperature for CWSI calculation, (iii) correlation between three forms of crop water stress index (CWSI) i.e …",
-    "citations": 264,
+    "citations": 269,
     "url": "https://www.sciencedirect.com/science/article/pii/S0168169921000375"
   },
   {
@@ -54,7 +54,7 @@ export const publicationsData = [
     "authors": "Usman Amin and Muhammad Usman Khan and Yaqoob Majeed and Maksim Rebezov and Mars Khayrullin and Elena Bobkova and Mohammad Ali Shariati and Ill Min Chung and Muthu Thiruvengadam",
     "year": 2021,
     "abstract": "Bio-based packaging materials are gaining importance due to their biodegradability, sustainability and environmental friendliness. To control the food quality and improve the food safety standards, proteins polysaccharide and lipid-based packaging films are enriched with bioactive and functional substances. However, poor permeability and mechanical characteristics are the challenging areas in their commercialization. Scientists and researchers are using a combination of techniques i.e. hydrogels, crosslinking, etc. to improve the intermolecular forces between different components of the film formulation to counter these challenges More recently, biodegradable packaging materials, sometimes edible, are also used for the delivery of functional ingredients which reveals their potential for drug delivery to counter the nutrient deficiency problems. This study highlights the potentials of bio-based materials i.e. proteins …",
-    "citations": 220,
+    "citations": 221,
     "url": "https://www.sciencedirect.com/science/article/pii/S014181302101165X"
   },
   {
@@ -64,7 +64,7 @@ export const publicationsData = [
     "journal": "IEEE access",
     "year": 2019,
     "abstract": "This study presents a novel method to apply the RGB-D (Red Green Blue-Depth) sensors and fuse aligned RGB and NIR images with deep convolutional neural networks (CNN) for fruit detection. It aims to build a more accurate, faster, and more reliable fruit detection system, which is a vital element for fruit yield estimation and automated harvesting. Recent work in deep neural networks has led to the development of a state-of-the-art object detector termed Faster Region-based CNN (Faster R-CNN). A common Faster R-CNN network VGG16 was adopted through transfer learning, for the task of kiwifruit detection using imagery obtained from two modalities: RGB (red, green, blue) and Near-Infrared (NIR) images. Kinect v2 was used to take a bottom view of the kiwifruit canopy's NIR and RGB images. The NIR (1 channel) and RGB images (3 channels) were aligned and arranged side by side into a 6-channel image …",
-    "citations": 220,
+    "citations": 221,
     "url": "https://ieeexplore.ieee.org/abstract/document/8943411/"
   },
   {
@@ -74,27 +74,27 @@ export const publicationsData = [
     "journal": "IFAC-PapersOnLine",
     "year": 2018,
     "abstract": "A kiwifruit detection system for field images was developed based on the deep convolutional neural network, which has a good robustness against the subjectivity and limitation of the features selected artificially. Under different lighting conditions, 2,100 sub-images with 784×784 pixels were prepared by random sub-sampling from 700 field captured images with a pixel resolution of 2352×1568 pixels. Sub-images were used as network training and validation samples. A faster R-CNN was trained end-to-end by using back-propagation and stochastic gradient descent techniques with Zeiler and Fergus network (ZFNet). The average precision of the Faster R-CNN-based kiwifruit detector was 89.3%. Finally, another 100 images of kiwifruit canopies in the field environment (including 5,918 fruits) were used for testing the network. The test results showed that the recognition ratio of occluded fruit, overlapping fruit …",
-    "citations": 167,
+    "citations": 169,
     "url": "https://www.sciencedirect.com/science/article/pii/S2405896318311753"
   },
   {
     "id": 9,
-    "title": "Fruit yield prediction and estimation in orchards: A state-of-the-art comprehensive review for both direct and indirect methods",
-    "authors": "Leilei He and Wentai Fang and Guanao Zhao and Zhenchao Wu and Longsheng Fu and Rui Li and Yaqoob Majeed and Jaspreet Dhupia",
-    "year": 2022,
-    "abstract": "Orchard pre-harvest yield data is important for fruit growers, which can be used for economic benefit evaluation, management mode adjustment and so on. However, traditional manual operation by sampling estimation is quite an onerous and time-consuming task. The main approach of automatic yield monitoring is by establishing multi-information comprehensive prediction systems or using intelligent equipment. A review is performed to investigate and analyze the past 12 years (from 2010 to 2021) of research work regarding orchard yield prediction and estimation. According to our investigation, the most widely used input features in yield prediction systems are various vegetation indices information of plants, while machine learning is the most modeling method applied. In addition, machine vision systems based on image processing and deep learning have been developed rapidly in the field of agriculture and is …",
-    "citations": 165,
-    "url": "https://www.sciencedirect.com/science/article/pii/S0168169922001296"
-  },
-  {
-    "id": 10,
     "title": "Deep learning based segmentation for automated training of apple trees on trellis wires",
     "authors": "Yaqoob Majeed and Jing Zhang and Xin Zhang and Longsheng Fu and Manoj Karkee and Qin Zhang and Matthew D Whiting",
     "journal": "Computers and Electronics in Agriculture",
     "year": 2020,
     "abstract": "Trellised fruiting-wall training systems are becoming standard for modern apple orchards due to their high fruit yield and quality, and their suitability to robotic operations in pruning and harvesting. In a common practice of training young apple trees to a trellis-trained canopy system in PNW region of US, trees branches are manually selected and then tied to horizontal trellis wires in 6 or 7 tiers. As manual training of apple trees to these modern orchard architectures is becoming challenging due to less availability of skilled human labor with quickly increased labor cost, automated training using sensing and robotic techniques could be an alternative solution. Segmenting trunks, branches, and trellis wires is a critical step in automating a tree training operation. In this study, a deep learning-based semantic segmentation method was developed for automatically performing this segmentation task. A Kinect V2 sensor was …",
-    "citations": 163,
+    "citations": 165,
     "url": "https://www.sciencedirect.com/science/article/pii/S0168169919316266"
+  },
+  {
+    "id": 10,
+    "title": "Fruit yield prediction and estimation in orchards: A state-of-the-art comprehensive review for both direct and indirect methods",
+    "authors": "Leilei He and Wentai Fang and Guanao Zhao and Zhenchao Wu and Longsheng Fu and Rui Li and Yaqoob Majeed and Jaspreet Dhupia",
+    "year": 2022,
+    "abstract": "Orchard pre-harvest yield data is important for fruit growers, which can be used for economic benefit evaluation, management mode adjustment and so on. However, traditional manual operation by sampling estimation is quite an onerous and time-consuming task. The main approach of automatic yield monitoring is by establishing multi-information comprehensive prediction systems or using intelligent equipment. A review is performed to investigate and analyze the past 12 years (from 2010 to 2021) of research work regarding orchard yield prediction and estimation. According to our investigation, the most widely used input features in yield prediction systems are various vegetation indices information of plants, while machine learning is the most modeling method applied. In addition, machine vision systems based on image processing and deep learning have been developed rapidly in the field of agriculture and is …",
+    "citations": 164,
+    "url": "https://www.sciencedirect.com/science/article/pii/S0168169922001296"
   },
   {
     "id": 11,
@@ -103,7 +103,7 @@ export const publicationsData = [
     "journal": "Computers and Electronics in Agriculture",
     "year": 2020,
     "abstract": "In order to address the challenge of labor shortages, and to reduce costs of apple harvesting, a targeted shake-and-catch technique is being developed at Washington State University for fresh market apple harvesting. This technique is showing promising results for some varieties of apples trained to a formal, fruiting wall tree architecture. However, the operators are still required to manually engage the shaker on target branches. To further improve the shake-and-catch apple harvesting system, a multi-class object detection algorithm was developed in this study for automatically detecting apples, branches and trunks in the natural environment using a Faster R-CNN (Regions-Convolutional Neural Network) model. This study deployed transfer learning and fine-tuning for the pre-trained networks (Alexnet, VGG16 and VGG19) and activated the feature of different layers to realize the detection of these objects. The …",
-    "citations": 147,
+    "citations": 148,
     "url": "https://www.sciencedirect.com/science/article/pii/S0168169919327073"
   },
   {
@@ -132,7 +132,7 @@ export const publicationsData = [
     "journal": "Computers and Electronics in Agriculture",
     "year": 2020,
     "abstract": "Canopy management practices are carried out annually in vineyards for establishing and maintaining healthy canopies. Green shoot thinning is an integral part of canopy management practices in wine grapes (Vitis vinifera), used to reduce crop load to desired level for optimizing wine quality. Mechanical thinning can reduce labor requirements by 25 times compared to manual operation. However, due to difficulty in adjusting position and orientation of thinning end-effector to the shape of the cordons, cluster removal efficiency with mechanical green shoot thinning varies from 10 to 85%. Automating mechanical thinning could help to substantially increase its efficiency and performance. For performing an automated operation, the first step is to determine the shapes of vine cordons. In this work, methods were investigated to accurately determine the cordon shapes using deep learning networks in natural …",
-    "citations": 58,
+    "citations": 60,
     "url": "https://www.sciencedirect.com/science/article/pii/S0168169919324391"
   },
   {
@@ -150,7 +150,7 @@ export const publicationsData = [
     "authors": "Muhammad Waseem and Yaqoob Majeed and Tayyaba Nadeem and Laraib Haider Naqvi and Muhammad Arslan Khalid and Muhammad Muzzammil Sajjad and Muhammad Sultan and Muhammad Usman Khan and Mars Khayrullin and Mohammad Ali Shariati and Jose Manuel Lorenzo",
     "year": 2023,
     "abstract": "Food bioactive compounds have a beneficial biological effect on human health, fending off cancer, cardiovascular disease, metabolic syndrome, and neurodegenerative disease, among other noncommunicable diseases and neurodegenerative disorders. Secondary metabolites like polyphenols, glucosinolates, carotenoids, vitamins, terpenoids, saponins, and fibers have been linked to these health benefits due to their antioxidant, antiatherogenic, anti‐inflammatory, antimicrobial, cardioprotective, and vasodilator properties. This review comprehensively illustrates the extraction of bioactive compounds in food formulations along plant wastes and provides insight into the efficient delivery systems for health‐promoting compounds. There is an insight into how to choose which bioactive to use, how to extract them in a bioavailable state, and how to include and deliver them. Grapes, garlic, sweet potato leaves, cactus …",
-    "citations": 52,
+    "citations": 55,
     "url": "https://iadns.onlinelibrary.wiley.com/doi/abs/10.1002/fft2.296"
   },
   {
@@ -200,7 +200,7 @@ export const publicationsData = [
     "journal": "Computers and Electronics in Agriculture",
     "year": 2020,
     "abstract": "Green shoot thinning in vineyards is carried out annually aiming to produce high-quality grapes. Recently, mechanical machines are used for green shoot thinning to reduce labor costs which causes 10–85% variation in shoot removal efficiencies due to the difficulty in precisely positioning the thinning end-effector to cordon trajectories. Automatically controlling the position and orientation of thinning end-effector to follow the cordon trajectories is expected to increase the performance and efficiency of these machines. However, during most of the green shoot thinning season (between first week of bud opening to the fourth week of shoot growth), cordons are occluded by shoots/leaves making it extremely challenging to determine the trajectories of cordons. In this study, we presented a deep learning based novel approach to estimate the trajectories of cordons during the thinning season in real field conditions. First …",
-    "citations": 33,
+    "citations": 34,
     "url": "https://www.sciencedirect.com/science/article/pii/S0168169920319049"
   },
   {
@@ -225,6 +225,16 @@ export const publicationsData = [
   },
   {
     "id": 24,
+    "title": "Physical and mechanical properties of hydroponic lettuce for automatic harvesting",
+    "authors": "Wenqi Wang and Yidong Ma and Longsheng Fu and Yongjie Cui and Yaqoob Majeed",
+    "journal": "Information Processing in Agriculture",
+    "year": 2021,
+    "abstract": "To design an automatic harvesting machine for hydroponic lettuce (Lactuca sativa L.), physical and mechanical properties of hydroponic lettuce were investigated and analyzed. Moisture content of stem, root and leaf, geometric characteristics, pulling force, and root cutting force were studied for harvesting hydroponic lettuce. The pulling force was examined by a tensile experiment, while the root cutting force was investigated by a shear experiment on the electronic universal testing machine. The moisture content of hydroponic lettuce was obtained by direct drying. Experiment data were processed using regression analysis and mathematical statistics method. A regression equation and the law of numerical distribution were obtained. The results showed that the geometric size of different hydroponic lettuce had little difference, and the distribution of physical parameters was concentrated. Moisture content was found …",
+    "citations": 26,
+    "url": "https://www.sciencedirect.com/science/article/pii/S2214317320302274"
+  },
+  {
+    "id": 25,
     "title": "Kiwifruit yield estimation using image processing by an Android mobile phone",
     "authors": "Longsheng Fu and Zhihao Liu and Yaqoob Majeed and Yongjie Cui",
     "journal": "IFAC-PapersOnLine",
@@ -234,26 +244,7 @@ export const publicationsData = [
     "url": "https://www.sciencedirect.com/science/article/pii/S2405896318312552"
   },
   {
-    "id": 25,
-    "title": "Physical and mechanical properties of hydroponic lettuce for automatic harvesting",
-    "authors": "Wenqi Wang and Yidong Ma and Longsheng Fu and Yongjie Cui and Yaqoob Majeed",
-    "journal": "Information Processing in Agriculture",
-    "year": 2021,
-    "abstract": "To design an automatic harvesting machine for hydroponic lettuce (Lactuca sativa L.), physical and mechanical properties of hydroponic lettuce were investigated and analyzed. Moisture content of stem, root and leaf, geometric characteristics, pulling force, and root cutting force were studied for harvesting hydroponic lettuce. The pulling force was examined by a tensile experiment, while the root cutting force was investigated by a shear experiment on the electronic universal testing machine. The moisture content of hydroponic lettuce was obtained by direct drying. Experiment data were processed using regression analysis and mathematical statistics method. A regression equation and the law of numerical distribution were obtained. The results showed that the geometric size of different hydroponic lettuce had little difference, and the distribution of physical parameters was concentrated. Moisture content was found …",
-    "citations": 25,
-    "url": "https://www.sciencedirect.com/science/article/pii/S2214317320302274"
-  },
-  {
     "id": 26,
-    "title": "Seaweed-based films for sustainable food packaging: properties, incorporation of essential oils, applications, and future directions.",
-    "authors": "Muhammad Waseem and Muhammad Usman Khan and Yaqoob Majeed and Godswill Ntsomboh Ntsefong and Inna Kirichenko and Anna Klopova and Pavel Trushov and Aleksei Lodygin",
-    "year": 2023,
-    "abstract": "Seaweed-based films have emerged as a promising solution for sustainable food packaging due to their renewable sourcing, biodegradability, and functional properties. This review provides an in-depth analysis of seaweed-based films, focusing on their properties, incorporation of essential oils, applications in food packaging, and future directions. The advantages of seaweed-based films include their renewable and abundant source, biodegradability, and favorable barrier properties. The review explores the physical and mechanical properties, barrier properties, and safety considerations of seaweed-based films. Additionally, it discusses the incorporation of essential oils into seaweed-based films and their potential benefits. Current and potential applications of seaweed-based films in food packaging, ranging from fresh produce to dairy products, are examined, along with the advantages and challenges associated with their use. A comparison with other sustainable packaging options is provided. Furthermore, the review highlights future research directions in developing seaweed-based films, such as improving mechanical properties, extending shelf life, scaling up production, reducing costs, and innovation in formulation. Overall, seaweed-based films offer a promising and sustainable alternative for food packaging, with ongoing research and development driving their advancement and potential for a more environmentally friendly packaging industry.",
-    "citations": 24,
-    "url": "https://www.researchgate.net/profile/Muhammad-Waseem/publication/375445707_Seaweed-based_films_for_sustainable_food_packaging_properties_incorporation_of_essential_oils_applications_and_future_directions/links/654a3be6b1398a779d6dfbb5/Seaweed-based-films-for-sustainable-food-packaging-properties-incorporation-of-essential-oils-applications-and-future-directions.pdf"
-  },
-  {
-    "id": 27,
     "title": "Morphological estimation of primary branch length of individual apple trees during the deciduous period in modern orchard based on PointNet++",
     "authors": "Xiaoming Sun and Leilei He and Hanhui Jiang and Rui Li and Wulan Mao and Dong Zhang and Yaqoob Majeed and Nikita Andriyanov and Vladimir Soloviev and Longsheng Fu",
     "journal": "Computers and Electronics in Agriculture",
@@ -263,7 +254,7 @@ export const publicationsData = [
     "url": "https://www.sciencedirect.com/science/article/pii/S0168169924002643"
   },
   {
-    "id": 28,
+    "id": 27,
     "title": "Fruit detachment force of multiple varieties kiwifruit with different fruit-stem angles for designing universal robotic picking end-effector",
     "authors": "Wentai Fang and Zhenchao Wu and Weiwu Li and Xiaoming Sun and Wulan Mao and Rui Li and Yaqoob Majeed and Longsheng Fu",
     "journal": "Computers and Electronics in Agriculture",
@@ -271,6 +262,15 @@ export const publicationsData = [
     "abstract": "Fruit detachment force (FDF) between fruit and stem, is one of the important physical parameters for designing fruit picking robot. Orchards planted with multiple varieties kiwifruit generally exist in China because of their rich variety resources. FDFs at different fruit-stem angles (FSA) for multiple varieties kiwifruit make it difficult for the fruit picking robot to maintain optimal working conditions for different varieties. Determining the FDF of a single variety is not suitable for developing a universal end-effector that enables fruit picking of multiple varieties kiwifruit. Therefore, it is necessary to measure the FDF of multiple varieties kiwifruit at different FSA. In this study, a special fixture was developed based on external characteristics of fruit, which was installed on the texture analyzer to form a platform for measuring the FDF with different FSA. Fruits of different variety with stems hand-picked, i.e. ‘Hayward’, ‘Xuxiang’, ‘Huayou …",
     "citations": 23,
     "url": "https://www.sciencedirect.com/science/article/pii/S0168169923006130"
+  },
+  {
+    "id": 28,
+    "title": "Seaweed-based films for sustainable food packaging: properties, incorporation of essential oils, applications, and future directions.",
+    "authors": "Muhammad Waseem and Muhammad Usman Khan and Yaqoob Majeed and Godswill Ntsomboh Ntsefong and Inna Kirichenko and Anna Klopova and Pavel Trushov and Aleksei Lodygin",
+    "year": 2023,
+    "abstract": "Seaweed-based films have emerged as a promising solution for sustainable food packaging due to their renewable sourcing, biodegradability, and functional properties. This review provides an in-depth analysis of seaweed-based films, focusing on their properties, incorporation of essential oils, applications in food packaging, and future directions. The advantages of seaweed-based films include their renewable and abundant source, biodegradability, and favorable barrier properties. The review explores the physical and mechanical properties, barrier properties, and safety considerations of seaweed-based films. Additionally, it discusses the incorporation of essential oils into seaweed-based films and their potential benefits. Current and potential applications of seaweed-based films in food packaging, ranging from fresh produce to dairy products, are examined, along with the advantages and challenges associated with their use. A comparison with other sustainable packaging options is provided. Furthermore, the review highlights future research directions in developing seaweed-based films, such as improving mechanical properties, extending shelf life, scaling up production, reducing costs, and innovation in formulation. Overall, seaweed-based films offer a promising and sustainable alternative for food packaging, with ongoing research and development driving their advancement and potential for a more environmentally friendly packaging industry.",
+    "citations": 23,
+    "url": "https://www.researchgate.net/profile/Muhammad-Waseem/publication/375445707_Seaweed-based_films_for_sustainable_food_packaging_properties_incorporation_of_essential_oils_applications_and_future_directions/links/654a3be6b1398a779d6dfbb5/Seaweed-based-films-for-sustainable-food-packaging-properties-incorporation-of-essential-oils-applications-and-future-directions.pdf"
   },
   {
     "id": 29,
@@ -420,6 +420,16 @@ export const publicationsData = [
   },
   {
     "id": 44,
+    "title": "Development of an End-Effector for Robotic Harvesting of Hydroponic Lettuce",
+    "authors": "Al Bashir and Yaqoob Majeed and Azlan Zahid",
+    "journal": "Journal of the ASABE",
+    "year": 2025,
+    "abstract": "HighlightsAn end-effector prototype was developed for harvesting greenhouse hydroponic lettuce.The end-effector's cutting mechanism was designed for 1.72 Nm torque, accounting for 25% loss.The harvesting test showed that the end-effector can cut and hold simultaneously with 95.15% and 94.45% success rates.The average remnant leaves per plant was 0.55 after cutting and fallen leaves per plant was 0.075 at maneuvering.An end-effector prototype was developed for harvesting greenhouse hydroponic lettuce.The end-effector's cutting mechanism was designed for 1.72 Nm torque, accounting for 25% loss.The harvesting test showed that the end-effector can cut and hold simultaneously with 95.15% and 94.45% success rates.The average remnant leaves per plant was 0.55 after cutting and fallen leaves per plant was 0.075 at maneuvering.Lettuce is one of the most demanding annual leafy green vegetables. Greenhouse lettuce, meanwhile, is at a much earlier stage of its evolution, with a cost of production still significantly higher than that of field-grown lettuce. Labor accounts for nearly one-third of the total production cost. Decreasing labor availability and increasing labor costs are the two most critical challenges in greenhouse lettuce production. Thus, automation to reduce labor requirements is required for …",
+    "citations": 3,
+    "url": "https://elibrary.asabe.org/abstract.asp?aid=55562"
+  },
+  {
+    "id": 45,
     "title": "Development and quality cum nutritional assessment based on physical properties for corn extruded snacks enriched with protein and carbohydrates: A remedy to malnutrition for society.",
     "authors": "Muzammal Shafiq and Muhammad Waseem and Yaqoob Majeed and Muhammad Arslan Khalid and Tayyaba Nadeem and Maksim Rebezov and Mars Khairullin and Orynzhamal Sarsembenova",
     "journal": "Slovak Journal of Food Sciences/Potravinarstvo",
@@ -429,7 +439,7 @@ export const publicationsData = [
     "url": "https://www.researchgate.net/profile/Muhammad-Waseem/publication/381991404_Development_and_quality_cum_nutritional_assessment_based_on_physical_properties_for_corn_extruded_snacks_enriched_with_protein_and_carbohydrates/links/6686bf520a25e27fbc246309/Development-and-quality-cum-nutritional-assessment-based-on-physical-properties-for-corn-extruded-snacks-enriched-with-protein-and-carbohydrates.pdf"
   },
   {
-    "id": 45,
+    "id": 46,
     "title": "Field evaluation of data-based pruning severity levels (PSL) on mechanical harvesting of apples",
     "authors": "Xin Zhang and Longsheng Fu and Yaqoob Majeed and Long He and Manoj Karkee and Matthew D Whiting and Qin Zhang",
     "journal": "IFAC-PapersOnLine",
@@ -439,17 +449,17 @@ export const publicationsData = [
     "url": "https://www.sciencedirect.com/science/article/pii/S2405896318312825"
   },
   {
-    "id": 46,
-    "title": "Development of an End-Effector for Robotic Harvesting of Hydroponic Lettuce",
-    "authors": "Al Bashir and Yaqoob Majeed and Azlan Zahid",
-    "journal": "Journal of the ASABE",
+    "id": 47,
+    "title": "Deep learning model for precise and rapid prediction of tomato maturity based on image recognition",
+    "authors": "Muhammad Waseem and Muhammad Muzzammil Sajjad and Laraib Haider Naqvi and Yaqoob Majeed and Tanzeel Ur Rehman and Tayyaba Nadeem",
+    "journal": "Food Physics",
     "year": 2025,
-    "abstract": "HighlightsAn end-effector prototype was developed for harvesting greenhouse hydroponic lettuce.The end-effector's cutting mechanism was designed for 1.72 Nm torque, accounting for 25% loss.The harvesting test showed that the end-effector can cut and hold simultaneously with 95.15% and 94.45% success rates.The average remnant leaves per plant was 0.55 after cutting and fallen leaves per plant was 0.075 at maneuvering.An end-effector prototype was developed for harvesting greenhouse hydroponic lettuce.The end-effector's cutting mechanism was designed for 1.72 Nm torque, accounting for 25% loss.The harvesting test showed that the end-effector can cut and hold simultaneously with 95.15% and 94.45% success rates.The average remnant leaves per plant was 0.55 after cutting and fallen leaves per plant was 0.075 at maneuvering.Lettuce is one of the most demanding annual leafy green vegetables. Greenhouse lettuce, meanwhile, is at a much earlier stage of its evolution, with a cost of production still significantly higher than that of field-grown lettuce. Labor accounts for nearly one-third of the total production cost. Decreasing labor availability and increasing labor costs are the two most critical challenges in greenhouse lettuce production. Thus, automation to reduce labor requirements is required for …",
+    "abstract": "Tomato maturity plays a pivotal role in optimizing harvest timing and ensuring product quality, but current methods struggle to achieve high accuracy along computational efficiency simultaneously. Existing deep learning approaches, while accurate, are often too computationally demanding for practical use in resource-constrained agricultural settings. In contrast, simpler techniques fail to capture the nuanced features needed for precise classification. This study aims to develop a computationally efficient tomato classification model using the ResNet-18 architecture optimized through transfer learning, pruning, and quantization techniques. Our objective is to address the dual challenge of maintaining high accuracy while enabling real-time performance on low-power edge devices. Then, these models were deployed on an edge device to investigate their performance for tomato maturity classification. The quantized …",
     "citations": 2,
-    "url": "https://elibrary.asabe.org/abstract.asp?aid=55562"
+    "url": "https://www.sciencedirect.com/science/article/pii/S2950069925000143"
   },
   {
-    "id": 47,
+    "id": 48,
     "title": "A novel method to detect stem and fruit dynamically for apricot posture estimation and adjustment",
     "authors": "Wulan Mao and Leilei He and Man Xia and Hanhui Jiang and Rui Li and Ramesh Sahni and Yaqoob Majeed and Zhanjiang Zhu and Longsheng Fu",
     "journal": "Information Processing in Agriculture",
@@ -459,7 +469,7 @@ export const publicationsData = [
     "url": "https://www.sciencedirect.com/science/article/pii/S2214317324000842"
   },
   {
-    "id": 48,
+    "id": 49,
     "title": "Hazard analysis and critical control point (HACCP) plan for carbonated soft drinks plant",
     "authors": "Muhammad Waseem and Y Majeed and MA Khalid and LH Naqvi and RM Moazzam Khan and AU Tahir and K Khurshid and T Nadeem",
     "journal": "Ann. Food Process Preserv",
@@ -469,23 +479,13 @@ export const publicationsData = [
     "url": "https://www.researchgate.net/profile/Muhammad-Waseem/publication/364059342_Hazard_Analysis_and_Critical_Control_Point_HACCP_Plan_for_Carbonated_Soft_Drinks_Plant/links/6337e23b76e39959d68a58fd/Hazard-Analysis-and-Critical-Control-Point-HACCP-Plan-for-Carbonated-Soft-Drinks-Plant.pdf"
   },
   {
-    "id": 49,
+    "id": 50,
     "title": "Standalone Edge Ai-Based Solution for Tomato Diseases Detection",
     "authors": "Azlan Zahid and Yaqoob Majeed and Mike O Ojo",
     "journal": "Available at SSRN 4824801",
     "abstract": "Tomato yield is significantly affected by diseases, which are a continuous challenge for its production and pose threats to its global supply chain. Automatic and early detection of these diseases could help growers to swiftly adopt mitigation strategies to limit the disease spread, leading to improved production. Deep learning-based CNN approaches have been widely applied to detect tomato diseases. However, deep learning models are highly computationally demanding, resulting in a computational bottleneck for practical adaptation for agricultural applications such as disease detection and monitoring. Over the last few years, developments of open-source Edge systems have provided opportunities for low-cost and low-power consumption practical solutions for deep learning applications for agriculture. Therefore, the primary goal of this study was to evaluate the performance of standalone Edge-AI solutions for tomato leaf disease detection. To achieve this goal, firstly, this study employed lightweight deep learning networks to detect and differentiate tomato leaf diseases (bacterial spot, early blight, healthy, late blight, leaf mold, septoria leaf spot, two spotted spider mites, target spot, and yellow leaf curl virus). Then, these deep learning networks were deployed on low-cost and low-power consumption Edge devices to investigate their performance capabilities as standalone Edge-AI solutions for the early detection of tomato leaf diseases. Lightweight CNN based deep learning networks achieved accuracies of up to 98.25% in detecting tomato diseases. Raspberry Pi with AI accelerator (Google Coral) achieved the best cost/FPS performance of 0 …",
     "citations": 2,
     "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4824801"
-  },
-  {
-    "id": 50,
-    "title": "Deep learning model for precise and rapid prediction of tomato maturity based on image recognition",
-    "authors": "Muhammad Waseem and Muhammad Muzzammil Sajjad and Laraib Haider Naqvi and Yaqoob Majeed and Tanzeel Ur Rehman and Tayyaba Nadeem",
-    "journal": "Food Physics",
-    "year": 2025,
-    "abstract": "Tomato maturity plays a pivotal role in optimizing harvest timing and ensuring product quality, but current methods struggle to achieve high accuracy along computational efficiency simultaneously. Existing deep learning approaches, while accurate, are often too computationally demanding for practical use in resource-constrained agricultural settings. In contrast, simpler techniques fail to capture the nuanced features needed for precise classification. This study aims to develop a computationally efficient tomato classification model using the ResNet-18 architecture optimized through transfer learning, pruning, and quantization techniques. Our objective is to address the dual challenge of maintaining high accuracy while enabling real-time performance on low-power edge devices. Then, these models were deployed on an edge device to investigate their performance for tomato maturity classification. The quantized …",
-    "citations": 1,
-    "url": "https://www.sciencedirect.com/science/article/pii/S2950069925000143"
   },
   {
     "id": 51,
@@ -601,7 +601,7 @@ export const publicationsData = [
     "year": 2024,
     "abstract": "Computer vision, also known as machine vision, uses an image sensor that replaces the human eye to obtain an image of an object, converts the image into a digital image, and uses computer-simulated human discrimination criteria to understand and recognize the image, to analyze the image, and draw conclusions. This technology gradually emerged on the basis of the successful application of remote frontiersin. org 8",
     "citations": 0,
-    "url": "https://books.google.com/books?hl=en&lr=&id=gQz0EAAAQBAJ&oi=fnd&pg=PA4&dq=info:TbC16r6EEHwJ:scholar.google.com&ots=4yodeLh2N3&sig=nbi3F9vvhYGnM-eeGOkGaoGY3wI"
+    "url": "https://books.google.com/books?hl=en&lr=&id=gQz0EAAAQBAJ&oi=fnd&pg=PA4&dq=info:TbC16r6EEHwJ:scholar.google.com&ots=4yoefHd3S5&sig=ny-257VOmaOJ3nTqwRmAciRdKvk"
   },
   {
     "id": 63,
@@ -611,7 +611,7 @@ export const publicationsData = [
     "year": 2024,
     "abstract": "Automated optical inspection (AOI) provides a flexible and efficient method of object monitoring. In agriculture, AOI can be used for early screening of leaf diseases to support timely intervention to prevent leaf rust. Leaf rust is a type of plant disease also known as red spot disease or sheep beard. There are 4,000 known species of leaf rust that attack a wide range of crops such as beans, tomatoes, and roses (Liu et al., 2022; Bhatti et al., 2023). Disease spots first appear as white and slightly raised spots on the lower cuticles of the lower (older) leaves of mature plants. Over time, the disease spots become covered in reddish-orange spore masses. Later, pustules form and turn yellow-green and eventually black. Severe infestations can cause foliage to chlorosis, deform, and eventually fall off (Jain et al., 2019; Bhatti et al., 2021; Lu et al., 2023; Wang et al., 2023; Yang et al., 2022; Zhang et al., 2022). The spread of this disease will seriously affect agricultural production and cause huge losses. Thus, detecting plant disease and rust is very important and effective for protecting plant growth and development, improving crop yield and quality, reducing pesticide use, and saving time and cost (Bhatti et al., 2022; Shoaib et al., 2023).Artificial intelligence-enhanced AOI methods based on computer vision and deep learning are promising solutions for the adaptive identification of plant diseases (Liu and Wang, 2021). Algorithms that incorporate the two major computer vision tasks—classification and detection—have been widely used in plant disease detection. In terms of classification algorithms, Sethy et al.(2020) used convolutional neural networks (CNNs …",
     "citations": 0,
-    "url": "https://books.google.com/books?hl=en&lr=&id=gQz0EAAAQBAJ&oi=fnd&pg=PA151&dq=info:fzJeBr9ZjAQJ:scholar.google.com&ots=4yodeLh2N4&sig=853riRQWuqpT8gWMNa4dS_IC7LY"
+    "url": "https://books.google.com/books?hl=en&lr=&id=gQz0EAAAQBAJ&oi=fnd&pg=PA151&dq=info:fzJeBr9ZjAQJ:scholar.google.com&ots=4yoefHd3S7&sig=JNcE4EagAkVNv8BYvWLsXDNcPJY"
   },
   {
     "id": 64,
