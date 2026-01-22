@@ -79,14 +79,14 @@ export const teamData = {
       designation: 'Ph.D. Student · Machine Learning',
       degree_type: 'Ph.D',
       email: '',
-      research_interests: '',
-      bio: '',
+      research_interests: 'Deep Learning, Agricultural Technology, Sensor Data Analytics, Computer Vision',
+      bio: 'Md Mahbubur Rahman is a PhD student in Computer Science at the University of Wyoming, working under the supervision of Dr. Yaqoob Majeed. He completed his BSc and MSc in Computer Science and Engineering from Mawlana Bhashani Science and Technology University (MBSTU), Bangladesh. Before joining UW, he served as an Assistant Professor at Bangladesh University of Business and Technology (BUBT). At UW, he serves as Vice-President of both the International Student Association and the ACM Student Chapter.',
       start_date: '',
       image: '/images/Student/mah.png',
       cv: '',
       social: {
-        linkedin: '',
-        google_scholar: '',
+        linkedin: 'https://www.linkedin.com/in/shimulmbstu?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app',
+        google_scholar: 'https://scholar.google.com/citations?user=yfkzn1UAAAAJ&hl=en&authuser=2',
         github: ''
       }
     },
