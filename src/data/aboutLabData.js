@@ -43,7 +43,7 @@ export const aboutLabData = {
       id: 3,
       name: 'Controlled Environment Greenhouse',
       description: 'Smart greenhouse outfitted with climate control, robotic gantries, and dense sensing arrays for continuous phenotyping.',
-      image: 'https://images.unsplash.com/photo-1524592868574-9d353fe29619?auto=format&fit=crop&w=900&q=80'
+      image: '/images/Facilities/Greenhouse.jpg'
     },
     {
       id: 4,
