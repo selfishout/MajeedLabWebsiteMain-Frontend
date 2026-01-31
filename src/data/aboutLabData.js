@@ -29,27 +29,9 @@ export const aboutLabData = {
   facilities: [
     {
       id: 1,
-      name: 'Robotics Fabrication Studio',
-      description: 'Rapid prototyping space with CNC machining, additive manufacturing, and electronics benches for building rugged field hardware.',
-      image: 'https://images.unsplash.com/photo-1581092795360-469fdbcd8216?auto=format&fit=crop&w=900&q=80'
-    },
-    {
-      id: 2,
-      name: 'Perception & AI Lab',
-      description: 'High-performance GPU clusters and motion capture rigs for training, testing, and benchmarking agricultural perception models.',
-      image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=80'
-    },
-    {
-      id: 3,
       name: 'Controlled Environment Greenhouse',
       description: 'Smart greenhouse outfitted with climate control, robotic gantries, and dense sensing arrays for continuous phenotyping.',
       image: '/images/Facilities/Greenhouse.jpg'
-    },
-    {
-      id: 4,
-      name: 'Smart Orchard Testbed',
-      description: 'Multi-acre outdoor facility integrating LiDAR-instrumented trellises, autonomous vehicles, and grower-grade irrigation systems.',
-      image: 'https://images.unsplash.com/photo-1439122957703-7711f1e3f9a4?auto=format&fit=crop&w=900&q=80'
     }
   ],
 
@@ -71,6 +53,12 @@ export const aboutLabData = {
       name: 'Robot',
       description: 'Our robotic platforms encompass a diverse range of autonomous systems designed for agricultural operations, including manipulation, navigation, and field tasks. These robots integrate perception, planning, and control systems to perform complex operations in unstructured agricultural environments. The platforms are equipped with advanced sensing capabilities, robust mechanical designs, and intelligent decision-making algorithms to support precision agriculture and sustainable farming practices.',
       image: '/images/Equipment/Robot.jpg'
+    },
+    {
+      id: 4,
+      name: 'Go2 EDU Plus (XT16 LiDAR) with Go2 Servo Robotic Arm - D1',
+      description: 'The Go2 EDU Plus is an advanced quadrupedal robotic platform equipped with XT16 LiDAR for high-precision mapping and navigation in complex environments. This versatile system combines agile locomotion with sophisticated perception capabilities, enabling autonomous exploration and operation in unstructured agricultural settings. The integrated Go2 Servo Robotic Arm (D1) extends the platform\'s capabilities to include manipulation tasks, allowing for dual-arm operations such as object grasping, plant inspection, and precision harvesting. The LiDAR sensor provides real-time 3D mapping and obstacle avoidance, making it ideal for navigation in dense crop canopies, greenhouse environments, and field conditions where traditional wheeled platforms face limitations. This equipment is shared between our lab and Dr. Ian Walker\'s lab, facilitating collaborative research in embodied intelligence, manipulation, and agricultural robotics.',
+      image: '/images/Equipment/dog-robot.jpg'
     }
   ],
 
