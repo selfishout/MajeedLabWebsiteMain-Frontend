@@ -92,14 +92,14 @@ export const teamData = {
     },
     {
       id: 'abiam',
-      name: 'Abiam Khalid',
+      name: 'Abiam Asif Khalid',
       designation: 'MS Student · Electrical Engineering',
       degree_type: 'M.S',
       email: 'aasifkha@uwyo.edu',
       research_interests: 'Robotics',
       bio: 'I am a Master’s Student in EE with a background in Mechatronics Engineering and interests in robotics, autonomous systems, and automation intelligence. My work focuses on integrating perception, control, and simulation using tools such as ROS2 and Gazebo to develop practical, agriculture-based robotic solutions.',
       start_date: '',
-      image: '',
+      image: '/images/Student/abiam.png',
       cv: '',
       social: {
         linkedin: 'https://www.linkedin.com/in/abiam-asif-khalid/',
