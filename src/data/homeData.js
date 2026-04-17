@@ -1,105 +1,81 @@
 // Static home page data - replaces database content
 export const homeData = {
-  banners: [
-    {
-      id: 1,
-      title: "Welcome to Majeed Agricultural Robotics Lab",
-      subtitle: "Advancing the Future of Smart Farming Through Robotics and AI",
-      description: "We are at the forefront of agricultural robotics research, developing innovative solutions for precision farming, crop monitoring, and autonomous agricultural systems.",
-      image: "https://images.unsplash.com/photo-1500382017468-9049fed747aa?w=1200&h=600&fit=crop",
-      button_text: "Learn More",
-      button_link: "/about",
-      featured: true
-    },
-    {
-      id: 2,
-      title: "Cutting-Edge Research in Agricultural Robotics",
-      subtitle: "From Computer Vision to Autonomous Navigation",
-      description: "Our research spans multiple domains including computer vision, machine learning, IoT sensors, and robotic systems for sustainable agriculture.",
-      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=600&fit=crop",
-      button_text: "Our Research",
-      button_link: "/publications",
-      featured: false
-    },
-    {
-      id: 3,
-      title: "Join Our Team",
-      subtitle: "Opportunities for Students and Researchers",
-      description: "We welcome motivated students and researchers to join our team. Explore opportunities in agricultural robotics, computer vision, and smart farming technologies.",
-      image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200&h=600&fit=crop",
-      button_text: "Join Us",
-      button_link: "/students",
-      featured: false
-    }
-  ],
-  
+  banner: {
+    title: 'Intelligent Automation for Specialty Crops',
+    subtitle: 'Field-ready robots and sensing systems for resilient agriculture',
+    description: 'Our lab deploys autonomous platforms that help growers monitor, harvest, and care for high-value crops with precision and care.',
+    image: 'https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1400&q=80',
+    button_text: 'Discover Our Work',
+    button_link: '/publications'
+  },
+
   content: {
     welcome_section: {
-      title: "Welcome to Majeed Agricultural Robotics Lab",
-      subtitle: "Pioneering the Future of Smart Agriculture",
-      description: "Our laboratory is dedicated to advancing agricultural robotics and automation technologies. We focus on developing intelligent systems that enhance farming efficiency, reduce environmental impact, and ensure food security for future generations.",
-      image: "https://images.unsplash.com/photo-1574943320219-553eb213f72d?w=800&h=500&fit=crop"
+      title: 'Where Robotics Meets Regenerative Agriculture',
+      subtitle: 'Translating intelligent automation into sustainable food systems',
+      description: 'The AgBodied Lab: Perception, Embodied Intelligence, and Robotics for Agriculture designs end-to-end solutions—from perception algorithms and novel hardware to grower-centered interfaces. Our deployments span orchards, vineyards, high tunnels, and controlled-environment agriculture.',
+      image: 'https://images.unsplash.com/photo-1511690656952-34342bb7c2f2?auto=format&fit=crop&w=1100&q=80'
     },
-    
+
     research_areas: [
       {
         id: 1,
-        title: "Agricultural Robotics",
-        description: "Development of autonomous robots for field operations, crop monitoring, and precision farming applications.",
-        icon: "🤖",
-        image: "https://images.unsplash.com/photo-1500382017468-9049fed747aa?w=400&h=300&fit=crop"
+        title: 'Embodied AI and Autonomous Robotic Systems',
+        description: 'Development of intelligent robotic platforms that tightly integrate perception, learning, and control for autonomous operation in complex, unstructured environments such as agriculture and controlled-environment systems.',
+        icon: '🤖',
+        image: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=1200&q=90'
       },
       {
         id: 2,
-        title: "Computer Vision",
-        description: "Advanced image processing and machine learning algorithms for plant disease detection and crop health monitoring.",
-        icon: "👁️",
-        image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&h=300&fit=crop"
+        title: 'Robotic Perception and Multimodal Sensing',
+        description: 'Research on visual, depth, tactile, and spectral sensing (RGB, LiDAR, multispectral/hyperspectral) and sensor fusion to enable robust scene understanding, plant perception, and interaction-aware robotics.',
+        icon: '🧠',
+        image: 'https://images.unsplash.com/photo-1555255707-c07966088b7b?auto=format&fit=crop&w=1200&q=90'
       },
       {
         id: 3,
-        title: "IoT & Sensors",
-        description: "Smart sensor networks for real-time monitoring of soil conditions, weather, and crop parameters.",
-        icon: "📡",
-        image: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=400&h=300&fit=crop"
+        title: 'Learning-Based Manipulation and Decision Making',
+        description: 'Design of supervised, self-supervised, and reinforcement learning methods for robotic manipulation, harvesting, navigation, and adaptive decision-making under uncertainty and resource constraints.',
+        icon: '📡',
+        image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&q=90'
       },
       {
         id: 4,
-        title: "Machine Learning",
-        description: "AI-powered algorithms for crop yield prediction, disease forecasting, and optimal farming decisions.",
-        icon: "🧠",
-        image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=300&fit=crop"
+        title: 'AI-Driven Agricultural Systems and Digital Twins',
+        description: 'Application of AI, robotics, and digital twins to optimize crop growth, resource use, and sustainability in controlled and field agriculture, bridging plant science, engineering, and data-driven production systems.',
+        icon: '🤝',
+        image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=90'
       }
     ],
-    
+
     stats: {
-      publications: 45,
-      projects: 12,
-      students: 8,
-      years_experience: 5
+      publications: 62,
+      projects: 9,
+      students: 14,
+      years_experience: 7
     },
-    
+
     featured_projects: [
       {
         id: 1,
-        title: "Autonomous Weed Detection Robot",
-        description: "AI-powered robot that identifies and removes weeds while preserving crops, reducing herbicide use by 80%.",
-        image: "https://images.unsplash.com/photo-1500382017468-9049fed747aa?w=400&h=300&fit=crop",
-        status: "Active"
+        title: 'Sunset Harvester',
+        description: 'An autonomous arm-and-gripper system that delicately harvests apples at twilight using adaptive illumination and tactile feedback.',
+        image: 'https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=520&q=80',
+        status: 'Active'
       },
       {
         id: 2,
-        title: "Smart Irrigation System",
-        description: "IoT-based system that optimizes water usage based on real-time soil moisture and weather data.",
-        image: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=400&h=300&fit=crop",
-        status: "Completed"
+        title: 'Canopy Insight',
+        description: 'A drone + rover collaboration that stitches multispectral data into canopy vigor maps the same day they are collected.',
+        image: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=520&q=80',
+        status: 'Active'
       },
       {
         id: 3,
-        title: "Crop Disease Detection",
-        description: "Computer vision system that identifies plant diseases early, enabling timely intervention.",
-        image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&h=300&fit=crop",
-        status: "Active"
+        title: 'HydraSense',
+        description: 'A distributed sensing network that forecasts irrigation needs and nutrient loads for organic vegetable farms.',
+        image: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=520&q=80',
+        status: 'Completed'
       }
     ]
   }
@@ -107,11 +83,8 @@ export const homeData = {
 
 // Helper functions for home data
 export const homeHelper = {
-  // Get all banners
-  getAllBanners: () => homeData.banners,
-  
-  // Get featured banner
-  getFeaturedBanner: () => homeData.banners.find(banner => banner.featured),
+  // Get banner
+  getBanner: () => homeData.banner,
   
   // Get welcome section
   getWelcomeSection: () => homeData.content.welcome_section,

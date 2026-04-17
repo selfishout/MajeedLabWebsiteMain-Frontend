@@ -1,31 +1,43 @@
 import React, { useEffect, useState } from 'react';
 import './About.css';
-import { aboutLabData, aboutLabHelper } from '../../data/aboutLabData';
-import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaGlobe, FaCalendarAlt, FaBuilding, FaAward, FaHandshake } from 'react-icons/fa';
+import { aboutLabHelper } from '../../data/aboutLabData';
+import { homeHelper } from '../../data/homeData';
+import { Link } from 'react-router-dom';
+import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaCalendarAlt, FaBuilding, FaRobot, FaEye, FaBrain, FaSatellite, FaArrowRight } from 'react-icons/fa';
 
 export default function About() {
   const [labInfo, setLabInfo] = useState({});
-  const [mission, setMission] = useState('');
-  const [vision, setVision] = useState('');
+  // const [mission, setMission] = useState('');
+  // const [vision, setVision] = useState('');
   const [description, setDescription] = useState('');
-  const [researchFocus, setResearchFocus] = useState([]);
+  const [researchAreas, setResearchAreas] = useState([]);
   const [facilities, setFacilities] = useState([]);
   const [equipment, setEquipment] = useState([]);
-  const [achievements, setAchievements] = useState([]);
-  const [partnerships, setPartnerships] = useState([]);
+  // const [achievements, setAchievements] = useState([]);
+  // const [partnerships, setPartnerships] = useState([]);
 
   useEffect(() => {
     // Load about lab data
     setLabInfo(aboutLabHelper.getLabInfo());
-    setMission(aboutLabHelper.getMission());
-    setVision(aboutLabHelper.getVision());
+    // setMission(aboutLabHelper.getMission());
+    // setVision(aboutLabHelper.getVision());
     setDescription(aboutLabHelper.getDescription());
-    setResearchFocus(aboutLabHelper.getResearchFocus());
+    setResearchAreas(homeHelper.getResearchAreas());
     setFacilities(aboutLabHelper.getFacilities());
     setEquipment(aboutLabHelper.getEquipment());
-    setAchievements(aboutLabHelper.getAchievements());
-    setPartnerships(aboutLabHelper.getPartnerships());
+    // setAchievements(aboutLabHelper.getAchievements());
+    // setPartnerships(aboutLabHelper.getPartnerships());
   }, []);
+
+  const getResearchIcon = (title) => {
+    const iconMap = {
+      'Embodied AI and Autonomous Robotic Systems': <FaRobot />,
+      'Robotic Perception and Multimodal Sensing': <FaEye />,
+      'Learning-Based Manipulation and Decision Making': <FaBrain />,
+      'AI-Driven Agricultural Systems and Digital Twins': <FaSatellite />
+    }
+    return iconMap[title] || <FaRobot />
+  }
 
   return (
     <div className="about-page">
@@ -55,8 +67,8 @@ export default function About() {
         </div>
       </section>
 
-      {/* Mission & Vision Section */}
-      <section className="mission-vision-section">
+      {/* Mission & Vision Section - Commented out */}
+      {/* <section className="mission-vision-section">
         <div className="container">
           <div className="mission-vision-grid">
             <div className="mission-card">
@@ -69,7 +81,7 @@ export default function About() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* About Description Section */}
       <section className="about-description-section">
@@ -79,15 +91,20 @@ export default function About() {
         </div>
       </section>
 
-      {/* Research Focus Section */}
-      <section className="research-focus-section">
+      {/* Research Areas Section */}
+      <section className="research-areas">
         <div className="container">
-          <h2 className="section-title">Research Focus Areas</h2>
-          <div className="research-focus-grid">
-            {researchFocus.map((focus, index) => (
-              <div key={index} className="focus-item">
-                <div className="focus-icon">🔬</div>
-                <p className="focus-text">{focus}</p>
+          <h2 className="section-title">Our Research Areas</h2>
+          <p className="section-subtitle">We focus on cutting-edge technologies that transform agriculture</p>
+          <div className="research-grid">
+            {researchAreas.map((area) => (
+              <div key={area.id} className="research-card">
+                <div className="research-icon">{getResearchIcon(area.title)}</div>
+                <h3 className="research-title">{area.title}</h3>
+                <p className="research-description">{area.description}</p>
+                <div className="research-image">
+                  <img src={area.image} alt={area.title} />
+                </div>
               </div>
             ))}
           </div>
@@ -120,18 +137,24 @@ export default function About() {
           <h2 className="section-title">Laboratory Equipment</h2>
           <div className="equipment-grid">
             {equipment.map((item) => (
-              <div key={item.id} className="equipment-item">
-                <h4 className="equipment-name">{item.name}</h4>
-                <p className="equipment-description">{item.description}</p>
-                <span className="equipment-quantity">{item.quantity}</span>
+              <div key={item.id} className="equipment-card">
+                {item.image && (
+                  <div className="equipment-image">
+                    <img src={item.image} alt={item.name} />
+                  </div>
+                )}
+                <div className="equipment-content">
+                  <h3 className="equipment-name">{item.name}</h3>
+                  <p className="equipment-description">{item.description}</p>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Achievements Section */}
-      <section className="achievements-section">
+      {/* Achievements Section - Commented out */}
+      {/* <section className="achievements-section">
         <div className="container">
           <h2 className="section-title">Recent Achievements</h2>
           <div className="achievements-grid">
@@ -149,10 +172,10 @@ export default function About() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
-      {/* Partnerships Section */}
-      <section className="partnerships-section">
+      {/* Partnerships Section - Commented out */}
+      {/* <section className="partnerships-section">
         <div className="container">
           <h2 className="section-title">Our Partnerships</h2>
           <div className="partnerships-grid">
@@ -169,7 +192,7 @@ export default function About() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Contact Information Section */}
       <section className="contact-section">
@@ -198,15 +221,6 @@ export default function About() {
                   <p>{labInfo.email}</p>
                 </div>
               </div>
-              <div className="contact-item">
-                <FaGlobe className="contact-icon" />
-                <div>
-                  <h4>Website</h4>
-                  <a href={labInfo.website} target="_blank" rel="noopener noreferrer">
-                    {labInfo.website}
-                  </a>
-                </div>
-              </div>
             </div>
             <div className="contact-map">
               <div className="map-placeholder">
@@ -222,18 +236,13 @@ export default function About() {
       <section className="cta-section">
         <div className="container">
           <div className="cta-content">
-            <h2 className="cta-title">Interested in Our Research?</h2>
+            <h2 className="cta-title">Join Our Research Team</h2>
             <p className="cta-description">
-              We welcome collaborations, student applications, and research partnerships. 
-              Get in touch to learn more about our work and opportunities.
+              We are looking for innovators who want to make an impact in agricultural robotics—from perception researchers and hardware designers to agronomists and UX strategists.
             </p>
             <div className="cta-buttons">
-              <a href={`mailto:${labInfo.email}`} className="cta-button primary">
-                Contact Us
-              </a>
-              <a href="/students" className="cta-button secondary">
-                Join Our Team
-              </a>
+              <Link to="/students" className="cta-button primary">Meet Our Team</Link>
+              <Link to="/prospective-students" className="cta-button secondary">Prospective Students</Link>
             </div>
           </div>
         </div>
