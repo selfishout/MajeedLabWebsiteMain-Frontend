@@ -1,0 +1,36 @@
+# Builds the site with NETLIFY=true (Vite base = "/") and uploads dist to Netlify.
+# Required GitHub repo secrets (Settings → Secrets and variables → Actions):
+#   NETLIFY_AUTH_TOKEN — Netlify: User settings → Applications → Personal access tokens
+#   NETLIFY_SITE_ID    — Netlify: Site configuration → Site details → Site ID
+#
+# After adding secrets, push to main or run this workflow manually (Actions tab).
+name: Deploy to Netlify
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install and build
+        run: npm ci && npm run build
+        env:
+          NETLIFY: 'true'
+
+      - name: Deploy to Netlify
+        uses: netlify/actions/cli@master
+        with:
+          args: deploy --prod --dir=dist
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}

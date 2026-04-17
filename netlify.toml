@@ -3,6 +3,11 @@
   command = "npm ci && npm run build"
   publish = "dist"
 
+# Netlify sets NETLIFY=true during their CI build; repeat here so local `netlify build` matches.
+[build.environment]
+  NODE_VERSION = "20"
+  NETLIFY = "true"
+
 # SPA fallback if you switch from HashRouter to BrowserRouter later
 [[redirects]]
   from = "/*"
