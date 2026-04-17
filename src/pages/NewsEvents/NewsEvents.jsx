@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './NewsEvents.css';
 import { newsEventsHelper } from '../../data/newsEventsData';
-import { FaCalendarAlt, FaMapMarkerAlt, FaClock, FaUser, FaNewspaper, FaCalendarDay } from 'react-icons/fa';
+import { FaCalendarAlt, FaUser, FaNewspaper, FaCalendarDay } from 'react-icons/fa';
 
 function renderNewsParagraphs(item, className) {
   const body = item.content;
@@ -37,8 +37,6 @@ export default function NewsEvents() {
     return getFilteredNews().filter((item) => !featuredIds.has(item.id));
   };
 
-  const getUpcomingEvents = () => newsEventsHelper.getUpcomingEvents();
-
   const formatDate = (dateString) => {
     const options = { year: 'numeric', month: 'long', day: 'numeric' };
     return new Date(dateString).toLocaleDateString('en-US', options);
@@ -55,18 +53,6 @@ export default function NewsEvents() {
       Recognition: '🏆'
     };
     return icons[category] || '📰';
-  };
-
-  const getEventTypeIcon = (type) => {
-    const icons = {
-      Workshop: '🛠️',
-      Seminar: '🎓',
-      Meeting: '🤝',
-      'Open House': '🏠',
-      Symposium: '📋',
-      Roundtable: '🗣️'
-    };
-    return icons[type] || '📅';
   };
 
   const imageShellClass = (item, base) => {
@@ -214,90 +200,8 @@ export default function NewsEvents() {
       )}
 
       {activeTab === 'events' && (
-        <div className="events-section">
-          <div className="featured-events">
-            <h3 className="section-title">Featured Events</h3>
-            <div className="featured-events-grid">
-              {newsEventsHelper.getFeaturedEvents().map((event) => (
-                <div key={event.id} className="featured-event-card">
-                  <div className="event-image">
-                    <img src={event.image} alt={event.title} />
-                    <div className="featured-badge">Featured</div>
-                  </div>
-                  <div className="event-content">
-                    <div className="event-meta">
-                      <span className="event-type">
-                        {getEventTypeIcon(event.type)} {event.type}
-                      </span>
-                      <span className="event-date">
-                        <FaCalendarAlt className="meta-icon" />
-                        {formatDate(event.date)}
-                      </span>
-                    </div>
-                    <h3 className="event-title">{event.title}</h3>
-                    <p className="event-description">{event.description}</p>
-                    <div className="event-details">
-                      <div className="event-detail">
-                        <FaClock className="detail-icon" />
-                        {event.time}
-                      </div>
-                      <div className="event-detail">
-                        <FaMapMarkerAlt className="detail-icon" />
-                        {event.location}
-                      </div>
-                    </div>
-                    {event.registration_required && (
-                      <a href={event.registration_link} className="register-btn">
-                        Register Now
-                      </a>
-                    )}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="upcoming-events">
-            <h3 className="section-title">Upcoming Events</h3>
-            {getUpcomingEvents().length === 0 ? (
-              <p className="events-empty">No upcoming events right now. Check back soon.</p>
-            ) : (
-              <div className="events-list">
-                {getUpcomingEvents().map((event) => (
-                  <div key={event.id} className="event-item">
-                    <div className="event-date">
-                      <div className="event-day">{new Date(event.date).getDate()}</div>
-                      <div className="event-month">
-                        {new Date(event.date).toLocaleDateString('en-US', { month: 'short' })}
-                      </div>
-                    </div>
-                    <div className="event-info">
-                      <div className="event-meta">
-                        <span className="event-type">
-                          {getEventTypeIcon(event.type)} {event.type}
-                        </span>
-                        <span className="event-time">
-                          <FaClock className="meta-icon" />
-                          {event.time}
-                        </span>
-                      </div>
-                      <h4 className="event-title">{event.title}</h4>
-                      <p className="event-description">{event.description}</p>
-                      <div className="event-location">
-                        <FaMapMarkerAlt className="meta-icon" />
-                        {event.location}
-                      </div>
-                      {event.registration_required && (
-                        <a href={event.registration_link} className="register-link">
-                          Register Now
-                        </a>
-                      )}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
+        <div className="events-section events-section--minimal">
+          <p className="events-placeholder">Upcoming events will be posted here. Check back soon.</p>
         </div>
       )}
     </div>
