@@ -11,7 +11,7 @@ function productionBase() {
   if (process.env.NETLIFY === 'true') {
     return '/'
   }
-  return '/LabWebsite-Frontend/'
+  return '/MajeedLabWebsiteMain-Frontend/'
 }
 
 // https://vite.dev/config/

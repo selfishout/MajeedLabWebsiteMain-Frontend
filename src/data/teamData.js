@@ -82,7 +82,7 @@ export const teamData = {
       research_interests: 'Deep Learning, Agricultural Technology, Sensor Data Analytics, Computer Vision',
       bio: 'Md Mahbubur Rahman is a PhD student in Computer Science at the University of Wyoming, working under the supervision of Dr. Yaqoob Majeed. He completed his BSc and MSc in Computer Science and Engineering from Mawlana Bhashani Science and Technology University (MBSTU), Bangladesh. Before joining UW, he served as an Assistant Professor at Bangladesh University of Business and Technology (BUBT). At UW, he serves as Vice-President of both the International Student Association and the ACM Student Chapter.',
       start_date: '',
-      image: '/images/Student/mah1.jpg',
+      image: '/images/Student/mah1.png',
       cv: '',
       social: {
         linkedin: 'https://www.linkedin.com/in/shimulmbstu?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app',
@@ -92,14 +92,14 @@ export const teamData = {
     },
     {
       id: 'abiam',
-      name: 'Abiam Khalid',
+      name: 'Abiam Asif Khalid',
       designation: 'MS Student · Electrical Engineering',
       degree_type: 'M.S',
       email: 'aasifkha@uwyo.edu',
       research_interests: 'Robotics',
       bio: 'I am a Master’s Student in EE with a background in Mechatronics Engineering and interests in robotics, autonomous systems, and automation intelligence. My work focuses on integrating perception, control, and simulation using tools such as ROS2 and Gazebo to develop practical, agriculture-based robotic solutions.',
       start_date: '',
-      image: '/images/Student/abiam.jpg',
+      image: '/images/Student/abiam.png',
       cv: '',
       social: {
         linkedin: 'https://www.linkedin.com/in/abiam-asif-khalid/',

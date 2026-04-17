@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://selfishout.github.io/LabWebsite-Frontend",
+  "homepage": "https://selfishout.github.io/MajeedLabWebsiteMain-Frontend",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
