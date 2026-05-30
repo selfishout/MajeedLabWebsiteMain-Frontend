@@ -1,7 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import './NewsEvents.css';
 import { newsEventsHelper } from '../../data/newsEventsData';
-import { FaCalendarAlt, FaUser, FaNewspaper, FaCalendarDay } from 'react-icons/fa';
+import {
+  FaCalendarAlt,
+  FaClock,
+  FaMapMarkerAlt,
+  FaUser,
+  FaNewspaper,
+  FaCalendarDay
+} from 'react-icons/fa';
 
 function renderNewsParagraphs(item, className) {
   const body = item.content;
@@ -13,6 +20,36 @@ function renderNewsParagraphs(item, className) {
     ));
   }
   return <p className={className}>{body}</p>;
+}
+
+function getExternalLinks(item) {
+  if (Array.isArray(item.externalLinks)) {
+    return item.externalLinks;
+  }
+  return item.externalLink ? [item.externalLink] : [];
+}
+
+function renderNewsLinks(item, className = '') {
+  const links = getExternalLinks(item);
+  if (links.length === 0) {
+    return null;
+  }
+
+  return (
+    <div className="news-external-links">
+      {links.map((link) => (
+        <a
+          key={link.url}
+          href={link.url}
+          className={`news-external-link ${className}`.trim()}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {link.label}
+        </a>
+      ))}
+    </div>
+  );
 }
 
 export default function NewsEvents() {
@@ -39,7 +76,15 @@ export default function NewsEvents() {
 
   const formatDate = (dateString) => {
     const options = { year: 'numeric', month: 'long', day: 'numeric' };
-    return new Date(dateString).toLocaleDateString('en-US', options);
+    return new Date(`${dateString}T00:00:00`).toLocaleDateString('en-US', options);
+  };
+
+  const getEventDateParts = (dateString) => {
+    const eventDate = new Date(`${dateString}T00:00:00`);
+    return {
+      day: eventDate.toLocaleDateString('en-US', { day: '2-digit' }),
+      month: eventDate.toLocaleDateString('en-US', { month: 'short' })
+    };
   };
 
   const getCategoryIcon = (category) => {
@@ -63,6 +108,7 @@ export default function NewsEvents() {
   };
 
   const categories = [...new Set(news.map((item) => item.category))];
+  const events = newsEventsHelper.getAllEvents();
 
   return (
     <div className="news-events-page news-events-page--live">
@@ -140,16 +186,7 @@ export default function NewsEvents() {
                   <div className="featured-news-body">
                     {renderNewsParagraphs(item, 'featured-news-excerpt')}
                   </div>
-                  {item.externalLink && (
-                    <a
-                      href={item.externalLink.url}
-                      className="news-external-link"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {item.externalLink.label}
-                    </a>
-                  )}
+                  {renderNewsLinks(item)}
                 </div>
               </article>
             ))}
@@ -180,16 +217,7 @@ export default function NewsEvents() {
                         <FaUser className="meta-icon" />
                         {item.author}
                       </div>
-                      {item.externalLink && (
-                        <a
-                          href={item.externalLink.url}
-                          className="news-external-link news-external-link--inline"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          {item.externalLink.label}
-                        </a>
-                      )}
+                      {renderNewsLinks(item, 'news-external-link--inline')}
                     </div>
                   </div>
                 ))}
@@ -200,8 +228,52 @@ export default function NewsEvents() {
       )}
 
       {activeTab === 'events' && (
-        <div className="events-section events-section--minimal">
-          <p className="events-placeholder">Upcoming events will be posted here. Check back soon.</p>
+        <div className="events-section">
+          {events.length > 0 ? (
+            <div className="events-list">
+              {events.map((event) => {
+                const dateParts = getEventDateParts(event.date);
+
+                return (
+                  <article key={event.id} className="event-item">
+                    <div className="event-date">
+                      <span className="event-day">{dateParts.day}</span>
+                      <span className="event-month">{dateParts.month}</span>
+                    </div>
+                    <div className="event-content">
+                      <div className="event-meta">
+                        <span>{event.type}</span>
+                        <span>
+                          <FaClock className="meta-icon" />
+                          {event.time}
+                        </span>
+                      </div>
+                      <h3 className="event-title">{event.title}</h3>
+                      <p className="event-description">{event.description}</p>
+                      <div className="event-details">
+                        <span className="event-detail">
+                          <FaMapMarkerAlt className="detail-icon" />
+                          {event.location}
+                        </span>
+                      </div>
+                      {event.registration_link && (
+                        <a
+                          href={event.registration_link}
+                          className="register-link"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          {event.registration_required ? 'Register' : 'View event details'}
+                        </a>
+                      )}
+                    </div>
+                  </article>
+                );
+              })}
+            </div>
+          ) : (
+            <p className="events-empty">Upcoming events will be posted here. Check back soon.</p>
+          )}
         </div>
       )}
     </div>
