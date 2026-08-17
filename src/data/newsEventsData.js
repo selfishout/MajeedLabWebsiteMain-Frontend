@@ -2,6 +2,27 @@
 export const newsEventsData = {
   news: [
     {
+      id: 4,
+      title:
+        'Trait-Adaptive Hierarchical Attention Fusion of RGB-D data for automated lettuce phenotyping in hydroponic systems',
+      subtitle:
+        'New journal article by Md Mahbubur Rahman, Ali Torabi, Sanjog Gaihre, Md Omor Faruk, and Yaqoob Majeed.',
+      content: [
+        'Lettuce is one of the most widely cultivated leafy vegetables worldwide, and its production in controlled-environment hydroponic facilities is expanding steadily. Monitoring canopy growth at high temporal resolution enables growers to adjust nutrient delivery and harvest timing at each developmental stage, yet existing image-based phenotyping methods rely on fixed-weight RGB-D fusion that does not adapt to the requirements of individual morphological traits.',
+        'We propose Trait-Adaptive Hierarchical Attention Fusion (TAHAF), an architecture that fuses RGB and depth features at three spatial scales through learned attention gates and employs trait-conditioned prediction heads to estimate five lettuce traits simultaneously. All experiments use true RGB-D inputs in which the camera RGB stream and the metric depth stream are processed as separate modalities throughout the network. TAHAF was evaluated on 5039 …'
+      ],
+      date: '2026-08-17',
+      category: 'Publications',
+      author: 'AgBodied Lab',
+      image: '/images/News/mahbub-paper-screenshot.png',
+      imageAlt: 'TAHAF architecture diagram for RGB-D lettuce phenotyping',
+      featured: true,
+      externalLink: {
+        url: 'https://www.sciencedirect.com/science/article/abs/pii/S0168169926006964',
+        label: 'Read on ScienceDirect'
+      }
+    },
+    {
       id: 2,
       title: 'Joint summer internship at O&M Robotics & InstaFarm',
       subtitle:
