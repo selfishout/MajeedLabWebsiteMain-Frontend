@@ -49,7 +49,7 @@ export const homeData = {
     ],
 
     stats: {
-      publications: 62,
+      publications: 77,
       projects: 9,
       students: 14,
       years_experience: 7
