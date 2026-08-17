@@ -14,8 +14,9 @@ export const newsEventsData = {
       date: '2026-08-17',
       category: 'Publications',
       author: 'AgBodied Lab',
-      image: '/images/News/mahbub-paper-screenshot.png',
+      image: '/images/News/Mahbub-TAHAF.png',
       imageAlt: 'TAHAF architecture diagram for RGB-D lettuce phenotyping',
+      imageLayout: 'contain',
       featured: true,
       externalLink: {
         url: 'https://www.sciencedirect.com/science/article/abs/pii/S0168169926006964',

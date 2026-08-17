@@ -104,6 +104,9 @@ export default function NewsEvents() {
     if (item.imageLayout === 'contain-dark') {
       return `${base} image-contain-dark`;
     }
+    if (item.imageLayout === 'contain') {
+      return `${base} image-contain`;
+    }
     return base;
   };
 
