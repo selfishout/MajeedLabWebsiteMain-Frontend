@@ -2,6 +2,40 @@
 export const newsEventsData = {
   news: [
     {
+      id: 5,
+      title: 'Md Omor Faruk successfully defends Ph.D. preliminary exam',
+      subtitle:
+        'Congratulations to Md Omor Faruk on advancing to Ph.D. candidacy in Electrical Engineering.',
+      content: [
+        'Md Omor Faruk, Ph.D. student in Electrical Engineering at the University of Wyoming, successfully defended his preliminary exam. His proposed research presents an AI-driven digital twin approach for perceiving, predicting, and controlling dynamic systems, with applications in agricultural and controlled-environment settings.',
+        'Title: An Integrated AI-Driven Digital Twin Framework for Environment Perception, Prediction, and Intelligent Control of Dynamic Systems.'
+      ],
+      date: '2026-08-18',
+      category: 'Recognition',
+      author: 'AgBodied Lab',
+      image: '/images/Student/omor_faruk.jpg',
+      imageAlt: 'Md Omor Faruk',
+      featured: true
+    },
+    {
+      id: 6,
+      title:
+        'HSP-GAN: Cross-Scale Attention-Enhanced Hierarchical Sphere-Guided Generative AI Framework for High-Fidelity 3D Point Cloud Synthesis',
+      subtitle:
+        'Accepted paper by Md Omor Faruk at IEEE CARS 2026 — International Conference on Artificial Intelligence Applications and Innovations (AI²).',
+      content: [
+        'Md Omor Faruk, Ph.D. student in Electrical Engineering at the University of Wyoming, has an accepted paper at IEEE CARS 2026. The work introduces HSP-GAN, a generative AI framework that uses cross-scale attention and hierarchical sphere guidance to synthesize high-fidelity 3D point clouds.',
+        'Conference: IEEE CARS 2026 (International Conference on Artificial Intelligence Applications and Innovations, AI²).'
+      ],
+      date: '2026-08-18',
+      category: 'Publications',
+      author: 'AgBodied Lab',
+      image: '/images/Student/omor_faruk.jpg',
+      imageAlt: 'Md Omor Faruk',
+      featured: true,
+      externalLink: { url: 'https://ieee-cars.org/', label: 'Visit IEEE CARS 2026' }
+    },
+    {
       id: 4,
       title:
         'Trait-Adaptive Hierarchical Attention Fusion of RGB-D data for automated lettuce phenotyping in hydroponic systems',
