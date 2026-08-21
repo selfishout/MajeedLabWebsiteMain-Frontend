@@ -13,8 +13,9 @@ export const newsEventsData = {
       date: '2026-08-18',
       category: 'Recognition',
       author: 'AgBodied Lab',
-      image: '/images/Student/omor_faruk.jpg',
-      imageAlt: 'Md Omor Faruk',
+      image: '/images/News/omor-presentation.jpeg',
+      imageAlt: 'Md Omor Faruk presenting his Ph.D. preliminary exam',
+      imageLayout: 'contain',
       featured: true
     },
     {

@@ -58,7 +58,7 @@ export const teamData = {
     {
       id: 'omor-faruk',
       name: 'Md Omor Faruk',
-      designation: 'Ph.D. Student · Artificial Intelligence and Reinforcement Learning',
+      designation: 'Ph.D. Candidate · Artificial Intelligence and Reinforcement Learning',
       degree_type: 'Ph.D',
       email: 'mfaruk1@uwyo.edu',
       research_interests: 'Artificial Intelligence, 3D reconstruction, and Reinfrocement Learning',
